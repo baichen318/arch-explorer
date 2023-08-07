@@ -1,6 +1,6 @@
 # ArchExplorer Artifacts Evaluation
 
-## Fig. 12 reproduction
+## Figure 12 reproduction
 
 - Enter the sub-directory
 ```bash
