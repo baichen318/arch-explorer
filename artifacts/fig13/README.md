@@ -1,6 +1,6 @@
 # ArchExplorer Artifacts Evaluation
 
-## Fig. 13 reproduction
+## Figure 13 reproduction
 
 You need to reproduce Fig. 12 with `fig12` first.
 
