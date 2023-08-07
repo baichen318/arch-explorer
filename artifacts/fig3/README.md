@@ -2,7 +2,7 @@
 	
 ## Figure 3 reproduction
 
-Once you enter the docker image, execute following commands to reproduce Figure 3.
+Once you enter the docker image, execute the following commands to reproduce Figure 3.
 
 - Enter the sub-directory
 ```bash
@@ -11,7 +11,7 @@ $ cd /path/to/arch-explorer/artifacts/fig3
 
 - Execution *w.* partial benchmarks
 
-    If users do not reconfigure benchmarks in the docker image, users can still conduct experiments with following instructions.
+    If users do not reconfigure benchmarks in the docker image, users can still conduct experiments with the following instructions.
 
 	```bash
 	$ ./exp_fig3_partial_benchmarks.sh
@@ -19,7 +19,7 @@ $ cd /path/to/arch-explorer/artifacts/fig3
 
 - Execution *w.* full benchmarks
 
-    If users reconfigure benchmarks in the docker image, users can conduct experiments with following instructions.
+    If users reconfigure benchmarks in the docker image, users can conduct experiments with the following instructions.
 
 	```bash
 	$ ./exp_fig3_full_benchmarks.sh
