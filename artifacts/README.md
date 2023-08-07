@@ -3,14 +3,14 @@
 
 ## Abstract
 
-The artifact contains ArchExplorer’s code and its setup & running descriptions.
-We provide instructions and click-to-run scripts for reproducing the main results in the paper.
-Specifically, we reproduce the results of Figure 2, Figure 3, Figure. 12, Figure 13, Figure 14, and Figure. 15.
+The artifact contains ArchExplorer's code and its setup and running descriptions.
+We provide instructions and click-to-run scripts for reproducing the main results in this paper.
+Specifically, we reproduce the results of Figure 2, Figure 3, Figure 12, Figure 13, Figure 14, and Figure 15.
 
 
 ## Hardware dependencies
 
-The artifact requires a high-end Linux server machine with at least 2 TB disk space.
+The artifact requires a high-end Linux server machine with at least 2 TB of disk space.
 The main memory should be at least 64 GB to support parallel compilation and simulations.
 
 
