@@ -17,8 +17,8 @@ function set_env() {
 
 
 function main() {
-	cd ${cur_root}/fig2  && ./exp_fig2.sh
-	cd ${cur_root}/fig3  && ./exp_fig3.sh
+	cd ${cur_root}/fig2  && ./exp_fig2_full_benchmarks.sh
+	cd ${cur_root}/fig3  && ./exp_fig3_full_benchmarks.sh
 	cd ${cur_root}/fig12/spec06 && ./exp_fig12_spec06.sh
 	cd ${cur_root}/fig12/spec17 && ./exp_fig12_spec17.sh
 	cd ${cur_root}/fig13 && ./exp_fig13.sh

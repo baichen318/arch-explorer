@@ -3,29 +3,29 @@
 
 ## Abstract
 
-The artifact contains ArchExplorer's code and its setup and running descriptions.
-We provide instructions and click-to-run scripts for reproducing the main results in this paper.
-Specifically, we reproduce the results of Figure 2, Figure 3, Figure 12, Figure 13, Figure 14, and Figure 15.
+The artifact contains ArchExplorer’s code and its setup & running descriptions.
+We provide instructions and click-to-run scripts for reproducing the main results in the paper.
+Specifically, we reproduce results of Figure 2, Figure 3, Figure. 12, Figure 13, Figure 14, and Figure. 15.
 
 
 ## Hardware dependencies
 
-The artifact requires a high-end Linux server machine with at least 2 TB of disk space.
+The artifact requires a high-end Linux server machine with at least 2 TB disk space.
 The main memory should be at least 64 GB to support parallel compilation and simulations.
 
 
 ## Software dependencies
 
-Our provided docker environment resolves the software dependencies.
+The software dependencies are resolved by our provided docker environment.
 Users are required to support docker commands in their machines.
 
 
 ## Get the repo & Enter the docker image.
 
-The artifact is publicly accessed on GitHub.
+The artifact is archived in Zenodo.
 
 ```bash
-$ git clone https://github.com/baichen318/arch-explorer
+$ git clone http://gitlab.alibaba-inc.com/baichen.bai/arch-explorer.git
 $ cd arch-explorer
 $ docker run -it -d
   --name micro23 \ # docker environment name
@@ -40,7 +40,7 @@ $ docker exec -it micro23 /bin/bash
 
 ## Set the repo.
 
-After users enter the docker image, please execute the following commands.
+After users enter the docker image, please execute following commands.
 
 ```bash
 $ cd arch-explorer && ./tools/settings.sh
@@ -69,7 +69,7 @@ The codes implementing automated simulations with SPEC CPU benchmarks include ha
 	+ SPEC CPU2017 with Simpoints checkpoints
 
     We do not require SPEC CPU2006 Simpoints checkpoints but require SPEC CPU2017 Simpoints checkpoints.
-    SPEC CPU2017 Simpoints checkpoints are created with an interval length equal to `10000000`, and a warmup length equal to `1000000`.
+    SPEC CPU2017 Simpoints checkpoints are created with an interval length equal to `10000000`, and warmup length equal to `1000000`.
 
 - Benchmark installations: the directory tree should satisfy the examples so that ArchExplorer can conduct DSE automatically. [Appendix](#appendix) only lists key files and directories.
 
@@ -95,13 +95,13 @@ The codes implementing automated simulations with SPEC CPU benchmarks include ha
 
 Please read `/path/to/arch-explorer/README.md` to finish settings (i.e., the second step in `/path/to/arch-explorer/README.md`).
 
-The pre-requisites include:
+The pre-requisites includes:
 
 - `PYTHONPATH` settings.
 - Miscellaneous tools compilations (GEM5, McPAT, DEG, etc.).
 - Benchmarks preparation.
 - Other settings.
-	+ Configure the benchmark root path:
+	+ Configurate the benchmark root path:
 	```bash
 	$ cd /path/to/arch-explorer/artifacts
 	$ vim configs/artifacts.yml
@@ -115,7 +115,7 @@ The pre-requisites include:
 
 ## Once for all
 
-Once you have finished all prerequisites discussed above, you can use one command to reproduce all experimental results.
+Once you have finished all pre-requisites discussed above (**including benchmark reconfigurations**), you can use one command to reproduce all experimental results.
 
 - One command to reproduce all experimental results.
 The command can take an extremely long runtime (For high-end Linux server machines, *e.g.*, 80 cores of Intel(R) Xeon(R) CPU E7-4820 v3 @ 1.90GHz with 1 TB main memory, this artifact can take around approximately two weeks to complete.).
@@ -127,7 +127,7 @@ $ ./artifacts_exp.sh
 - Check results
 
 	Check the results produced in the corresponding sub-directory.
-	The outputs of this artifact are figures in PDF format to reproduce the main results in the paper.
+	The outputs of this artifact are figures with in PDF format to reproduce the main results in the paper.
 
 
 ## Reproduce with special interests
@@ -1388,7 +1388,7 @@ checkpoint/
 ```
 
 <!-- 
-### Check an example configuration
+### Check a example configuration
 ```bash
 $ cat main/configs/configs.yml
 ```
