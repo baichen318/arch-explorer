@@ -1,6 +1,6 @@
 # ArchExplorer Artifacts Evaluation
 
-## Fig. 14 reproduction
+## Figure 14 reproduction
 
 - Execution
 ```bash
