@@ -5,7 +5,7 @@
 
 The artifact contains ArchExplorer’s code and its setup & running descriptions.
 We provide instructions and click-to-run scripts for reproducing the main results in the paper.
-Specifically, we reproduce results of Figure 2, Figure 3, Figure. 12, Figure 13, Figure 14, and Figure. 15.
+Specifically, we reproduce the results of Figure 2, Figure 3, Figure. 12, Figure 13, Figure 14, and Figure. 15.
 
 
 ## Hardware dependencies
@@ -16,16 +16,16 @@ The main memory should be at least 64 GB to support parallel compilation and sim
 
 ## Software dependencies
 
-The software dependencies are resolved by our provided docker environment.
+Our provided docker environment resolves the software dependencies.
 Users are required to support docker commands in their machines.
 
 
 ## Get the repo & Enter the docker image.
 
-The artifact is archived in Zenodo.
+The artifact is publicly accessed on GitHub.
 
 ```bash
-$ git clone http://gitlab.alibaba-inc.com/baichen.bai/arch-explorer.git
+$ git clone https://github.com/baichen318/arch-explorer
 $ cd arch-explorer
 $ docker run -it -d
   --name micro23 \ # docker environment name
@@ -40,7 +40,7 @@ $ docker exec -it micro23 /bin/bash
 
 ## Set the repo.
 
-After users enter the docker image, please execute following commands.
+After users enter the docker image, please execute the following commands.
 
 ```bash
 $ cd arch-explorer && ./tools/settings.sh
@@ -69,7 +69,7 @@ The codes implementing automated simulations with SPEC CPU benchmarks include ha
 	+ SPEC CPU2017 with Simpoints checkpoints
 
     We do not require SPEC CPU2006 Simpoints checkpoints but require SPEC CPU2017 Simpoints checkpoints.
-    SPEC CPU2017 Simpoints checkpoints are created with an interval length equal to `10000000`, and warmup length equal to `1000000`.
+    SPEC CPU2017 Simpoints checkpoints are created with an interval length equal to `10000000`, and a warmup length equal to `1000000`.
 
 - Benchmark installations: the directory tree should satisfy the examples so that ArchExplorer can conduct DSE automatically. [Appendix](#appendix) only lists key files and directories.
 
@@ -89,19 +89,19 @@ The codes implementing automated simulations with SPEC CPU benchmarks include ha
 		* `600.perlbench_s`, `623.xalancbmk_s`, `623.x264_s`, `638.imagick_s`: reconfigure `m5.cpt` of each Simpoints checkpoints. In `m5.cpt`, assign '_fileName' with the absolute path of the benchmark input file.
 		For example, open the file: `/root/workspace/benchmarks/spec2017/checkpoint/600.perlbench_s/600.perlbench_s-checkpoint/cpt.simpoint_13_inst_569000000_weight_0.151515_interval_10000000_warmup_1000000/m5.cpt`, and revise '_fileName' to `_fileName=/root/workspace/benchmarks/spec2017/spec2017/600.perlbench_s/run/run_base_refspeed_rv64g-gcc-9.2-64.0000/lib/mailcomp.pm`. The file root path of `mailcomp.pm` depends on the users' machines.
 
-    If you do not reconfigure benchmarks after you enter the docker image, some experiments (Figure 2 and Figure 3) can still be conducted since we do not simulate with `464.h264ref`, `600.perlbench_s`, `623.xalancbmk_s`, `623.x264_s`, `638.imagick_s` by default. However, different experimental results may expect. Once you reconfigure the benchmarks, you can simulate with all benchmarks. The steps to simulate with all benchmarks in the experiments are described in `fig2/README.md` and `fig3/README.md`, respectively.
+    If you do not reconfigure benchmarks after you enter the docker image, some experiments (Figure 2 and Figure 3) can still be conducted since we do not simulate with `464.h264ref`, `600.perlbench_s`, `623.xalancbmk_s`, `623.x264_s`, `638.imagick_s` by default. However, different experimental results may expect. Once you reconfigure the benchmarks, you can simulate with all benchmarks. The steps to simulate all benchmarks in the experiments are described in `fig2/README.md` and `fig3/README.md`, respectively.
 
 <!-- ## Pre-requisites
 
 Please read `/path/to/arch-explorer/README.md` to finish settings (i.e., the second step in `/path/to/arch-explorer/README.md`).
 
-The pre-requisites includes:
+The pre-requisites include:
 
 - `PYTHONPATH` settings.
 - Miscellaneous tools compilations (GEM5, McPAT, DEG, etc.).
 - Benchmarks preparation.
 - Other settings.
-	+ Configurate the benchmark root path:
+	+ Configure the benchmark root path:
 	```bash
 	$ cd /path/to/arch-explorer/artifacts
 	$ vim configs/artifacts.yml
@@ -115,7 +115,7 @@ The pre-requisites includes:
 
 ## Once for all
 
-Once you have finished all pre-requisites discussed above, you can use one command to reproduce all experimental results.
+Once you have finished all prerequisites discussed above, you can use one command to reproduce all experimental results.
 
 - One command to reproduce all experimental results.
 The command can take an extremely long runtime (For high-end Linux server machines, *e.g.*, 80 cores of Intel(R) Xeon(R) CPU E7-4820 v3 @ 1.90GHz with 1 TB main memory, this artifact can take around approximately two weeks to complete.).
@@ -127,7 +127,7 @@ $ ./artifacts_exp.sh
 - Check results
 
 	Check the results produced in the corresponding sub-directory.
-	The outputs of this artifact are figures with in PDF format to reproduce the main results in the paper.
+	The outputs of this artifact are figures in PDF format to reproduce the main results in the paper.
 
 
 ## Reproduce with special interests
@@ -1388,7 +1388,7 @@ checkpoint/
 ```
 
 <!-- 
-### Check a example configuration
+### Check an example configuration
 ```bash
 $ cat main/configs/configs.yml
 ```
