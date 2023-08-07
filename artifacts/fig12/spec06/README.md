@@ -1,6 +1,6 @@
 # ArchExplorer Artifacts Evaluation
 
-## Fig. 12 SPEC CPU2006 reproduction
+## Figure 12 SPEC CPU2006 reproduction
 
 - Enter the sub-directory
 ```bash
