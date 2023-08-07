@@ -1,0 +1,215 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.groupplots}
+
+
+\pgfplotsset{
+    width = 0.5\linewidth,
+    height= 0.25\linewidth
+}
+
+% -, |, o, asterisk, star, oplus, oplus*, otimes, otimes*, square
+% square*, triangle, triangle*, diamond, diamond*, pentagon, pentagon*
+
+\pgfplotscreateplotcyclelist{my colors}{
+    % color for the legend
+    black!50\\
+    % color for the "real" plots
+    pink\\
+    blue\\
+    green\\
+    cyan\\
+    red\\
+    orange\\
+}
+
+\begin{document}
+
+\definecolor{CUpurple}{RGB}{117,15,109}
+\definecolor{CUlpurple}{RGB}{165,133,182}
+\definecolor{CUgold}{RGB}{221,163,0}
+\definecolor{CUribbon}{RGB}{244,223,176}
+\definecolor{CUblack}{RGB}{34,24,21}
+\definecolor{PKUred}{RGB}{126,24,28}
+\definecolor{Gray}{RGB}{180,179,179}
+
+\definecolor{C0}{RGB}{251,31,7}
+\definecolor{C1}{RGB}{252,140,8}
+\definecolor{C2}{RGB}{252,252,11}
+\definecolor{C3}{RGB}{211,215,29}
+\definecolor{C4}{RGB}{129,130,88}
+\definecolor{C5}{RGB}{58,53,164}
+\definecolor{Grey1}{RGB}{255,255,255}
+\definecolor{Grey2}{RGB}{236,236,236}
+\definecolor{Grey3}{RGB}{208,208,208}
+\definecolor{Grey4}{RGB}{175,175,175}
+\definecolor{Grey5}{RGB}{132,132,132}
+\definecolor{Grey6}{RGB}{96,96,96}
+\definecolor{Grey7}{RGB}{65,65,65}
+\definecolor{Grey8}{RGB}{28,28,28}
+\definecolor{Grey9}{RGB}{0,0,0}
+\definecolor{Blue1}{RGB}{247,250,255}
+\definecolor{Blue2}{RGB}{215,232,246}
+\definecolor{Blue3}{RGB}{186,210,235}
+\definecolor{Blue4}{RGB}{142,191,218}
+\definecolor{Blue5}{RGB}{90,157,204}
+\definecolor{Blue6}{RGB}{53,126,185}
+\definecolor{Blue7}{RGB}{28,91,166}
+\definecolor{Blue8}{RGB}{10,61,138}
+\definecolor{Blue9}{RGB}{9,33,88}
+\definecolor{YIGnBu1}{RGB}{255,255,209}
+\definecolor{YIGnBu2}{RGB}{233,251,162}
+\definecolor{YIGnBu3}{RGB}{189,230,165}
+\definecolor{YIGnBu4}{RGB}{111,196,173}
+\definecolor{YIGnBu5}{RGB}{55,169,183}
+\definecolor{YIGnBu6}{RGB}{29,126,179}
+\definecolor{YIGnBu7}{RGB}{27,73,152}
+\definecolor{YIGnBu8}{RGB}{27,34,129}
+\definecolor{YIGnBu9}{RGB}{9,20,70}
+\definecolor{YIOrRd1}{RGB}{255,255,193}
+\definecolor{YIOrRd2}{RGB}{255,235,143}
+\definecolor{YIOrRd3}{RGB}{253,210,99}
+\definecolor{YIOrRd4}{RGB}{252,163,60}
+\definecolor{YIOrRd5}{RGB}{250,121,47}
+\definecolor{YIOrRd6}{RGB}{248,54,33}
+\definecolor{YIOrRd7}{RGB}{217,0,22}
+\definecolor{YIOrRd8}{RGB}{186,35,56}
+\definecolor{YIOrRd9}{RGB}{107,0,29}
+
+\begin{tikzpicture}
+
+    \begin{groupplot} [
+        group style = {
+            group size = 1 by 2,
+            horizontal sep = 55pt,
+            vertical sep = 50pt
+        }
+    ]
+        % PPPA
+        \nextgroupplot [
+            xtick align = inside,
+            axis x line* = bottom,
+            axis y line* = left,
+            ylabel = {PPA},
+            xmin=0.65,
+            ymin=0.41,
+            xtick={1, 2, ..., 6},
+            xticklabels={1, 2, 3, 4, 5, 6},
+            ytick={0.4, 0.45, 0.5},
+            x tick label style = {
+                yshift = -40pt,
+            },
+            yticklabels={1.36/0.4, 0.45, 0.5},
+            grid style = dashed,
+            ymajorgrids = true,
+        ]
+            \addplot[smooth, mark=*, YIOrRd4, line width = 1.5pt, mark size = 1pt] plot coordinates {
+                (1,PPPA_1)
+                (2,PPPA_2)
+                (3,PPPA_3)
+                (4,PPPA_4)
+                (5,PPPA_5)
+                (6,PPPA_6)
+            };
+
+        % IPC
+        \nextgroupplot [
+            yshift = 1.75cm,
+            xtick align = inside,
+            axis x line* = bottom,
+            axis y line* = left,
+            xlabel = {The number of simulation (1 means the first)},
+            x label style = {
+                xshift = 85pt
+            },
+            ylabel = {IPC},
+            xmin=0.65,
+			% ymin=-1.45,
+			% ymax=-1.36,
+            xtick = {1, 2, ..., 6},
+            xticklabels = {1, 2, 3, 4, 5, 6},
+            xticklabels = {,,},
+            ytick={-1.44, -1.42, -1.4, -1.38, -1.36},
+            yticklabels={1.44, 1.42, 1.4, 1.38, 1.36/0.4},
+            axis x line* = top,
+            axis y line* = left,
+            grid style = dashed,
+            ymajorgrids = true,
+        ]
+            \addplot[smooth, mark=*, YIOrRd4, line width = 1.5pt, mark size = 1pt] plot coordinates {
+                (1,-IPC_1)
+                (2,-IPC_2)
+                (3,-IPC_3)
+                (4,-IPC_4)
+                (5,-IPC_5)
+                (6,-IPC_6)
+            };
+        
+    \end{groupplot}
+    
+    \begin{groupplot} [
+            group style = {
+                group size = 1 by 2,
+                horizontal sep = 60pt,
+                vertical sep = 50pt
+            }
+        ]
+        % Power
+        \nextgroupplot [
+            xshift = 6cm,
+            xtick align = inside,
+            axis x line* = bottom,
+            axis y line* = left,
+            ylabel = {Power},
+            xtick = {1, 2, ..., 6},
+            xticklabels = {1, 2, 3, 4, 5, 6},
+            x tick label style = {
+                yshift = -40pt
+            },
+            ytick={0.46, 0.47, 0.48},
+            grid style = dashed,
+            ymajorgrids = true,
+        ]
+            \addplot[smooth, mark=*, YIOrRd4, line width = 1.5pt, mark size = 1pt] plot coordinates {
+                (1,POWER_1)
+                (2,POWER_2)
+                (3,POWER_3)
+                (4,POWER_4)
+                (5,POWER_5)
+                (6,POWER_6)
+            };
+
+        % Area
+        \nextgroupplot [
+            yshift = 1.75cm,
+            xtick align = inside,
+            axis x line* = bottom,
+            axis y line* = left,
+            ylabel = {Area},
+            xtick = {1, 2, ..., 6},
+            xticklabels = {1, 2, 3, 4, 5, 6},
+            xticklabels = {,,},
+            ytick = {-9.5, -9, -8.5, -8},
+            yticklabels={9.5, 9, 8.5, 8},
+            axis x line* = top,
+            axis y line* = left,
+            grid style = dashed,
+            ymajorgrids = true,
+        ]
+            \addplot[smooth, mark=*, YIOrRd4, line width = 1.5pt, mark size = 1pt] plot coordinates {
+                (1,-AREA_1)
+                (2,-AREA_2)
+                (3,-AREA_3)
+                (4,-AREA_4)
+                (5,-AREA_5)
+                (6,-AREA_6)
+            };
+        
+    \end{groupplot}
+
+\end{tikzpicture}
+
+
+\end{document}

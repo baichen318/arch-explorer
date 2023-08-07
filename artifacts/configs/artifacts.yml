@@ -1,0 +1,14 @@
+# Author: baichen.bai@alibaba-inc.com
+
+
+# configurate the following benchmarks path
+# for SPEC17, we also need to configurate the checkpoint path
+
+
+spec2006:
+  benchmark-root: /path/to/spec06
+
+
+spec2017:
+  benchmark-root: /path/to/spec17
+  checkpoint-root: /path/to/checkpoint

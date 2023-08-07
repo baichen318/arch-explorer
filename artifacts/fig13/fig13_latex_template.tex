@@ -1,0 +1,437 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{filecontents}
+\usetikzlibrary{fit,calc}
+\usepgfplotslibrary{external}
+\usepgfplotslibrary{statistics}
+\usetikzlibrary{pgfplots.groupplots}
+
+
+\pgfplotscreateplotcyclelist{my colors}{
+    % color for the legend
+    black!50\\
+    % color for the "real" plots
+    pink\\
+    blue\\
+    green\\
+    cyan\\
+    red\\
+    orange\\
+}
+\pgfplotsset{
+    compat=1.3,
+    cycle list name=my colors,
+    legend cell align=left,
+    width = .48\linewidth,
+    height = .38\linewidth,
+    box plot/.style={
+        /pgfplots/.cd,
+        black,
+        only marks,
+        mark=-,
+        mark size=1em,
+        /pgfplots/error bars/.cd,
+        y dir=plus,
+        y explicit,
+    },
+    box plot box/.style={
+        /pgfplots/error bars/draw error bar/.code 2 args={%
+            \draw  ##1 -- ++(1em,0pt) |- ##2 -- ++(-1em,0pt) |- ##1 -- cycle;
+        },
+        /pgfplots/table/.cd,
+        y index=2,
+        y error expr={\thisrowno{3}-\thisrowno{2}},
+        /pgfplots/box plot
+    },
+    box plot top whisker/.style={
+        /pgfplots/error bars/draw error bar/.code 2 args={%
+            \pgfkeysgetvalue{/pgfplots/error bars/error mark}%
+            {\pgfplotserrorbarsmark}%
+            \pgfkeysgetvalue{/pgfplots/error bars/error mark options}%
+            {\pgfplotserrorbarsmarkopts}%
+            \path ##1 -- ##2;
+        },
+        /pgfplots/table/.cd,
+        y index=4,
+        y error expr={\thisrowno{2}-\thisrowno{4}},
+        /pgfplots/box plot
+    },
+    box plot bottom whisker/.style={
+        /pgfplots/error bars/draw error bar/.code 2 args={%
+            \pgfkeysgetvalue{/pgfplots/error bars/error mark}%
+            {\pgfplotserrorbarsmark}%
+            \pgfkeysgetvalue{/pgfplots/error bars/error mark options}%
+            {\pgfplotserrorbarsmarkopts}%
+            \path ##1 -- ##2;
+        },
+        /pgfplots/table/.cd,
+        y index=5,
+        y error expr={\thisrowno{3}-\thisrowno{5}},
+        /pgfplots/box plot
+    },
+    box plot median/.style={
+        /pgfplots/box plot
+    }
+}
+
+
+\newcommand{\boxplot}[6]{%
+    %#1: center, #2: median, #3: 1/4 quartile, #4: 3/4 quartile, #5: min, #6: max
+    \filldraw[fill=white,line width=0.2mm] let \n{boxxl}={#1-0.1}, \n{boxxr}={#1+0.1} in (axis cs:\n{boxxl},#3) rectangle (axis cs:\n{boxxr},#4);   % draw the box
+    \draw[line width=0.2mm, color=red] let \n{boxxl}={#1-0.1}, \n{boxxr}={#1+0.1} in (axis cs:\n{boxxl},#2) -- (axis cs:\n{boxxr},#2);             % median
+    \draw[line width=0.2mm] (axis cs:#1,#4) -- (axis cs:#1,#6);                                                                           % bar up
+    \draw[line width=0.2mm] let \n{whiskerl}={#1-0.025}, \n{whiskerr}={#1+0.025} in (axis cs:\n{whiskerl},#6) -- (axis cs:\n{whiskerr},#6);        % upper quartile
+    \draw[line width=0.2mm] (axis cs:#1,#3) -- (axis cs:#1,#5);                                                                           % bar down
+    \draw[line width=0.2mm] let \n{whiskerl}={#1-0.025}, \n{whiskerr}={#1+0.025} in (axis cs:\n{whiskerl},#5) -- (axis cs:\n{whiskerr},#5);        % lower quartile
+}
+
+\pgfplotsset{
+    width = 0.46\linewidth,
+    height= 0.38\linewidth
+}
+
+
+\begin{document}
+
+\definecolor{myblue}{RGB}{29,114,221}    %1D72DD
+\definecolor{myyellow}{RGB}{255,255,191} %FFFFBF
+\definecolor{myorange}{RGB}{244,106,18}  %F47012
+\definecolor{mygray}{RGB}{102,102,102}   %666666
+\definecolor{mypink}{RGB}{252,228,215}   %FCE4D7
+
+\definecolor{CUpurple}{RGB}{117,15,109}
+\definecolor{CUlpurple}{RGB}{165,133,182}
+\definecolor{CUgold}{RGB}{221,163,0}
+\definecolor{CUribbon}{RGB}{244,223,176}
+\definecolor{CUblack}{RGB}{34,24,21}
+\definecolor{PKUred}{RGB}{126,24,28}
+
+
+\begin{tikzpicture}
+
+    \begin{groupplot}[
+        group style = {
+            group size = 1 by 2
+        }
+    ]
+        \nextgroupplot [
+            xlabel = {$ \frac{1}{\text{Power}} $},
+            ylabel = {IPC},
+            xmin = 1.5,
+            xmax = 16.5,
+            ymin = 0.5,
+            ymax = 1.65,
+            grid style = dashed,
+            xmajorgrids = true,
+            ymajorgrids = true,
+            axis x line* = bottom,
+            axis lines = left,
+            axis y line* = left,
+            legend style={
+                at = {(2.65, -2.1)},
+                anchor = north east,
+                legend columns = 2,
+                draw = none,
+            }
+        ]
+            \addplot [
+                only marks,
+                color = cyan!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={IPC}] {data/ARCHRANKER_PPA};
+
+            \addplot [
+                only marks,
+                color = gray!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={IPC}] {data/ADABOOST_PPA};
+
+            \addplot [
+                only marks,
+                color = orange!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={IPC}] {data/BOOM_EXPLORER_PPA};
+
+            \addplot [
+                only marks,
+                color = violet!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={IPC}] {data/ARCH_EXPLORER_PPA};
+
+            \addplot [
+                only marks,
+                color = cyan,
+                mark = pentagon*,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={IPC}] {data/ARCHRANKER_PARETO};
+
+            \addplot [
+                only marks,
+                color = gray,
+                mark = triangle*,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={IPC}] {data/ADABOOST_PARETO};
+
+            \addplot [
+                only marks,
+                color = orange,
+                mark = square*,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={IPC}] {data/BOOM_EXPLORER_PARETO};
+
+            \addplot [
+                only marks,
+                color = violet,
+                mark = *,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={IPC}] {data/ARCH_EXPLORER_PARETO};
+
+            \legend{
+                ArchRanker's \textcolor{blue}{[11]} Explorations\ \ \ \ , AdaBoost's \textcolor{blue}{[36]} Explorations\ \ \ \ ,
+                BOOM-Explorer's \textcolor{blue}{[7]} Explorations\ \ \ \ , ArchExplorer's Explorations\ \ \ \ ,
+                ArchRanker's \textcolor{blue}{[11]} Pareto Frontier\ \ \ \ , AdaBoost's \textcolor{blue}{[36]} Pareto Frontier\ \ \ \ ,
+                BOOM-Explorer's \textcolor{blue}{[7]} Pareto Frontier\ \ \ \ , ArchExplorer' Pareto Frontier
+            };
+    \end{groupplot}
+
+    \begin{groupplot}[
+        group style = {
+            group size = 1 by 2
+        }
+    ]
+        \nextgroupplot [
+            xshift = 5.8cm,
+            xlabel = {$ \frac{1}{\text{Area}} $},
+            ylabel = {IPC},
+            xmin = 0.09,
+            xmax = 0.45,
+            ymin = 0.49,
+            ymax = 1.65,
+            grid style = dashed,
+            xmajorgrids = true,
+            ymajorgrids = true,
+            axis x line* = bottom,
+            axis lines = left,
+            axis y line* = left,
+            legend style={
+                at = {(1.0, 1.0)},
+                anchor = north east,
+                legend columns = 1
+            }
+        ]
+            \addplot [
+                only marks,
+                color = cyan!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Area}, y={IPC}] {data/ARCHRANKER_PPA};
+
+            \addplot [
+                only marks,
+                color = gray!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Area}, y={IPC}] {data/ADABOOST_PPA};
+            
+            \addplot [
+                only marks,
+                color = orange!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Area}, y={IPC}] {data/BOOM_EXPLORER_PPA};
+
+            \addplot [
+                only marks,
+                color = violet!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Area}, y={IPC}] {data/ARCH_EXPLORER_PPA};
+
+            \addplot [
+                only marks,
+                color = cyan,
+                mark = pentagon*,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Area}, y={IPC}] {data/ARCHRANKER_PARETO};
+
+            \addplot [
+                only marks,
+                color = gray,
+                mark = triangle*,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Area}, y={IPC}] {data/ADABOOST_PARETO};
+
+            \addplot [
+                only marks,
+                color = orange,
+                mark = square*,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Area}, y={IPC}] {data/BOOM_EXPLORER_PARETO};
+
+            \addplot [
+                only marks,
+                color = violet,
+                mark = *,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Area}, y={IPC}] {data/ARCH_EXPLORER_PARETO};
+    \end{groupplot}
+
+
+    \begin{groupplot}[
+        group style = {
+            group size = 1 by 2
+        }
+    ]
+        \nextgroupplot [
+            yshift = -4.08cm,
+            xlabel = {Power},
+            ylabel = {Area},
+            % axis lines = left,
+            xmin = 0.05,
+            xmax = 0.6,
+            ymin = 2,
+            % ymax = 1.6,
+            % ytick = {0.00, 0.04,..., 0.16},
+            % yticklabels = {0.00,, 0.04, 0.08, 0.12, 0.16},
+            grid style = dashed,
+            xmajorgrids = true,
+            ymajorgrids = true,
+            axis x line* = bottom,
+            axis lines = left,
+            axis y line* = left,
+            legend style={
+                at = {(1.0, 1.0)},
+                anchor = north east,
+                legend columns = 1
+            }
+        ]
+
+            \addplot [
+                only marks,
+                color = cyan!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={Area}] {data/ARCHRANKER_ORIG_PPA};
+
+            \addplot [
+                only marks,
+                color = gray!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={Area}] {data/ADABOOST_ORIG_PPA};
+
+            \addplot [
+                only marks,
+                color = orange!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={Area}] {data/BOOM_EXPLORER_ORIG_PPA};
+
+            \addplot [
+                only marks,
+                color = violet!50,
+                mark = x,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={Area}] {data/ARCH_EXPLORER_ORIG_PPA};
+
+            \addplot [
+                only marks,
+                color = cyan,
+                mark = pentagon*,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={Area}] {data/ARCHRANKER_ORIG_PARETO};
+
+            \addplot [
+                only marks,
+                color = gray,
+                mark = triangle*,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={Area}] {data/ADABOOST_ORIG_PARETO};
+
+            \addplot [
+                only marks,
+                color = orange,
+                mark = square*,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={Area}] {data/BOOM_EXPLORER_ORIG_PARETO};
+
+            \addplot [
+                only marks,
+                color = violet,
+                mark = *,
+                mark size = 1pt,
+                scatter src = explicit symbolic
+            ] table [x={Power}, y={Area}] {data/ARCH_EXPLORER_ORIG_PARETO};
+    \end{groupplot}
+    
+    \begin{groupplot}[
+            group style = {
+                group size = 1 by 2
+            }
+        ]
+        \nextgroupplot [
+            yshift = -4.08cm,
+            xshift = 5.8cm,
+            xmin=0, xmax=5,
+            ymin=-0, ymax=3.5,
+            xtick = {1,2,3,4},
+            xticklabels = {
+                ArchRanker, AdaBoost, BOOM-Explorer, ArchExplorer
+            },
+            xticklabel style = {
+                rotate = 45
+            },
+            % tick label style = {
+            %     font = \tiny
+            % },
+            axis lines = left,
+            ylabel = {$ \frac{\text{Perf}^2 }{\text{Power} \times \text{Area}} $},
+            grid style = dashed,
+            ymajorgrids = true,
+            axis x line* = bottom,
+            axis y line* = left,
+            % legend style={
+            %     at = {(1.0, 1.0)},
+            %     anchor = north east,
+            %     legend columns = 1
+            % }
+        ]
+            %#1: center, #2: median, #3: 1/4 quartile, #4: 3/4 quartile, #5: min, #6: max
+            \boxplot{1}{1.9083837345}{1.55138641425}{2.2407369615}{0.95862541}{2.877166129}
+            \boxplot{2}{2.10658881}{1.5763718465}{2.3303349655}{0.521915544}{2.862657384}
+            \boxplot{3}{1.954900005}{1.766195086}{2.505322638}{0.847265312}{3.300703289}
+            \boxplot{4}{2.263951718}{1.804832901}{2.474807323}{0.583882777}{3.201337466}
+    \end{groupplot}
+\end{tikzpicture}
+
+\end{document}

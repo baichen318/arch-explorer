@@ -1,0 +1,21 @@
+# Author: baichen.bai@alibaba-inc.com
+
+
+# design space specifications
+design-space: design-space/small-design-space.xlsx
+
+
+# simulation microarchitecture specifications
+simulation:
+  gem5-path: /Users/baichen/Research/repo/arch-explorer/infras/gem5-research # /proj/users/chen.bai/repo/gem5-repo
+  gem5-id: 1
+  benchmark:
+    spec2006-root: "/Users/baichen/Research/repo/spec2006"
+    official-test:
+      warmup-insts: 3000
+      fast-forward: 3000
+      bare-model:
+        # - median.riscv # 31573
+        - vvadd.riscv
+  # view the DEG/IDEG or not
+  vis: False

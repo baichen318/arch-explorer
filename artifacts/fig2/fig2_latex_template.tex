@@ -1,0 +1,373 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.groupplots}
+\pgfplotsset{compat=newest}
+
+
+\pgfplotsset{
+    width = 0.5\linewidth,
+    height= 0.4\linewidth
+}
+
+\def\ymin{\pgfkeysvalueof{/pgfplots/ymin}}
+\def\ymax{\pgfkeysvalueof{/pgfplots/ymax}}
+
+\begin{document}
+
+
+\definecolor{CUpurple}{RGB}{117,15,109}
+\definecolor{CUlpurple}{RGB}{165,133,182}
+\definecolor{CUgold}{RGB}{221,163,0}
+\definecolor{CUribbon}{RGB}{244,223,176}
+\definecolor{CUblack}{RGB}{34,24,21}
+\definecolor{PKUred}{RGB}{126,24,28}
+\definecolor{Gray}{RGB}{180,179,179}
+
+\definecolor{C0}{RGB}{251,31,7}
+\definecolor{C1}{RGB}{252,140,8}
+\definecolor{C2}{RGB}{252,252,11}
+\definecolor{C3}{RGB}{211,215,29}
+\definecolor{C4}{RGB}{129,130,88}
+\definecolor{C5}{RGB}{58,53,164}
+\definecolor{Gray1}{RGB}{219,219,219}
+\definecolor{Gray2}{RGB}{136,137,138}
+\definecolor{Gray3}{RGB}{68,70,72}
+\definecolor{Gray4}{RGB}{39,42,43}
+\definecolor{Chalk}{RGB}{255,255,255}
+\definecolor{Marble}{RGB}{237,237,237}
+\definecolor{Soapstone}{RGB}{205,205,205}
+\definecolor{Concrete}{RGB}{169,169,169}
+\definecolor{Granite}{RGB}{136,136,136}
+\definecolor{Flint}{RGB}{119,119,119}
+\definecolor{Shale}{RGB}{85,85,85}
+\definecolor{Gabbro}{RGB}{51,51,51}
+\definecolor{Basalt}{RGB}{34,34,34}
+\definecolor{Obsidian}{RGB}{0,0,0}
+\definecolor{Grey1}{RGB}{255,255,255}
+\definecolor{Grey2}{RGB}{236,236,236}
+\definecolor{Grey3}{RGB}{208,208,208}
+\definecolor{Grey4}{RGB}{175,175,175}
+\definecolor{Grey5}{RGB}{132,132,132}
+\definecolor{Grey6}{RGB}{96,96,96}
+\definecolor{Grey7}{RGB}{65,65,65}
+\definecolor{Grey8}{RGB}{28,28,28}
+\definecolor{Grey9}{RGB}{0,0,0}
+\definecolor{Blue1}{RGB}{247,250,255}
+\definecolor{Blue2}{RGB}{215,232,246}
+\definecolor{Blue3}{RGB}{186,210,235}
+\definecolor{Blue4}{RGB}{142,191,218}
+\definecolor{Blue5}{RGB}{90,157,204}
+\definecolor{Blue6}{RGB}{53,126,185}
+\definecolor{Blue7}{RGB}{28,91,166}
+\definecolor{Blue8}{RGB}{10,61,138}
+\definecolor{Blue9}{RGB}{9,33,88}
+\definecolor{YIGnBu1}{RGB}{255,255,209}
+\definecolor{YIGnBu2}{RGB}{233,251,162}
+\definecolor{YIGnBu3}{RGB}{189,230,165}
+\definecolor{YIGnBu4}{RGB}{111,196,173}
+\definecolor{YIGnBu5}{RGB}{55,169,183}
+\definecolor{YIGnBu6}{RGB}{29,126,179}
+\definecolor{YIGnBu7}{RGB}{27,73,152}
+\definecolor{YIGnBu8}{RGB}{27,34,129}
+\definecolor{YIGnBu9}{RGB}{9,20,70}
+\definecolor{YIOrRd1}{RGB}{255,255,193}
+\definecolor{YIOrRd2}{RGB}{255,235,143}
+\definecolor{YIOrRd3}{RGB}{253,210,99}
+\definecolor{YIOrRd4}{RGB}{252,163,60}
+\definecolor{YIOrRd5}{RGB}{250,121,47}
+\definecolor{YIOrRd6}{RGB}{248,54,33}
+\definecolor{YIOrRd7}{RGB}{217,0,22}
+\definecolor{YIOrRd8}{RGB}{186,35,56}
+\definecolor{YIOrRd9}{RGB}{107,0,29}
+
+% -, |, o, asterisk, star, oplus, oplus*, otimes, otimes*, square
+% square*, triangle, triangle*, diamond, diamond*, pentagon, pentagon*
+
+\pgfplotscreateplotcyclelist{my colors}{
+    % color for the legend
+    black!50\\
+    % color for the "real" plots
+    pink\\
+    blue\\
+    green\\
+    cyan\\
+    red\\
+    orange\\
+}
+
+\begin{tikzpicture}
+
+    \begin{groupplot}[
+        group style = {
+            group size = 2 by 1
+        }
+    ]
+        \nextgroupplot[
+            axis x line* = bottom,
+            axis y line* = left,
+            ybar = 1pt,
+            width = 1*\textwidth,
+            enlarge x limits = 0.165,
+            symbolic x coords = {
+                Perf, Power, Area, PPPA
+            },
+            xticklabels = {
+                Perf, Power, Area, $ \frac{\text{Perf}^2}{\text{Power} \times \text{Area}} $
+            },
+            xtick = data,
+            title = {PPA Variations Comparison of Comparative Simulations},
+            xtick align = inside,
+            xticklabel style = {
+                yshift = 102pt
+            },
+            ylabel = {Ratio $ \% $},
+            grid style = dashed,
+            ymajorgrids = true,
+            bar width = 3.8pt,
+            legend style = {
+                at = {(1.06, -0.3)},
+                anchor = east,
+                legend columns = 4,
+                draw = none,
+                area legend
+            }
+        ]
+            % Baseline
+            \addplot +[
+                ybar,
+                fill = black,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,1.000000)
+                (Power,1.000000)
+                (Area,1.000000)
+                (PPPA,1.000000)
+            };
+            % ROB
+            \addplot +[
+                ybar,
+                fill = Blue1,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,ROB_PERF)
+                (Power,ROB_POWER)
+                (Area,ROB_AREA)
+                (PPPA,ROB_PPPA)
+            };
+            % INT RF
+            \addplot +[
+                ybar,
+                fill = YIGnBu1,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,INT_RF_PERF)
+                (Power,INT_RF_POWER)
+                (Area,INT_RF_AREA)
+                (PPPA,INT_RF_PPPA)
+            };
+            % FP RF
+            \addplot +[
+                ybar,
+                fill = YIOrRd1,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,FP_RF_PERF)
+                (Power,FP_RF_POWER)
+                (Area,FP_RF_AREA)
+                (PPPA,FP_RF_PPPA)
+            };
+            % IQ
+            \addplot +[
+                ybar,
+                fill = Blue2,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,IQ_PERF)
+                (Power,IQ_POWER)
+                (Area,IQ_AREA)
+                (PPPA,IQ_PPPA)
+            };
+            % LQ
+            \addplot +[
+                ybar,
+                fill = YIGnBu2,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,LQ_PERF)
+                (Power,LQ_POWER)
+                (Area,LQ_AREA)
+                (PPPA,LQ_PPPA)
+            };
+            % SQ
+            \addplot +[
+                ybar,
+                fill = YIOrRd2,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,SQ_PERF)
+                (Power,SQ_POWER)
+                (Area,SQ_AREA)
+                (PPPA,SQ_PPPA)
+            };
+            % IntALU
+            \addplot +[
+                ybar,
+                fill = Blue3,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,INT_ALU_PERF)
+                (Power,INT_ALU_POWER)
+                (Area,INT_ALU_AREA)
+                (PPPA,INT_ALU_PPPA)
+            };
+            % IntMultDiv
+            \addplot +[
+                ybar,
+                fill = YIGnBu3,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,INT_MULT_DIV_PERF)
+                (Power,INT_MULT_DIV_POWER)
+                (Area,INT_MULT_DIV_AREA)
+                (PPPA,INT_MULT_DIV_PPPA)
+            };
+            % FpALU
+            \addplot +[
+                ybar,
+                fill = YIOrRd3,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,FP_ALU_PERF)
+                (Power,FP_ALU_POWER)
+                (Area,FP_ALU_AREA)
+                (PPPA,FP_ALU_PPPA)
+            };
+            % FpMultDiv
+            \addplot +[
+                ybar,
+                fill = Blue4,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,FP_MULT_DIV_PERF)
+                (Power,FP_MULT_DIV_POWER)
+                (Area,FP_MULT_DIV_AREA)
+                (PPPA,FP_MULT_DIV_PPPA)
+            };
+            % i$ size
+            \addplot +[
+                ybar,
+                fill = YIGnBu4,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,I_SZ_PERF)
+                (Power,I_SZ_POWER)
+                (Area,I_SZ_AREA)
+                (PPPA,I_SZ_PPPA)
+            };
+            % i$ assoc
+            \addplot +[
+                ybar,
+                fill = YIOrRd4,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,I_ASSOC_PERF)
+                (Power,I_ASSOC_POWER)
+                (Area,I_ASSOC_AREA)
+                (PPPA,I_ASSOC_PPPA)
+            };
+            % d$ size
+            \addplot +[
+                ybar,
+                fill = Blue5,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,D_SZ_PERF)
+                (Power,D_SZ_POWER)
+                (Area,D_SZ_AREA)
+                (PPPA,D_SZ_PPPA)
+            };
+            % d$ assoc
+            \addplot +[
+                ybar,
+                fill = YIGnBu5,
+                draw = black,
+                area legend
+            ] coordinates {
+                (Perf,D_ASSOC_PERF)
+                (Power,D_ASSOC_POWER)
+                (Area,D_ASSOC_AREA)
+                (PPPA,D_ASSOC_PPPA)
+            };
+
+            % Perf <-> Power
+            \path
+                (axis cs:Perf, \pgfkeysvalueof{/pgfplots/ymin})
+                -- coordinate (tmpmin)
+                (axis cs:Power, \pgfkeysvalueof{/pgfplots/ymin})
+                (axis cs:Perf, \pgfkeysvalueof{/pgfplots/ymax})
+                -- coordinate (tmpmax)
+                (axis cs:Power, \pgfkeysvalueof{/pgfplots/ymax})
+              ;
+            \draw[thick, dashed] (tmpmin) -- (tmpmax);
+                \draw[thick, dashed]
+                    ($(axis cs:Perf, \ymin)!.5!(axis cs:Power, \ymin)$) --
+                    ($(axis cs:Perf, \ymax)!.5!(axis cs:Power, \ymax)$)
+                  ;
+            % Power <-> Area
+            \path
+                (axis cs:Power, \pgfkeysvalueof{/pgfplots/ymin})
+                -- coordinate (tmpmin)
+                (axis cs:Area, \pgfkeysvalueof{/pgfplots/ymin})
+                (axis cs:Power, \pgfkeysvalueof{/pgfplots/ymax})
+                -- coordinate (tmpmax)
+                (axis cs:Area, \pgfkeysvalueof{/pgfplots/ymax})
+              ;
+            \draw[thick, dashed] (tmpmin) -- (tmpmax);
+                \draw[thick, dashed]
+                    ($(axis cs:Power, \ymin)!.5!(axis cs:Area, \ymin)$) --
+                    ($(axis cs:Power, \ymax)!.5!(axis cs:Area, \ymax)$)
+                  ;
+            % Area <-> PPPA
+            \path
+                (axis cs:Area, \pgfkeysvalueof{/pgfplots/ymin})
+                -- coordinate (tmpmin)
+                (axis cs:PPPA, \pgfkeysvalueof{/pgfplots/ymin})
+                (axis cs:Area, \pgfkeysvalueof{/pgfplots/ymax})
+                -- coordinate (tmpmax)
+                (axis cs:PPPA, \pgfkeysvalueof{/pgfplots/ymax})
+              ;
+            \draw[thick, dashed] (tmpmin) -- (tmpmax);
+                \draw[thick, dashed]
+                    ($(axis cs:Area, \ymin)!.5!(axis cs:PPPA, \ymin)$) --
+                    ($(axis cs:Area, \ymax)!.5!(axis cs:PPPA, \ymax)$)
+                  ;
+            \legend{
+                Baseline\ \ \ \ , ROB$ \times $2\ \ \ \ , Int RF$ \times $2\ \ \ \ ,
+                Fp RF$ \times $2\ \ \ \ , IQ$ \times $2\ \ \ \ ,
+                LQ$ \times $2\ \ \ \ , SQ$ \times $2\ \ \ \ ,
+                IntALU$ \times $2\ \ \ \ , IntMultDiv$ \times $2\ \ \ \ ,
+                FpALU$ \times $2\ \ \ \ , FpMultDiv$ \times $2\ \ \ \ ,
+                I\$ size$ \times $2\ \ \ \ , I\$ assoc.$ \times $2\ \ \ \ ,
+                D\$ size$ \times $2\ \ \ \ , D\$ assoc.$ \times $2\ \ \ \
+            };
+    \end{groupplot}
+
+\end{tikzpicture}
+
+\end{document}

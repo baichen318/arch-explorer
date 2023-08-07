@@ -1,0 +1,2 @@
+TARGET_ISA = 'null'
+PROTOCOL='MI_example'

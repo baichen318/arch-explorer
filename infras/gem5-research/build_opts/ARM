@@ -1,0 +1,2 @@
+TARGET_ISA = 'arm'
+PROTOCOL = 'CHI'

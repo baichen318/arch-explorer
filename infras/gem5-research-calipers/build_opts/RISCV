@@ -1,0 +1,2 @@
+TARGET_ISA = 'riscv'
+PROTOCOL = 'MI_example'

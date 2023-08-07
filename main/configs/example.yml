@@ -1,0 +1,142 @@
+# Author: baichen.bai@alibaba-inc.com
+
+
+## working mode specifications
+# initialize | simulation | dataset-generation | exploration
+# initialize: initialize the data set using RTED
+mode: exploration # simulation
+
+
+## design space specifications
+design-space: design-space/design-space.xlsx
+
+
+## initialization hyper-parameters
+initialize:
+  seed: 2023
+  Nrted: 59
+  mu: 0.1
+  sig: 0.1
+  # total size
+  size: 10000
+  # each time, we randomly sample `group-size` designs
+  group-size: 3000
+  # each time we pick `top-k` as the sample from the group
+  top-k: 5
+  # output path
+  output: dataset/design.txt
+
+
+## simulation specifications
+simulation:
+  simulator:
+    # for multi-threads execution, we use gem5-research-pool
+    # rather than the path specified in
+    # `simulation`/`simulator`/`gem5-research-root`
+    # `gem5-research-root` is directed by `gem5-research-pool-root`
+    # and a number denoted the pipeline width, e.g.,
+    # `gem5-research-pool-root`/2
+    gem5-research-pool-root: /proj/users/chen.bai/repo/gem5-repo
+    # gem5-research root path
+    gem5-research-root: /proj/users/chen.bai/repo/arch-explorer/infras/gem5-research
+    # choose the simulator to run
+    start-idx: ~
+    end-idx: ~
+    candidate-idx:
+      # - 1260
+      - 1292
+    # select designs from design dataset
+    candidate-design-set: ~
+    candidate-embedding: ~
+  # benchmark specifications
+  benchmark:
+    # choose the benchmark to run
+    run: bare-model
+    spec2006:
+      benchmark-root: "/proj/users/chen.bai/repo/spec/spec2006"
+      candidate: ~
+        # - 401.bzip2
+        # - 429.mcf
+        # - 456.hmmer
+        # - 458.sjeng
+        # - 462.libquantum
+        # - 464.h264ref
+        # - 471.omnetpp
+        # - 483.xalancbmk
+        # - 444.namd
+        # - 447.dealII
+        # - 450.soplex
+        # - 453.povray
+      # since we have no simpoints for SPEC2006, we use different max-insts
+      # to test the benchmark. Fewer instructions are used in DSE.
+      dse: False
+    spec2017:
+      benchmark-root: /Users/baichen/Research/repo/spec/spec2017/spec2017
+      checkpoint-root: /Users/baichen/Research/repo/spec/spec2017/spec2017-checkpoint
+      # maximum instruction
+      max-insts: ~
+      candidate: ~
+        # - 600.perlbench_s
+        # - 602.gcc_s
+        # - 605.mcf_s
+        # - 623.xalancbmk_s
+        # - 625.x264_s
+        # - 631.deepsjeng_s
+        # - 641.leela_s
+        # - 657.xz_s
+        # - 603.bwaves_s
+        # - 607.cactuBSSN_s
+        # - 619.lbm_s
+        # - 621.wrf_s
+        # - 627.cam4_s
+        # - 628.pop2_s
+        # - 638.imagick_s
+        # - 644.nab_s
+    bare-model:
+      warmup-insts: 3000
+      fast-forward: 3000
+      candidate:
+        - median.riscv
+        # - towers.riscv
+        # - multiply.riscv
+  misc-setting:
+    # True: use the new DEG to model, False: disable DEG modeling
+    deg-model: True
+    # True: enable visualization for DEG, False: disable visualization
+    vis: True
+    # specify the instruction sequence to view
+    # the index is started with 1
+    start-idx: 1
+    end-idx: 100
+
+
+dataset:
+  # dataset output path specification
+  output: dataset/dataset-1020.csv
+
+
+dse:
+  # random seed
+  seed: 2022
+  # how many hardware resource do we need to increase/decrease at each round
+  top-k: 3
+  # the number of threads to search
+  # currently, `epoch` = 1
+  epoch: 1
+  # the maximal iterations for each thread
+  budget: 10
+  # we can specifiy the initial design index
+  initial-design:
+    - 124458700657
+  pipeline-width:
+    # - 1
+    # - 2
+    # - 3
+    - 4
+    # - 5
+    # - 6
+    # - 7
+    # - 8
+  # early stopping criterion
+  early-stopping: 5
+  output: report

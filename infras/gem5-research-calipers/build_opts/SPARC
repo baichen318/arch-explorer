@@ -1,0 +1,2 @@
+TARGET_ISA = 'sparc'
+PROTOCOL = 'MI_example'

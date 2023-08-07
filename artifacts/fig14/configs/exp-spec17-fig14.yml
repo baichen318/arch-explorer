@@ -1,0 +1,58 @@
+# Author: baichen.bai@alibaba-inc.com
+
+
+## working mode specifications
+# initialize | simulation | dataset-generation | exploration
+# initialize: initialize the data set using RTED
+mode: simulation
+
+
+## design space specifications
+design-space: design-space/design-space.xlsx
+
+
+## simulation specifications
+simulation:
+  simulator:
+    # gem5-research root path
+    gem5-research-root: /path/to/gem5-research-root
+    # choose the simulator to run
+    start-idx: ~
+    end-idx: ~
+    candidate-idx:
+      - 204919127918344 # SPEC17 AdaBoost
+      - 718636279781471 # SPEC17 ArchRanker
+      - 588894640080383 # SPEC17 BOOM-Explorer
+      - 885449625238848 # SPEC17 ArchExplorer
+    # select designs from design dataset
+    candidate-design-set: ~
+    candidate-embedding: ~
+  # benchmark specifications
+  benchmark:
+    # choose the benchmark to run
+    run: spec2017
+    spec2006:
+      benchmark-root: ~
+      candidate: ~
+      # since we have no simpoints for SPEC2006, we use different max-insts
+      # to test the benchmark. Fewer instructions are used in DSE.
+      dse: False
+    spec2017:
+      benchmark-root: /path/to/spec2017
+      checkpoint-root: /path/to/checkpoint
+      # maximum instruction
+      max-insts: ~
+      candidate: ~
+    bare-model:
+      warmup-insts: ~
+      fast-forward: ~
+      candidate: ~
+  misc-setting:
+    # True: use the new DEG to model, False: disable DEG modeling
+    deg-model: False
+    # True: enable visualization for DEG, False: disable visualization
+    vis: False
+    # specify the instruction sequence to view
+    # the index is started with 1
+    start-idx: ~
+    end-idx: ~

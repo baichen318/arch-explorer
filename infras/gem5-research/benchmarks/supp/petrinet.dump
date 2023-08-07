@@ -1,0 +1,2254 @@
+
+supp/petrinet.riscv:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+00000000000100b0 <_start>:
+   100b0:	00004197          	auipc	gp,0x4
+   100b4:	1e818193          	addi	gp,gp,488 # 14298 <__global_pointer$>
+   100b8:	82018513          	addi	a0,gp,-2016 # 13ab8 <completed.5212>
+   100bc:	8d818613          	addi	a2,gp,-1832 # 13b70 <_end>
+   100c0:	40a60633          	sub	a2,a2,a0
+   100c4:	00000593          	li	a1,0
+   100c8:	7b5010ef          	jal	ra,1207c <memset>
+   100cc:	00002517          	auipc	a0,0x2
+   100d0:	e9c50513          	addi	a0,a0,-356 # 11f68 <__libc_fini_array>
+   100d4:	651010ef          	jal	ra,11f24 <atexit>
+   100d8:	705010ef          	jal	ra,11fdc <__libc_init_array>
+   100dc:	00012503          	lw	a0,0(sp)
+   100e0:	00810593          	addi	a1,sp,8
+   100e4:	00000613          	li	a2,0
+   100e8:	5e9010ef          	jal	ra,11ed0 <main>
+   100ec:	64d0106f          	j	11f38 <exit>
+
+00000000000100f0 <_fini>:
+   100f0:	00008067          	ret
+
+00000000000100f4 <deregister_tm_clones>:
+   100f4:	00014537          	lui	a0,0x14
+   100f8:	000147b7          	lui	a5,0x14
+   100fc:	a9850713          	addi	a4,a0,-1384 # 13a98 <__TMC_END__>
+   10100:	a9878793          	addi	a5,a5,-1384 # 13a98 <__TMC_END__>
+   10104:	00e78c63          	beq	a5,a4,1011c <deregister_tm_clones+0x28>
+   10108:	00000337          	lui	t1,0x0
+   1010c:	00030313          	mv	t1,t1
+   10110:	00030663          	beqz	t1,1011c <deregister_tm_clones+0x28>
+   10114:	a9850513          	addi	a0,a0,-1384
+   10118:	00030067          	jr	t1 # 0 <_start-0x100b0>
+   1011c:	00008067          	ret
+
+0000000000010120 <register_tm_clones>:
+   10120:	000147b7          	lui	a5,0x14
+   10124:	00014537          	lui	a0,0x14
+   10128:	a9878593          	addi	a1,a5,-1384 # 13a98 <__TMC_END__>
+   1012c:	a9850793          	addi	a5,a0,-1384 # 13a98 <__TMC_END__>
+   10130:	40f585b3          	sub	a1,a1,a5
+   10134:	4035d593          	srai	a1,a1,0x3
+   10138:	00200793          	li	a5,2
+   1013c:	02f5c5b3          	div	a1,a1,a5
+   10140:	00058c63          	beqz	a1,10158 <register_tm_clones+0x38>
+   10144:	00000337          	lui	t1,0x0
+   10148:	00030313          	mv	t1,t1
+   1014c:	00030663          	beqz	t1,10158 <register_tm_clones+0x38>
+   10150:	a9850513          	addi	a0,a0,-1384
+   10154:	00030067          	jr	t1 # 0 <_start-0x100b0>
+   10158:	00008067          	ret
+
+000000000001015c <__do_global_dtors_aux>:
+   1015c:	8201c703          	lbu	a4,-2016(gp) # 13ab8 <completed.5212>
+   10160:	04071663          	bnez	a4,101ac <__do_global_dtors_aux+0x50>
+   10164:	ff010113          	addi	sp,sp,-16
+   10168:	00813023          	sd	s0,0(sp)
+   1016c:	00113423          	sd	ra,8(sp)
+   10170:	00078413          	mv	s0,a5
+   10174:	f81ff0ef          	jal	ra,100f4 <deregister_tm_clones>
+   10178:	000007b7          	lui	a5,0x0
+   1017c:	00078793          	mv	a5,a5
+   10180:	00078a63          	beqz	a5,10194 <__do_global_dtors_aux+0x38>
+   10184:	00013537          	lui	a0,0x13
+   10188:	33c50513          	addi	a0,a0,828 # 1333c <__EH_FRAME_BEGIN__>
+   1018c:	ffff0097          	auipc	ra,0xffff0
+   10190:	e74080e7          	jalr	-396(ra) # 0 <_start-0x100b0>
+   10194:	00100793          	li	a5,1
+   10198:	82f18023          	sb	a5,-2016(gp) # 13ab8 <completed.5212>
+   1019c:	00813083          	ld	ra,8(sp)
+   101a0:	00013403          	ld	s0,0(sp)
+   101a4:	01010113          	addi	sp,sp,16
+   101a8:	00008067          	ret
+   101ac:	00008067          	ret
+
+00000000000101b0 <frame_dummy>:
+   101b0:	000007b7          	lui	a5,0x0
+   101b4:	00078793          	mv	a5,a5
+   101b8:	02078663          	beqz	a5,101e4 <frame_dummy+0x34>
+   101bc:	000145b7          	lui	a1,0x14
+   101c0:	00013537          	lui	a0,0x13
+   101c4:	ff010113          	addi	sp,sp,-16
+   101c8:	ac058593          	addi	a1,a1,-1344 # 13ac0 <object.5217>
+   101cc:	33c50513          	addi	a0,a0,828 # 1333c <__EH_FRAME_BEGIN__>
+   101d0:	00113423          	sd	ra,8(sp)
+   101d4:	ffff0097          	auipc	ra,0xffff0
+   101d8:	e2c080e7          	jalr	-468(ra) # 0 <_start-0x100b0>
+   101dc:	00813083          	ld	ra,8(sp)
+   101e0:	01010113          	addi	sp,sp,16
+   101e4:	f3dff06f          	j	10120 <register_tm_clones>
+
+00000000000101e8 <petrinet_main>:
+   101e8:	d7010113          	addi	sp,sp,-656
+   101ec:	28813423          	sd	s0,648(sp)
+   101f0:	29010413          	addi	s0,sp,656
+   101f4:	00200793          	li	a5,2
+   101f8:	fef42623          	sw	a5,-20(s0)
+   101fc:	3690106f          	j	11d64 <petrinet_main+0x1b7c>
+   10200:	fec42783          	lw	a5,-20(s0)
+   10204:	fff7879b          	addiw	a5,a5,-1
+   10208:	fef42623          	sw	a5,-20(s0)
+   1020c:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10210:	0007879b          	sext.w	a5,a5
+   10214:	00078713          	mv	a4,a5
+   10218:	00200793          	li	a5,2
+   1021c:	0ee7d863          	bge	a5,a4,1030c <petrinet_main+0x124>
+   10220:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10224:	0007879b          	sext.w	a5,a5
+   10228:	0037879b          	addiw	a5,a5,3
+   1022c:	0007879b          	sext.w	a5,a5
+   10230:	00078713          	mv	a4,a5
+   10234:	00600793          	li	a5,6
+   10238:	0ce7ca63          	blt	a5,a4,1030c <petrinet_main+0x124>
+   1023c:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10240:	0087b703          	ld	a4,8(a5) # 8 <_start-0x100a8>
+   10244:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10248:	0107b783          	ld	a5,16(a5)
+   1024c:	0cf71063          	bne	a4,a5,1030c <petrinet_main+0x124>
+   10250:	8b81b783          	ld	a5,-1864(gp) # 13b50 <petrinet_P1_marking_member_0>
+   10254:	fef43023          	sd	a5,-32(s0)
+   10258:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   1025c:	0087b783          	ld	a5,8(a5)
+   10260:	fcf43c23          	sd	a5,-40(s0)
+   10264:	fe043703          	ld	a4,-32(s0)
+   10268:	fd843783          	ld	a5,-40(s0)
+   1026c:	0af75063          	bge	a4,a5,1030c <petrinet_main+0x124>
+   10270:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10274:	0007879b          	sext.w	a5,a5
+   10278:	ffd7879b          	addiw	a5,a5,-3
+   1027c:	0007871b          	sext.w	a4,a5
+   10280:	8ae1a823          	sw	a4,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10284:	fe043703          	ld	a4,-32(s0)
+   10288:	fd843783          	ld	a5,-40(s0)
+   1028c:	40f707b3          	sub	a5,a4,a5
+   10290:	fcf43823          	sd	a5,-48(s0)
+   10294:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10298:	0007871b          	sext.w	a4,a5
+   1029c:	00371713          	slli	a4,a4,0x3
+   102a0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   102a4:	00f707b3          	add	a5,a4,a5
+   102a8:	fe043703          	ld	a4,-32(s0)
+   102ac:	00e7b023          	sd	a4,0(a5)
+   102b0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   102b4:	0007879b          	sext.w	a5,a5
+   102b8:	0017879b          	addiw	a5,a5,1
+   102bc:	0007871b          	sext.w	a4,a5
+   102c0:	00371713          	slli	a4,a4,0x3
+   102c4:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   102c8:	00f707b3          	add	a5,a4,a5
+   102cc:	fd843703          	ld	a4,-40(s0)
+   102d0:	00e7b023          	sd	a4,0(a5)
+   102d4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   102d8:	0007879b          	sext.w	a5,a5
+   102dc:	0027879b          	addiw	a5,a5,2
+   102e0:	0007871b          	sext.w	a4,a5
+   102e4:	00371713          	slli	a4,a4,0x3
+   102e8:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   102ec:	00f707b3          	add	a5,a4,a5
+   102f0:	fd043703          	ld	a4,-48(s0)
+   102f4:	00e7b023          	sd	a4,0(a5)
+   102f8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   102fc:	0007879b          	sext.w	a5,a5
+   10300:	0037879b          	addiw	a5,a5,3
+   10304:	0007871b          	sext.w	a4,a5
+   10308:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1030c:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10310:	0007879b          	sext.w	a5,a5
+   10314:	00078713          	mv	a4,a5
+   10318:	00200793          	li	a5,2
+   1031c:	0ee7d863          	bge	a5,a4,1040c <petrinet_main+0x224>
+   10320:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10324:	0007879b          	sext.w	a5,a5
+   10328:	0037879b          	addiw	a5,a5,3
+   1032c:	0007879b          	sext.w	a5,a5
+   10330:	00078713          	mv	a4,a5
+   10334:	00600793          	li	a5,6
+   10338:	0ce7ca63          	blt	a5,a4,1040c <petrinet_main+0x224>
+   1033c:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10340:	0107b703          	ld	a4,16(a5)
+   10344:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10348:	0087b783          	ld	a5,8(a5)
+   1034c:	0cf71063          	bne	a4,a5,1040c <petrinet_main+0x224>
+   10350:	8b81b783          	ld	a5,-1864(gp) # 13b50 <petrinet_P1_marking_member_0>
+   10354:	fcf43423          	sd	a5,-56(s0)
+   10358:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   1035c:	0107b783          	ld	a5,16(a5)
+   10360:	fcf43023          	sd	a5,-64(s0)
+   10364:	fc843703          	ld	a4,-56(s0)
+   10368:	fc043783          	ld	a5,-64(s0)
+   1036c:	0af75063          	bge	a4,a5,1040c <petrinet_main+0x224>
+   10370:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10374:	0007879b          	sext.w	a5,a5
+   10378:	ffd7879b          	addiw	a5,a5,-3
+   1037c:	0007871b          	sext.w	a4,a5
+   10380:	8ae1a823          	sw	a4,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10384:	fc843703          	ld	a4,-56(s0)
+   10388:	fc043783          	ld	a5,-64(s0)
+   1038c:	40f707b3          	sub	a5,a4,a5
+   10390:	faf43c23          	sd	a5,-72(s0)
+   10394:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10398:	0007871b          	sext.w	a4,a5
+   1039c:	00371713          	slli	a4,a4,0x3
+   103a0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   103a4:	00f707b3          	add	a5,a4,a5
+   103a8:	fc843703          	ld	a4,-56(s0)
+   103ac:	00e7b023          	sd	a4,0(a5)
+   103b0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   103b4:	0007879b          	sext.w	a5,a5
+   103b8:	0017879b          	addiw	a5,a5,1
+   103bc:	0007871b          	sext.w	a4,a5
+   103c0:	00371713          	slli	a4,a4,0x3
+   103c4:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   103c8:	00f707b3          	add	a5,a4,a5
+   103cc:	fc043703          	ld	a4,-64(s0)
+   103d0:	00e7b023          	sd	a4,0(a5)
+   103d4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   103d8:	0007879b          	sext.w	a5,a5
+   103dc:	0027879b          	addiw	a5,a5,2
+   103e0:	0007871b          	sext.w	a4,a5
+   103e4:	00371713          	slli	a4,a4,0x3
+   103e8:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   103ec:	00f707b3          	add	a5,a4,a5
+   103f0:	fb843703          	ld	a4,-72(s0)
+   103f4:	00e7b023          	sd	a4,0(a5)
+   103f8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   103fc:	0007879b          	sext.w	a5,a5
+   10400:	0037879b          	addiw	a5,a5,3
+   10404:	0007871b          	sext.w	a4,a5
+   10408:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1040c:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10410:	0007879b          	sext.w	a5,a5
+   10414:	00078713          	mv	a4,a5
+   10418:	00200793          	li	a5,2
+   1041c:	0ee7d663          	bge	a5,a4,10508 <petrinet_main+0x320>
+   10420:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10424:	0007879b          	sext.w	a5,a5
+   10428:	0037879b          	addiw	a5,a5,3
+   1042c:	0007879b          	sext.w	a5,a5
+   10430:	00078713          	mv	a4,a5
+   10434:	00600793          	li	a5,6
+   10438:	0ce7c863          	blt	a5,a4,10508 <petrinet_main+0x320>
+   1043c:	8b81b703          	ld	a4,-1864(gp) # 13b50 <petrinet_P1_marking_member_0>
+   10440:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10444:	0107b783          	ld	a5,16(a5)
+   10448:	0cf71063          	bne	a4,a5,10508 <petrinet_main+0x320>
+   1044c:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10450:	0087b783          	ld	a5,8(a5)
+   10454:	faf43823          	sd	a5,-80(s0)
+   10458:	8b81b783          	ld	a5,-1864(gp) # 13b50 <petrinet_P1_marking_member_0>
+   1045c:	faf43423          	sd	a5,-88(s0)
+   10460:	fb043703          	ld	a4,-80(s0)
+   10464:	fa843783          	ld	a5,-88(s0)
+   10468:	0af75063          	bge	a4,a5,10508 <petrinet_main+0x320>
+   1046c:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10470:	0007879b          	sext.w	a5,a5
+   10474:	ffd7879b          	addiw	a5,a5,-3
+   10478:	0007871b          	sext.w	a4,a5
+   1047c:	8ae1a823          	sw	a4,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10480:	fb043703          	ld	a4,-80(s0)
+   10484:	fa843783          	ld	a5,-88(s0)
+   10488:	40f707b3          	sub	a5,a4,a5
+   1048c:	faf43023          	sd	a5,-96(s0)
+   10490:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10494:	0007871b          	sext.w	a4,a5
+   10498:	00371713          	slli	a4,a4,0x3
+   1049c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   104a0:	00f707b3          	add	a5,a4,a5
+   104a4:	fb043703          	ld	a4,-80(s0)
+   104a8:	00e7b023          	sd	a4,0(a5)
+   104ac:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   104b0:	0007879b          	sext.w	a5,a5
+   104b4:	0017879b          	addiw	a5,a5,1
+   104b8:	0007871b          	sext.w	a4,a5
+   104bc:	00371713          	slli	a4,a4,0x3
+   104c0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   104c4:	00f707b3          	add	a5,a4,a5
+   104c8:	fa843703          	ld	a4,-88(s0)
+   104cc:	00e7b023          	sd	a4,0(a5)
+   104d0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   104d4:	0007879b          	sext.w	a5,a5
+   104d8:	0027879b          	addiw	a5,a5,2
+   104dc:	0007871b          	sext.w	a4,a5
+   104e0:	00371713          	slli	a4,a4,0x3
+   104e4:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   104e8:	00f707b3          	add	a5,a4,a5
+   104ec:	fa043703          	ld	a4,-96(s0)
+   104f0:	00e7b023          	sd	a4,0(a5)
+   104f4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   104f8:	0007879b          	sext.w	a5,a5
+   104fc:	0037879b          	addiw	a5,a5,3
+   10500:	0007871b          	sext.w	a4,a5
+   10504:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10508:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   1050c:	0007879b          	sext.w	a5,a5
+   10510:	00078713          	mv	a4,a5
+   10514:	00200793          	li	a5,2
+   10518:	0ee7d863          	bge	a5,a4,10608 <petrinet_main+0x420>
+   1051c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10520:	0007879b          	sext.w	a5,a5
+   10524:	0037879b          	addiw	a5,a5,3
+   10528:	0007879b          	sext.w	a5,a5
+   1052c:	00078713          	mv	a4,a5
+   10530:	00600793          	li	a5,6
+   10534:	0ce7ca63          	blt	a5,a4,10608 <petrinet_main+0x420>
+   10538:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   1053c:	0107b703          	ld	a4,16(a5)
+   10540:	8b81b783          	ld	a5,-1864(gp) # 13b50 <petrinet_P1_marking_member_0>
+   10544:	0cf71263          	bne	a4,a5,10608 <petrinet_main+0x420>
+   10548:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   1054c:	0087b783          	ld	a5,8(a5)
+   10550:	f8f43c23          	sd	a5,-104(s0)
+   10554:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10558:	0107b783          	ld	a5,16(a5)
+   1055c:	f8f43823          	sd	a5,-112(s0)
+   10560:	f9843703          	ld	a4,-104(s0)
+   10564:	f9043783          	ld	a5,-112(s0)
+   10568:	0af75063          	bge	a4,a5,10608 <petrinet_main+0x420>
+   1056c:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10570:	0007879b          	sext.w	a5,a5
+   10574:	ffd7879b          	addiw	a5,a5,-3
+   10578:	0007871b          	sext.w	a4,a5
+   1057c:	8ae1a823          	sw	a4,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10580:	f9843703          	ld	a4,-104(s0)
+   10584:	f9043783          	ld	a5,-112(s0)
+   10588:	40f707b3          	sub	a5,a4,a5
+   1058c:	f8f43423          	sd	a5,-120(s0)
+   10590:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10594:	0007871b          	sext.w	a4,a5
+   10598:	00371713          	slli	a4,a4,0x3
+   1059c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   105a0:	00f707b3          	add	a5,a4,a5
+   105a4:	f9843703          	ld	a4,-104(s0)
+   105a8:	00e7b023          	sd	a4,0(a5)
+   105ac:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   105b0:	0007879b          	sext.w	a5,a5
+   105b4:	0017879b          	addiw	a5,a5,1
+   105b8:	0007871b          	sext.w	a4,a5
+   105bc:	00371713          	slli	a4,a4,0x3
+   105c0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   105c4:	00f707b3          	add	a5,a4,a5
+   105c8:	f9043703          	ld	a4,-112(s0)
+   105cc:	00e7b023          	sd	a4,0(a5)
+   105d0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   105d4:	0007879b          	sext.w	a5,a5
+   105d8:	0027879b          	addiw	a5,a5,2
+   105dc:	0007871b          	sext.w	a4,a5
+   105e0:	00371713          	slli	a4,a4,0x3
+   105e4:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   105e8:	00f707b3          	add	a5,a4,a5
+   105ec:	f8843703          	ld	a4,-120(s0)
+   105f0:	00e7b023          	sd	a4,0(a5)
+   105f4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   105f8:	0007879b          	sext.w	a5,a5
+   105fc:	0037879b          	addiw	a5,a5,3
+   10600:	0007871b          	sext.w	a4,a5
+   10604:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10608:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   1060c:	0007879b          	sext.w	a5,a5
+   10610:	00078713          	mv	a4,a5
+   10614:	00200793          	li	a5,2
+   10618:	0ee7d663          	bge	a5,a4,10704 <petrinet_main+0x51c>
+   1061c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10620:	0007879b          	sext.w	a5,a5
+   10624:	0037879b          	addiw	a5,a5,3
+   10628:	0007879b          	sext.w	a5,a5
+   1062c:	00078713          	mv	a4,a5
+   10630:	00600793          	li	a5,6
+   10634:	0ce7c863          	blt	a5,a4,10704 <petrinet_main+0x51c>
+   10638:	8b81b703          	ld	a4,-1864(gp) # 13b50 <petrinet_P1_marking_member_0>
+   1063c:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10640:	0087b783          	ld	a5,8(a5)
+   10644:	0cf71063          	bne	a4,a5,10704 <petrinet_main+0x51c>
+   10648:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   1064c:	0107b783          	ld	a5,16(a5)
+   10650:	f8f43023          	sd	a5,-128(s0)
+   10654:	8b81b783          	ld	a5,-1864(gp) # 13b50 <petrinet_P1_marking_member_0>
+   10658:	f6f43c23          	sd	a5,-136(s0)
+   1065c:	f8043703          	ld	a4,-128(s0)
+   10660:	f7843783          	ld	a5,-136(s0)
+   10664:	0af75063          	bge	a4,a5,10704 <petrinet_main+0x51c>
+   10668:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   1066c:	0007879b          	sext.w	a5,a5
+   10670:	ffd7879b          	addiw	a5,a5,-3
+   10674:	0007871b          	sext.w	a4,a5
+   10678:	8ae1a823          	sw	a4,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   1067c:	f8043703          	ld	a4,-128(s0)
+   10680:	f7843783          	ld	a5,-136(s0)
+   10684:	40f707b3          	sub	a5,a4,a5
+   10688:	f6f43823          	sd	a5,-144(s0)
+   1068c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10690:	0007871b          	sext.w	a4,a5
+   10694:	00371713          	slli	a4,a4,0x3
+   10698:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   1069c:	00f707b3          	add	a5,a4,a5
+   106a0:	f8043703          	ld	a4,-128(s0)
+   106a4:	00e7b023          	sd	a4,0(a5)
+   106a8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   106ac:	0007879b          	sext.w	a5,a5
+   106b0:	0017879b          	addiw	a5,a5,1
+   106b4:	0007871b          	sext.w	a4,a5
+   106b8:	00371713          	slli	a4,a4,0x3
+   106bc:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   106c0:	00f707b3          	add	a5,a4,a5
+   106c4:	f7843703          	ld	a4,-136(s0)
+   106c8:	00e7b023          	sd	a4,0(a5)
+   106cc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   106d0:	0007879b          	sext.w	a5,a5
+   106d4:	0027879b          	addiw	a5,a5,2
+   106d8:	0007871b          	sext.w	a4,a5
+   106dc:	00371713          	slli	a4,a4,0x3
+   106e0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   106e4:	00f707b3          	add	a5,a4,a5
+   106e8:	f7043703          	ld	a4,-144(s0)
+   106ec:	00e7b023          	sd	a4,0(a5)
+   106f0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   106f4:	0007879b          	sext.w	a5,a5
+   106f8:	0037879b          	addiw	a5,a5,3
+   106fc:	0007871b          	sext.w	a4,a5
+   10700:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10704:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   10708:	0007879b          	sext.w	a5,a5
+   1070c:	00078713          	mv	a4,a5
+   10710:	00200793          	li	a5,2
+   10714:	0ee7d863          	bge	a5,a4,10804 <petrinet_main+0x61c>
+   10718:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1071c:	0007879b          	sext.w	a5,a5
+   10720:	0037879b          	addiw	a5,a5,3
+   10724:	0007879b          	sext.w	a5,a5
+   10728:	00078713          	mv	a4,a5
+   1072c:	00600793          	li	a5,6
+   10730:	0ce7ca63          	blt	a5,a4,10804 <petrinet_main+0x61c>
+   10734:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10738:	0087b703          	ld	a4,8(a5)
+   1073c:	8b81b783          	ld	a5,-1864(gp) # 13b50 <petrinet_P1_marking_member_0>
+   10740:	0cf71263          	bne	a4,a5,10804 <petrinet_main+0x61c>
+   10744:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10748:	0107b783          	ld	a5,16(a5)
+   1074c:	f6f43423          	sd	a5,-152(s0)
+   10750:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   10754:	0087b783          	ld	a5,8(a5)
+   10758:	f6f43023          	sd	a5,-160(s0)
+   1075c:	f6843703          	ld	a4,-152(s0)
+   10760:	f6043783          	ld	a5,-160(s0)
+   10764:	0af75063          	bge	a4,a5,10804 <petrinet_main+0x61c>
+   10768:	8b01a783          	lw	a5,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   1076c:	0007879b          	sext.w	a5,a5
+   10770:	ffd7879b          	addiw	a5,a5,-3
+   10774:	0007871b          	sext.w	a4,a5
+   10778:	8ae1a823          	sw	a4,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   1077c:	f6843703          	ld	a4,-152(s0)
+   10780:	f6043783          	ld	a5,-160(s0)
+   10784:	40f707b3          	sub	a5,a4,a5
+   10788:	f4f43c23          	sd	a5,-168(s0)
+   1078c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10790:	0007871b          	sext.w	a4,a5
+   10794:	00371713          	slli	a4,a4,0x3
+   10798:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   1079c:	00f707b3          	add	a5,a4,a5
+   107a0:	f6843703          	ld	a4,-152(s0)
+   107a4:	00e7b023          	sd	a4,0(a5)
+   107a8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   107ac:	0007879b          	sext.w	a5,a5
+   107b0:	0017879b          	addiw	a5,a5,1
+   107b4:	0007871b          	sext.w	a4,a5
+   107b8:	00371713          	slli	a4,a4,0x3
+   107bc:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   107c0:	00f707b3          	add	a5,a4,a5
+   107c4:	f6043703          	ld	a4,-160(s0)
+   107c8:	00e7b023          	sd	a4,0(a5)
+   107cc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   107d0:	0007879b          	sext.w	a5,a5
+   107d4:	0027879b          	addiw	a5,a5,2
+   107d8:	0007871b          	sext.w	a4,a5
+   107dc:	00371713          	slli	a4,a4,0x3
+   107e0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   107e4:	00f707b3          	add	a5,a4,a5
+   107e8:	f5843703          	ld	a4,-168(s0)
+   107ec:	00e7b023          	sd	a4,0(a5)
+   107f0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   107f4:	0007879b          	sext.w	a5,a5
+   107f8:	0037879b          	addiw	a5,a5,3
+   107fc:	0007871b          	sext.w	a4,a5
+   10800:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10804:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10808:	0007879b          	sext.w	a5,a5
+   1080c:	00078713          	mv	a4,a5
+   10810:	00300793          	li	a5,3
+   10814:	10e7d263          	bge	a5,a4,10918 <petrinet_main+0x730>
+   10818:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1081c:	0007879b          	sext.w	a5,a5
+   10820:	0037879b          	addiw	a5,a5,3
+   10824:	0007879b          	sext.w	a5,a5
+   10828:	00078713          	mv	a4,a5
+   1082c:	00600793          	li	a5,6
+   10830:	0ee7c463          	blt	a5,a4,10918 <petrinet_main+0x730>
+   10834:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10838:	0087b703          	ld	a4,8(a5)
+   1083c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10840:	0107b783          	ld	a5,16(a5)
+   10844:	0cf71a63          	bne	a4,a5,10918 <petrinet_main+0x730>
+   10848:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   1084c:	0087b703          	ld	a4,8(a5)
+   10850:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10854:	0187b783          	ld	a5,24(a5)
+   10858:	0cf71063          	bne	a4,a5,10918 <petrinet_main+0x730>
+   1085c:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10860:	f4f43823          	sd	a5,-176(s0)
+   10864:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10868:	0087b783          	ld	a5,8(a5)
+   1086c:	f4f43423          	sd	a5,-184(s0)
+   10870:	f4843703          	ld	a4,-184(s0)
+   10874:	f5043783          	ld	a5,-176(s0)
+   10878:	0ae7d063          	bge	a5,a4,10918 <petrinet_main+0x730>
+   1087c:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10880:	0007879b          	sext.w	a5,a5
+   10884:	ffc7879b          	addiw	a5,a5,-4
+   10888:	0007871b          	sext.w	a4,a5
+   1088c:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10890:	f5043703          	ld	a4,-176(s0)
+   10894:	f4843783          	ld	a5,-184(s0)
+   10898:	00f707b3          	add	a5,a4,a5
+   1089c:	f4f43023          	sd	a5,-192(s0)
+   108a0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   108a4:	0007871b          	sext.w	a4,a5
+   108a8:	00371713          	slli	a4,a4,0x3
+   108ac:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   108b0:	00f707b3          	add	a5,a4,a5
+   108b4:	f5043703          	ld	a4,-176(s0)
+   108b8:	00e7b023          	sd	a4,0(a5)
+   108bc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   108c0:	0007879b          	sext.w	a5,a5
+   108c4:	0017879b          	addiw	a5,a5,1
+   108c8:	0007871b          	sext.w	a4,a5
+   108cc:	00371713          	slli	a4,a4,0x3
+   108d0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   108d4:	00f707b3          	add	a5,a4,a5
+   108d8:	f4843703          	ld	a4,-184(s0)
+   108dc:	00e7b023          	sd	a4,0(a5)
+   108e0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   108e4:	0007879b          	sext.w	a5,a5
+   108e8:	0027879b          	addiw	a5,a5,2
+   108ec:	0007871b          	sext.w	a4,a5
+   108f0:	00371713          	slli	a4,a4,0x3
+   108f4:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   108f8:	00f707b3          	add	a5,a4,a5
+   108fc:	f4043703          	ld	a4,-192(s0)
+   10900:	00e7b023          	sd	a4,0(a5)
+   10904:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10908:	0007879b          	sext.w	a5,a5
+   1090c:	0037879b          	addiw	a5,a5,3
+   10910:	0007871b          	sext.w	a4,a5
+   10914:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10918:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   1091c:	0007879b          	sext.w	a5,a5
+   10920:	00078713          	mv	a4,a5
+   10924:	00300793          	li	a5,3
+   10928:	10e7d263          	bge	a5,a4,10a2c <petrinet_main+0x844>
+   1092c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10930:	0007879b          	sext.w	a5,a5
+   10934:	0037879b          	addiw	a5,a5,3
+   10938:	0007879b          	sext.w	a5,a5
+   1093c:	00078713          	mv	a4,a5
+   10940:	00600793          	li	a5,6
+   10944:	0ee7c463          	blt	a5,a4,10a2c <petrinet_main+0x844>
+   10948:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   1094c:	0087b703          	ld	a4,8(a5)
+   10950:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10954:	0187b783          	ld	a5,24(a5)
+   10958:	0cf71a63          	bne	a4,a5,10a2c <petrinet_main+0x844>
+   1095c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10960:	0087b703          	ld	a4,8(a5)
+   10964:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10968:	0107b783          	ld	a5,16(a5)
+   1096c:	0cf71063          	bne	a4,a5,10a2c <petrinet_main+0x844>
+   10970:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10974:	f2f43c23          	sd	a5,-200(s0)
+   10978:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   1097c:	0087b783          	ld	a5,8(a5)
+   10980:	f2f43823          	sd	a5,-208(s0)
+   10984:	f3043703          	ld	a4,-208(s0)
+   10988:	f3843783          	ld	a5,-200(s0)
+   1098c:	0ae7d063          	bge	a5,a4,10a2c <petrinet_main+0x844>
+   10990:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10994:	0007879b          	sext.w	a5,a5
+   10998:	ffc7879b          	addiw	a5,a5,-4
+   1099c:	0007871b          	sext.w	a4,a5
+   109a0:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   109a4:	f3843703          	ld	a4,-200(s0)
+   109a8:	f3043783          	ld	a5,-208(s0)
+   109ac:	00f707b3          	add	a5,a4,a5
+   109b0:	f2f43423          	sd	a5,-216(s0)
+   109b4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   109b8:	0007871b          	sext.w	a4,a5
+   109bc:	00371713          	slli	a4,a4,0x3
+   109c0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   109c4:	00f707b3          	add	a5,a4,a5
+   109c8:	f3843703          	ld	a4,-200(s0)
+   109cc:	00e7b023          	sd	a4,0(a5)
+   109d0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   109d4:	0007879b          	sext.w	a5,a5
+   109d8:	0017879b          	addiw	a5,a5,1
+   109dc:	0007871b          	sext.w	a4,a5
+   109e0:	00371713          	slli	a4,a4,0x3
+   109e4:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   109e8:	00f707b3          	add	a5,a4,a5
+   109ec:	f3043703          	ld	a4,-208(s0)
+   109f0:	00e7b023          	sd	a4,0(a5)
+   109f4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   109f8:	0007879b          	sext.w	a5,a5
+   109fc:	0027879b          	addiw	a5,a5,2
+   10a00:	0007871b          	sext.w	a4,a5
+   10a04:	00371713          	slli	a4,a4,0x3
+   10a08:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10a0c:	00f707b3          	add	a5,a4,a5
+   10a10:	f2843703          	ld	a4,-216(s0)
+   10a14:	00e7b023          	sd	a4,0(a5)
+   10a18:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10a1c:	0007879b          	sext.w	a5,a5
+   10a20:	0037879b          	addiw	a5,a5,3
+   10a24:	0007871b          	sext.w	a4,a5
+   10a28:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10a2c:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10a30:	0007879b          	sext.w	a5,a5
+   10a34:	00078713          	mv	a4,a5
+   10a38:	00300793          	li	a5,3
+   10a3c:	10e7d263          	bge	a5,a4,10b40 <petrinet_main+0x958>
+   10a40:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10a44:	0007879b          	sext.w	a5,a5
+   10a48:	0037879b          	addiw	a5,a5,3
+   10a4c:	0007879b          	sext.w	a5,a5
+   10a50:	00078713          	mv	a4,a5
+   10a54:	00600793          	li	a5,6
+   10a58:	0ee7c463          	blt	a5,a4,10b40 <petrinet_main+0x958>
+   10a5c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10a60:	0107b703          	ld	a4,16(a5)
+   10a64:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10a68:	0087b783          	ld	a5,8(a5)
+   10a6c:	0cf71a63          	bne	a4,a5,10b40 <petrinet_main+0x958>
+   10a70:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10a74:	0107b703          	ld	a4,16(a5)
+   10a78:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10a7c:	0187b783          	ld	a5,24(a5)
+   10a80:	0cf71063          	bne	a4,a5,10b40 <petrinet_main+0x958>
+   10a84:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10a88:	f2f43023          	sd	a5,-224(s0)
+   10a8c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10a90:	0107b783          	ld	a5,16(a5)
+   10a94:	f0f43c23          	sd	a5,-232(s0)
+   10a98:	f1843703          	ld	a4,-232(s0)
+   10a9c:	f2043783          	ld	a5,-224(s0)
+   10aa0:	0ae7d063          	bge	a5,a4,10b40 <petrinet_main+0x958>
+   10aa4:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10aa8:	0007879b          	sext.w	a5,a5
+   10aac:	ffc7879b          	addiw	a5,a5,-4
+   10ab0:	0007871b          	sext.w	a4,a5
+   10ab4:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10ab8:	f2043703          	ld	a4,-224(s0)
+   10abc:	f1843783          	ld	a5,-232(s0)
+   10ac0:	00f707b3          	add	a5,a4,a5
+   10ac4:	f0f43823          	sd	a5,-240(s0)
+   10ac8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10acc:	0007871b          	sext.w	a4,a5
+   10ad0:	00371713          	slli	a4,a4,0x3
+   10ad4:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10ad8:	00f707b3          	add	a5,a4,a5
+   10adc:	f2043703          	ld	a4,-224(s0)
+   10ae0:	00e7b023          	sd	a4,0(a5)
+   10ae4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10ae8:	0007879b          	sext.w	a5,a5
+   10aec:	0017879b          	addiw	a5,a5,1
+   10af0:	0007871b          	sext.w	a4,a5
+   10af4:	00371713          	slli	a4,a4,0x3
+   10af8:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10afc:	00f707b3          	add	a5,a4,a5
+   10b00:	f1843703          	ld	a4,-232(s0)
+   10b04:	00e7b023          	sd	a4,0(a5)
+   10b08:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10b0c:	0007879b          	sext.w	a5,a5
+   10b10:	0027879b          	addiw	a5,a5,2
+   10b14:	0007871b          	sext.w	a4,a5
+   10b18:	00371713          	slli	a4,a4,0x3
+   10b1c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10b20:	00f707b3          	add	a5,a4,a5
+   10b24:	f1043703          	ld	a4,-240(s0)
+   10b28:	00e7b023          	sd	a4,0(a5)
+   10b2c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10b30:	0007879b          	sext.w	a5,a5
+   10b34:	0037879b          	addiw	a5,a5,3
+   10b38:	0007871b          	sext.w	a4,a5
+   10b3c:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10b40:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10b44:	0007879b          	sext.w	a5,a5
+   10b48:	00078713          	mv	a4,a5
+   10b4c:	00300793          	li	a5,3
+   10b50:	10e7d263          	bge	a5,a4,10c54 <petrinet_main+0xa6c>
+   10b54:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10b58:	0007879b          	sext.w	a5,a5
+   10b5c:	0037879b          	addiw	a5,a5,3
+   10b60:	0007879b          	sext.w	a5,a5
+   10b64:	00078713          	mv	a4,a5
+   10b68:	00600793          	li	a5,6
+   10b6c:	0ee7c463          	blt	a5,a4,10c54 <petrinet_main+0xa6c>
+   10b70:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10b74:	0107b703          	ld	a4,16(a5)
+   10b78:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10b7c:	0187b783          	ld	a5,24(a5)
+   10b80:	0cf71a63          	bne	a4,a5,10c54 <petrinet_main+0xa6c>
+   10b84:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10b88:	0107b703          	ld	a4,16(a5)
+   10b8c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10b90:	0087b783          	ld	a5,8(a5)
+   10b94:	0cf71063          	bne	a4,a5,10c54 <petrinet_main+0xa6c>
+   10b98:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10b9c:	f0f43423          	sd	a5,-248(s0)
+   10ba0:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10ba4:	0107b783          	ld	a5,16(a5)
+   10ba8:	f0f43023          	sd	a5,-256(s0)
+   10bac:	f0043703          	ld	a4,-256(s0)
+   10bb0:	f0843783          	ld	a5,-248(s0)
+   10bb4:	0ae7d063          	bge	a5,a4,10c54 <petrinet_main+0xa6c>
+   10bb8:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10bbc:	0007879b          	sext.w	a5,a5
+   10bc0:	ffc7879b          	addiw	a5,a5,-4
+   10bc4:	0007871b          	sext.w	a4,a5
+   10bc8:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10bcc:	f0843703          	ld	a4,-248(s0)
+   10bd0:	f0043783          	ld	a5,-256(s0)
+   10bd4:	00f707b3          	add	a5,a4,a5
+   10bd8:	eef43c23          	sd	a5,-264(s0)
+   10bdc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10be0:	0007871b          	sext.w	a4,a5
+   10be4:	00371713          	slli	a4,a4,0x3
+   10be8:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10bec:	00f707b3          	add	a5,a4,a5
+   10bf0:	f0843703          	ld	a4,-248(s0)
+   10bf4:	00e7b023          	sd	a4,0(a5)
+   10bf8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10bfc:	0007879b          	sext.w	a5,a5
+   10c00:	0017879b          	addiw	a5,a5,1
+   10c04:	0007871b          	sext.w	a4,a5
+   10c08:	00371713          	slli	a4,a4,0x3
+   10c0c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10c10:	00f707b3          	add	a5,a4,a5
+   10c14:	f0043703          	ld	a4,-256(s0)
+   10c18:	00e7b023          	sd	a4,0(a5)
+   10c1c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10c20:	0007879b          	sext.w	a5,a5
+   10c24:	0027879b          	addiw	a5,a5,2
+   10c28:	0007871b          	sext.w	a4,a5
+   10c2c:	00371713          	slli	a4,a4,0x3
+   10c30:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10c34:	00f707b3          	add	a5,a4,a5
+   10c38:	ef843703          	ld	a4,-264(s0)
+   10c3c:	00e7b023          	sd	a4,0(a5)
+   10c40:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10c44:	0007879b          	sext.w	a5,a5
+   10c48:	0037879b          	addiw	a5,a5,3
+   10c4c:	0007871b          	sext.w	a4,a5
+   10c50:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10c54:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10c58:	0007879b          	sext.w	a5,a5
+   10c5c:	00078713          	mv	a4,a5
+   10c60:	00300793          	li	a5,3
+   10c64:	10e7d263          	bge	a5,a4,10d68 <petrinet_main+0xb80>
+   10c68:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10c6c:	0007879b          	sext.w	a5,a5
+   10c70:	0037879b          	addiw	a5,a5,3
+   10c74:	0007879b          	sext.w	a5,a5
+   10c78:	00078713          	mv	a4,a5
+   10c7c:	00600793          	li	a5,6
+   10c80:	0ee7c463          	blt	a5,a4,10d68 <petrinet_main+0xb80>
+   10c84:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10c88:	0187b703          	ld	a4,24(a5)
+   10c8c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10c90:	0087b783          	ld	a5,8(a5)
+   10c94:	0cf71a63          	bne	a4,a5,10d68 <petrinet_main+0xb80>
+   10c98:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10c9c:	0187b703          	ld	a4,24(a5)
+   10ca0:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10ca4:	0107b783          	ld	a5,16(a5)
+   10ca8:	0cf71063          	bne	a4,a5,10d68 <petrinet_main+0xb80>
+   10cac:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10cb0:	eef43823          	sd	a5,-272(s0)
+   10cb4:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10cb8:	0187b783          	ld	a5,24(a5)
+   10cbc:	eef43423          	sd	a5,-280(s0)
+   10cc0:	ee843703          	ld	a4,-280(s0)
+   10cc4:	ef043783          	ld	a5,-272(s0)
+   10cc8:	0ae7d063          	bge	a5,a4,10d68 <petrinet_main+0xb80>
+   10ccc:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10cd0:	0007879b          	sext.w	a5,a5
+   10cd4:	ffc7879b          	addiw	a5,a5,-4
+   10cd8:	0007871b          	sext.w	a4,a5
+   10cdc:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10ce0:	ef043703          	ld	a4,-272(s0)
+   10ce4:	ee843783          	ld	a5,-280(s0)
+   10ce8:	00f707b3          	add	a5,a4,a5
+   10cec:	eef43023          	sd	a5,-288(s0)
+   10cf0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10cf4:	0007871b          	sext.w	a4,a5
+   10cf8:	00371713          	slli	a4,a4,0x3
+   10cfc:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10d00:	00f707b3          	add	a5,a4,a5
+   10d04:	ef043703          	ld	a4,-272(s0)
+   10d08:	00e7b023          	sd	a4,0(a5)
+   10d0c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10d10:	0007879b          	sext.w	a5,a5
+   10d14:	0017879b          	addiw	a5,a5,1
+   10d18:	0007871b          	sext.w	a4,a5
+   10d1c:	00371713          	slli	a4,a4,0x3
+   10d20:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10d24:	00f707b3          	add	a5,a4,a5
+   10d28:	ee843703          	ld	a4,-280(s0)
+   10d2c:	00e7b023          	sd	a4,0(a5)
+   10d30:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10d34:	0007879b          	sext.w	a5,a5
+   10d38:	0027879b          	addiw	a5,a5,2
+   10d3c:	0007871b          	sext.w	a4,a5
+   10d40:	00371713          	slli	a4,a4,0x3
+   10d44:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10d48:	00f707b3          	add	a5,a4,a5
+   10d4c:	ee043703          	ld	a4,-288(s0)
+   10d50:	00e7b023          	sd	a4,0(a5)
+   10d54:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10d58:	0007879b          	sext.w	a5,a5
+   10d5c:	0037879b          	addiw	a5,a5,3
+   10d60:	0007871b          	sext.w	a4,a5
+   10d64:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10d68:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10d6c:	0007879b          	sext.w	a5,a5
+   10d70:	00078713          	mv	a4,a5
+   10d74:	00300793          	li	a5,3
+   10d78:	10e7d263          	bge	a5,a4,10e7c <petrinet_main+0xc94>
+   10d7c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10d80:	0007879b          	sext.w	a5,a5
+   10d84:	0037879b          	addiw	a5,a5,3
+   10d88:	0007879b          	sext.w	a5,a5
+   10d8c:	00078713          	mv	a4,a5
+   10d90:	00600793          	li	a5,6
+   10d94:	0ee7c463          	blt	a5,a4,10e7c <petrinet_main+0xc94>
+   10d98:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10d9c:	0187b703          	ld	a4,24(a5)
+   10da0:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10da4:	0107b783          	ld	a5,16(a5)
+   10da8:	0cf71a63          	bne	a4,a5,10e7c <petrinet_main+0xc94>
+   10dac:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10db0:	0187b703          	ld	a4,24(a5)
+   10db4:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10db8:	0087b783          	ld	a5,8(a5)
+   10dbc:	0cf71063          	bne	a4,a5,10e7c <petrinet_main+0xc94>
+   10dc0:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10dc4:	ecf43c23          	sd	a5,-296(s0)
+   10dc8:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10dcc:	0187b783          	ld	a5,24(a5)
+   10dd0:	ecf43823          	sd	a5,-304(s0)
+   10dd4:	ed043703          	ld	a4,-304(s0)
+   10dd8:	ed843783          	ld	a5,-296(s0)
+   10ddc:	0ae7d063          	bge	a5,a4,10e7c <petrinet_main+0xc94>
+   10de0:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10de4:	0007879b          	sext.w	a5,a5
+   10de8:	ffc7879b          	addiw	a5,a5,-4
+   10dec:	0007871b          	sext.w	a4,a5
+   10df0:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10df4:	ed843703          	ld	a4,-296(s0)
+   10df8:	ed043783          	ld	a5,-304(s0)
+   10dfc:	00f707b3          	add	a5,a4,a5
+   10e00:	ecf43423          	sd	a5,-312(s0)
+   10e04:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10e08:	0007871b          	sext.w	a4,a5
+   10e0c:	00371713          	slli	a4,a4,0x3
+   10e10:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10e14:	00f707b3          	add	a5,a4,a5
+   10e18:	ed843703          	ld	a4,-296(s0)
+   10e1c:	00e7b023          	sd	a4,0(a5)
+   10e20:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10e24:	0007879b          	sext.w	a5,a5
+   10e28:	0017879b          	addiw	a5,a5,1
+   10e2c:	0007871b          	sext.w	a4,a5
+   10e30:	00371713          	slli	a4,a4,0x3
+   10e34:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10e38:	00f707b3          	add	a5,a4,a5
+   10e3c:	ed043703          	ld	a4,-304(s0)
+   10e40:	00e7b023          	sd	a4,0(a5)
+   10e44:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10e48:	0007879b          	sext.w	a5,a5
+   10e4c:	0027879b          	addiw	a5,a5,2
+   10e50:	0007871b          	sext.w	a4,a5
+   10e54:	00371713          	slli	a4,a4,0x3
+   10e58:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10e5c:	00f707b3          	add	a5,a4,a5
+   10e60:	ec843703          	ld	a4,-312(s0)
+   10e64:	00e7b023          	sd	a4,0(a5)
+   10e68:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10e6c:	0007879b          	sext.w	a5,a5
+   10e70:	0037879b          	addiw	a5,a5,3
+   10e74:	0007871b          	sext.w	a4,a5
+   10e78:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10e7c:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10e80:	0007879b          	sext.w	a5,a5
+   10e84:	00078713          	mv	a4,a5
+   10e88:	00300793          	li	a5,3
+   10e8c:	0ee7de63          	bge	a5,a4,10f88 <petrinet_main+0xda0>
+   10e90:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10e94:	0007879b          	sext.w	a5,a5
+   10e98:	0037879b          	addiw	a5,a5,3
+   10e9c:	0007879b          	sext.w	a5,a5
+   10ea0:	00078713          	mv	a4,a5
+   10ea4:	00600793          	li	a5,6
+   10ea8:	0ee7c063          	blt	a5,a4,10f88 <petrinet_main+0xda0>
+   10eac:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10eb0:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10eb4:	0107b783          	ld	a5,16(a5)
+   10eb8:	0cf71863          	bne	a4,a5,10f88 <petrinet_main+0xda0>
+   10ebc:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10ec0:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10ec4:	0187b783          	ld	a5,24(a5)
+   10ec8:	0cf71063          	bne	a4,a5,10f88 <petrinet_main+0xda0>
+   10ecc:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10ed0:	0087b783          	ld	a5,8(a5)
+   10ed4:	ecf43023          	sd	a5,-320(s0)
+   10ed8:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10edc:	eaf43c23          	sd	a5,-328(s0)
+   10ee0:	eb843703          	ld	a4,-328(s0)
+   10ee4:	ec043783          	ld	a5,-320(s0)
+   10ee8:	0ae7d063          	bge	a5,a4,10f88 <petrinet_main+0xda0>
+   10eec:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10ef0:	0007879b          	sext.w	a5,a5
+   10ef4:	ffc7879b          	addiw	a5,a5,-4
+   10ef8:	0007871b          	sext.w	a4,a5
+   10efc:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10f00:	ec043703          	ld	a4,-320(s0)
+   10f04:	eb843783          	ld	a5,-328(s0)
+   10f08:	00f707b3          	add	a5,a4,a5
+   10f0c:	eaf43823          	sd	a5,-336(s0)
+   10f10:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10f14:	0007871b          	sext.w	a4,a5
+   10f18:	00371713          	slli	a4,a4,0x3
+   10f1c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10f20:	00f707b3          	add	a5,a4,a5
+   10f24:	ec043703          	ld	a4,-320(s0)
+   10f28:	00e7b023          	sd	a4,0(a5)
+   10f2c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10f30:	0007879b          	sext.w	a5,a5
+   10f34:	0017879b          	addiw	a5,a5,1
+   10f38:	0007871b          	sext.w	a4,a5
+   10f3c:	00371713          	slli	a4,a4,0x3
+   10f40:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10f44:	00f707b3          	add	a5,a4,a5
+   10f48:	eb843703          	ld	a4,-328(s0)
+   10f4c:	00e7b023          	sd	a4,0(a5)
+   10f50:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10f54:	0007879b          	sext.w	a5,a5
+   10f58:	0027879b          	addiw	a5,a5,2
+   10f5c:	0007871b          	sext.w	a4,a5
+   10f60:	00371713          	slli	a4,a4,0x3
+   10f64:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   10f68:	00f707b3          	add	a5,a4,a5
+   10f6c:	eb043703          	ld	a4,-336(s0)
+   10f70:	00e7b023          	sd	a4,0(a5)
+   10f74:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10f78:	0007879b          	sext.w	a5,a5
+   10f7c:	0037879b          	addiw	a5,a5,3
+   10f80:	0007871b          	sext.w	a4,a5
+   10f84:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10f88:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10f8c:	0007879b          	sext.w	a5,a5
+   10f90:	00078713          	mv	a4,a5
+   10f94:	00300793          	li	a5,3
+   10f98:	0ee7de63          	bge	a5,a4,11094 <petrinet_main+0xeac>
+   10f9c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   10fa0:	0007879b          	sext.w	a5,a5
+   10fa4:	0037879b          	addiw	a5,a5,3
+   10fa8:	0007879b          	sext.w	a5,a5
+   10fac:	00078713          	mv	a4,a5
+   10fb0:	00600793          	li	a5,6
+   10fb4:	0ee7c063          	blt	a5,a4,11094 <petrinet_main+0xeac>
+   10fb8:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10fbc:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10fc0:	0187b783          	ld	a5,24(a5)
+   10fc4:	0cf71863          	bne	a4,a5,11094 <petrinet_main+0xeac>
+   10fc8:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10fcc:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10fd0:	0107b783          	ld	a5,16(a5)
+   10fd4:	0cf71063          	bne	a4,a5,11094 <petrinet_main+0xeac>
+   10fd8:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   10fdc:	0087b783          	ld	a5,8(a5)
+   10fe0:	eaf43423          	sd	a5,-344(s0)
+   10fe4:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   10fe8:	eaf43023          	sd	a5,-352(s0)
+   10fec:	ea043703          	ld	a4,-352(s0)
+   10ff0:	ea843783          	ld	a5,-344(s0)
+   10ff4:	0ae7d063          	bge	a5,a4,11094 <petrinet_main+0xeac>
+   10ff8:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   10ffc:	0007879b          	sext.w	a5,a5
+   11000:	ffc7879b          	addiw	a5,a5,-4
+   11004:	0007871b          	sext.w	a4,a5
+   11008:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   1100c:	ea843703          	ld	a4,-344(s0)
+   11010:	ea043783          	ld	a5,-352(s0)
+   11014:	00f707b3          	add	a5,a4,a5
+   11018:	e8f43c23          	sd	a5,-360(s0)
+   1101c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11020:	0007871b          	sext.w	a4,a5
+   11024:	00371713          	slli	a4,a4,0x3
+   11028:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   1102c:	00f707b3          	add	a5,a4,a5
+   11030:	ea843703          	ld	a4,-344(s0)
+   11034:	00e7b023          	sd	a4,0(a5)
+   11038:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1103c:	0007879b          	sext.w	a5,a5
+   11040:	0017879b          	addiw	a5,a5,1
+   11044:	0007871b          	sext.w	a4,a5
+   11048:	00371713          	slli	a4,a4,0x3
+   1104c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11050:	00f707b3          	add	a5,a4,a5
+   11054:	ea043703          	ld	a4,-352(s0)
+   11058:	00e7b023          	sd	a4,0(a5)
+   1105c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11060:	0007879b          	sext.w	a5,a5
+   11064:	0027879b          	addiw	a5,a5,2
+   11068:	0007871b          	sext.w	a4,a5
+   1106c:	00371713          	slli	a4,a4,0x3
+   11070:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11074:	00f707b3          	add	a5,a4,a5
+   11078:	e9843703          	ld	a4,-360(s0)
+   1107c:	00e7b023          	sd	a4,0(a5)
+   11080:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11084:	0007879b          	sext.w	a5,a5
+   11088:	0037879b          	addiw	a5,a5,3
+   1108c:	0007871b          	sext.w	a4,a5
+   11090:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11094:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11098:	0007879b          	sext.w	a5,a5
+   1109c:	00078713          	mv	a4,a5
+   110a0:	00300793          	li	a5,3
+   110a4:	10e7d263          	bge	a5,a4,111a8 <petrinet_main+0xfc0>
+   110a8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   110ac:	0007879b          	sext.w	a5,a5
+   110b0:	0037879b          	addiw	a5,a5,3
+   110b4:	0007879b          	sext.w	a5,a5
+   110b8:	00078713          	mv	a4,a5
+   110bc:	00600793          	li	a5,6
+   110c0:	0ee7c463          	blt	a5,a4,111a8 <petrinet_main+0xfc0>
+   110c4:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   110c8:	0107b703          	ld	a4,16(a5)
+   110cc:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   110d0:	0cf71c63          	bne	a4,a5,111a8 <petrinet_main+0xfc0>
+   110d4:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   110d8:	0107b703          	ld	a4,16(a5)
+   110dc:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   110e0:	0187b783          	ld	a5,24(a5)
+   110e4:	0cf71263          	bne	a4,a5,111a8 <petrinet_main+0xfc0>
+   110e8:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   110ec:	0087b783          	ld	a5,8(a5)
+   110f0:	e8f43823          	sd	a5,-368(s0)
+   110f4:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   110f8:	0107b783          	ld	a5,16(a5)
+   110fc:	e8f43423          	sd	a5,-376(s0)
+   11100:	e8843703          	ld	a4,-376(s0)
+   11104:	e9043783          	ld	a5,-368(s0)
+   11108:	0ae7d063          	bge	a5,a4,111a8 <petrinet_main+0xfc0>
+   1110c:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11110:	0007879b          	sext.w	a5,a5
+   11114:	ffc7879b          	addiw	a5,a5,-4
+   11118:	0007871b          	sext.w	a4,a5
+   1111c:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11120:	e9043703          	ld	a4,-368(s0)
+   11124:	e8843783          	ld	a5,-376(s0)
+   11128:	00f707b3          	add	a5,a4,a5
+   1112c:	e8f43023          	sd	a5,-384(s0)
+   11130:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11134:	0007871b          	sext.w	a4,a5
+   11138:	00371713          	slli	a4,a4,0x3
+   1113c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11140:	00f707b3          	add	a5,a4,a5
+   11144:	e9043703          	ld	a4,-368(s0)
+   11148:	00e7b023          	sd	a4,0(a5)
+   1114c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11150:	0007879b          	sext.w	a5,a5
+   11154:	0017879b          	addiw	a5,a5,1
+   11158:	0007871b          	sext.w	a4,a5
+   1115c:	00371713          	slli	a4,a4,0x3
+   11160:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11164:	00f707b3          	add	a5,a4,a5
+   11168:	e8843703          	ld	a4,-376(s0)
+   1116c:	00e7b023          	sd	a4,0(a5)
+   11170:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11174:	0007879b          	sext.w	a5,a5
+   11178:	0027879b          	addiw	a5,a5,2
+   1117c:	0007871b          	sext.w	a4,a5
+   11180:	00371713          	slli	a4,a4,0x3
+   11184:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11188:	00f707b3          	add	a5,a4,a5
+   1118c:	e8043703          	ld	a4,-384(s0)
+   11190:	00e7b023          	sd	a4,0(a5)
+   11194:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11198:	0007879b          	sext.w	a5,a5
+   1119c:	0037879b          	addiw	a5,a5,3
+   111a0:	0007871b          	sext.w	a4,a5
+   111a4:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   111a8:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   111ac:	0007879b          	sext.w	a5,a5
+   111b0:	00078713          	mv	a4,a5
+   111b4:	00300793          	li	a5,3
+   111b8:	10e7d263          	bge	a5,a4,112bc <petrinet_main+0x10d4>
+   111bc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   111c0:	0007879b          	sext.w	a5,a5
+   111c4:	0037879b          	addiw	a5,a5,3
+   111c8:	0007879b          	sext.w	a5,a5
+   111cc:	00078713          	mv	a4,a5
+   111d0:	00600793          	li	a5,6
+   111d4:	0ee7c463          	blt	a5,a4,112bc <petrinet_main+0x10d4>
+   111d8:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   111dc:	0107b703          	ld	a4,16(a5)
+   111e0:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   111e4:	0187b783          	ld	a5,24(a5)
+   111e8:	0cf71a63          	bne	a4,a5,112bc <petrinet_main+0x10d4>
+   111ec:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   111f0:	0107b703          	ld	a4,16(a5)
+   111f4:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   111f8:	0cf71263          	bne	a4,a5,112bc <petrinet_main+0x10d4>
+   111fc:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11200:	0087b783          	ld	a5,8(a5)
+   11204:	e6f43c23          	sd	a5,-392(s0)
+   11208:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   1120c:	0107b783          	ld	a5,16(a5)
+   11210:	e6f43823          	sd	a5,-400(s0)
+   11214:	e7043703          	ld	a4,-400(s0)
+   11218:	e7843783          	ld	a5,-392(s0)
+   1121c:	0ae7d063          	bge	a5,a4,112bc <petrinet_main+0x10d4>
+   11220:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11224:	0007879b          	sext.w	a5,a5
+   11228:	ffc7879b          	addiw	a5,a5,-4
+   1122c:	0007871b          	sext.w	a4,a5
+   11230:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11234:	e7843703          	ld	a4,-392(s0)
+   11238:	e7043783          	ld	a5,-400(s0)
+   1123c:	00f707b3          	add	a5,a4,a5
+   11240:	e6f43423          	sd	a5,-408(s0)
+   11244:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11248:	0007871b          	sext.w	a4,a5
+   1124c:	00371713          	slli	a4,a4,0x3
+   11250:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11254:	00f707b3          	add	a5,a4,a5
+   11258:	e7843703          	ld	a4,-392(s0)
+   1125c:	00e7b023          	sd	a4,0(a5)
+   11260:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11264:	0007879b          	sext.w	a5,a5
+   11268:	0017879b          	addiw	a5,a5,1
+   1126c:	0007871b          	sext.w	a4,a5
+   11270:	00371713          	slli	a4,a4,0x3
+   11274:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11278:	00f707b3          	add	a5,a4,a5
+   1127c:	e7043703          	ld	a4,-400(s0)
+   11280:	00e7b023          	sd	a4,0(a5)
+   11284:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11288:	0007879b          	sext.w	a5,a5
+   1128c:	0027879b          	addiw	a5,a5,2
+   11290:	0007871b          	sext.w	a4,a5
+   11294:	00371713          	slli	a4,a4,0x3
+   11298:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   1129c:	00f707b3          	add	a5,a4,a5
+   112a0:	e6843703          	ld	a4,-408(s0)
+   112a4:	00e7b023          	sd	a4,0(a5)
+   112a8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   112ac:	0007879b          	sext.w	a5,a5
+   112b0:	0037879b          	addiw	a5,a5,3
+   112b4:	0007871b          	sext.w	a4,a5
+   112b8:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   112bc:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   112c0:	0007879b          	sext.w	a5,a5
+   112c4:	00078713          	mv	a4,a5
+   112c8:	00300793          	li	a5,3
+   112cc:	10e7d263          	bge	a5,a4,113d0 <petrinet_main+0x11e8>
+   112d0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   112d4:	0007879b          	sext.w	a5,a5
+   112d8:	0037879b          	addiw	a5,a5,3
+   112dc:	0007879b          	sext.w	a5,a5
+   112e0:	00078713          	mv	a4,a5
+   112e4:	00600793          	li	a5,6
+   112e8:	0ee7c463          	blt	a5,a4,113d0 <petrinet_main+0x11e8>
+   112ec:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   112f0:	0187b703          	ld	a4,24(a5)
+   112f4:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   112f8:	0cf71c63          	bne	a4,a5,113d0 <petrinet_main+0x11e8>
+   112fc:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11300:	0187b703          	ld	a4,24(a5)
+   11304:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11308:	0107b783          	ld	a5,16(a5)
+   1130c:	0cf71263          	bne	a4,a5,113d0 <petrinet_main+0x11e8>
+   11310:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11314:	0087b783          	ld	a5,8(a5)
+   11318:	e6f43023          	sd	a5,-416(s0)
+   1131c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11320:	0187b783          	ld	a5,24(a5)
+   11324:	e4f43c23          	sd	a5,-424(s0)
+   11328:	e5843703          	ld	a4,-424(s0)
+   1132c:	e6043783          	ld	a5,-416(s0)
+   11330:	0ae7d063          	bge	a5,a4,113d0 <petrinet_main+0x11e8>
+   11334:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11338:	0007879b          	sext.w	a5,a5
+   1133c:	ffc7879b          	addiw	a5,a5,-4
+   11340:	0007871b          	sext.w	a4,a5
+   11344:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11348:	e6043703          	ld	a4,-416(s0)
+   1134c:	e5843783          	ld	a5,-424(s0)
+   11350:	00f707b3          	add	a5,a4,a5
+   11354:	e4f43823          	sd	a5,-432(s0)
+   11358:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1135c:	0007871b          	sext.w	a4,a5
+   11360:	00371713          	slli	a4,a4,0x3
+   11364:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11368:	00f707b3          	add	a5,a4,a5
+   1136c:	e6043703          	ld	a4,-416(s0)
+   11370:	00e7b023          	sd	a4,0(a5)
+   11374:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11378:	0007879b          	sext.w	a5,a5
+   1137c:	0017879b          	addiw	a5,a5,1
+   11380:	0007871b          	sext.w	a4,a5
+   11384:	00371713          	slli	a4,a4,0x3
+   11388:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   1138c:	00f707b3          	add	a5,a4,a5
+   11390:	e5843703          	ld	a4,-424(s0)
+   11394:	00e7b023          	sd	a4,0(a5)
+   11398:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1139c:	0007879b          	sext.w	a5,a5
+   113a0:	0027879b          	addiw	a5,a5,2
+   113a4:	0007871b          	sext.w	a4,a5
+   113a8:	00371713          	slli	a4,a4,0x3
+   113ac:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   113b0:	00f707b3          	add	a5,a4,a5
+   113b4:	e5043703          	ld	a4,-432(s0)
+   113b8:	00e7b023          	sd	a4,0(a5)
+   113bc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   113c0:	0007879b          	sext.w	a5,a5
+   113c4:	0037879b          	addiw	a5,a5,3
+   113c8:	0007871b          	sext.w	a4,a5
+   113cc:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   113d0:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   113d4:	0007879b          	sext.w	a5,a5
+   113d8:	00078713          	mv	a4,a5
+   113dc:	00300793          	li	a5,3
+   113e0:	10e7d263          	bge	a5,a4,114e4 <petrinet_main+0x12fc>
+   113e4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   113e8:	0007879b          	sext.w	a5,a5
+   113ec:	0037879b          	addiw	a5,a5,3
+   113f0:	0007879b          	sext.w	a5,a5
+   113f4:	00078713          	mv	a4,a5
+   113f8:	00600793          	li	a5,6
+   113fc:	0ee7c463          	blt	a5,a4,114e4 <petrinet_main+0x12fc>
+   11400:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11404:	0187b703          	ld	a4,24(a5)
+   11408:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   1140c:	0107b783          	ld	a5,16(a5)
+   11410:	0cf71a63          	bne	a4,a5,114e4 <petrinet_main+0x12fc>
+   11414:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11418:	0187b703          	ld	a4,24(a5)
+   1141c:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11420:	0cf71263          	bne	a4,a5,114e4 <petrinet_main+0x12fc>
+   11424:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11428:	0087b783          	ld	a5,8(a5)
+   1142c:	e4f43423          	sd	a5,-440(s0)
+   11430:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11434:	0187b783          	ld	a5,24(a5)
+   11438:	e4f43023          	sd	a5,-448(s0)
+   1143c:	e4043703          	ld	a4,-448(s0)
+   11440:	e4843783          	ld	a5,-440(s0)
+   11444:	0ae7d063          	bge	a5,a4,114e4 <petrinet_main+0x12fc>
+   11448:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   1144c:	0007879b          	sext.w	a5,a5
+   11450:	ffc7879b          	addiw	a5,a5,-4
+   11454:	0007871b          	sext.w	a4,a5
+   11458:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   1145c:	e4843703          	ld	a4,-440(s0)
+   11460:	e4043783          	ld	a5,-448(s0)
+   11464:	00f707b3          	add	a5,a4,a5
+   11468:	e2f43c23          	sd	a5,-456(s0)
+   1146c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11470:	0007871b          	sext.w	a4,a5
+   11474:	00371713          	slli	a4,a4,0x3
+   11478:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   1147c:	00f707b3          	add	a5,a4,a5
+   11480:	e4843703          	ld	a4,-440(s0)
+   11484:	00e7b023          	sd	a4,0(a5)
+   11488:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1148c:	0007879b          	sext.w	a5,a5
+   11490:	0017879b          	addiw	a5,a5,1
+   11494:	0007871b          	sext.w	a4,a5
+   11498:	00371713          	slli	a4,a4,0x3
+   1149c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   114a0:	00f707b3          	add	a5,a4,a5
+   114a4:	e4043703          	ld	a4,-448(s0)
+   114a8:	00e7b023          	sd	a4,0(a5)
+   114ac:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   114b0:	0007879b          	sext.w	a5,a5
+   114b4:	0027879b          	addiw	a5,a5,2
+   114b8:	0007871b          	sext.w	a4,a5
+   114bc:	00371713          	slli	a4,a4,0x3
+   114c0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   114c4:	00f707b3          	add	a5,a4,a5
+   114c8:	e3843703          	ld	a4,-456(s0)
+   114cc:	00e7b023          	sd	a4,0(a5)
+   114d0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   114d4:	0007879b          	sext.w	a5,a5
+   114d8:	0037879b          	addiw	a5,a5,3
+   114dc:	0007871b          	sext.w	a4,a5
+   114e0:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   114e4:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   114e8:	0007879b          	sext.w	a5,a5
+   114ec:	00078713          	mv	a4,a5
+   114f0:	00300793          	li	a5,3
+   114f4:	0ee7de63          	bge	a5,a4,115f0 <petrinet_main+0x1408>
+   114f8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   114fc:	0007879b          	sext.w	a5,a5
+   11500:	0037879b          	addiw	a5,a5,3
+   11504:	0007879b          	sext.w	a5,a5
+   11508:	00078713          	mv	a4,a5
+   1150c:	00600793          	li	a5,6
+   11510:	0ee7c063          	blt	a5,a4,115f0 <petrinet_main+0x1408>
+   11514:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11518:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   1151c:	0087b783          	ld	a5,8(a5)
+   11520:	0cf71863          	bne	a4,a5,115f0 <petrinet_main+0x1408>
+   11524:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11528:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   1152c:	0187b783          	ld	a5,24(a5)
+   11530:	0cf71063          	bne	a4,a5,115f0 <petrinet_main+0x1408>
+   11534:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11538:	0107b783          	ld	a5,16(a5)
+   1153c:	e2f43823          	sd	a5,-464(s0)
+   11540:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11544:	e2f43423          	sd	a5,-472(s0)
+   11548:	e2843703          	ld	a4,-472(s0)
+   1154c:	e3043783          	ld	a5,-464(s0)
+   11550:	0ae7d063          	bge	a5,a4,115f0 <petrinet_main+0x1408>
+   11554:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11558:	0007879b          	sext.w	a5,a5
+   1155c:	ffc7879b          	addiw	a5,a5,-4
+   11560:	0007871b          	sext.w	a4,a5
+   11564:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11568:	e3043703          	ld	a4,-464(s0)
+   1156c:	e2843783          	ld	a5,-472(s0)
+   11570:	00f707b3          	add	a5,a4,a5
+   11574:	e2f43023          	sd	a5,-480(s0)
+   11578:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1157c:	0007871b          	sext.w	a4,a5
+   11580:	00371713          	slli	a4,a4,0x3
+   11584:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11588:	00f707b3          	add	a5,a4,a5
+   1158c:	e3043703          	ld	a4,-464(s0)
+   11590:	00e7b023          	sd	a4,0(a5)
+   11594:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11598:	0007879b          	sext.w	a5,a5
+   1159c:	0017879b          	addiw	a5,a5,1
+   115a0:	0007871b          	sext.w	a4,a5
+   115a4:	00371713          	slli	a4,a4,0x3
+   115a8:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   115ac:	00f707b3          	add	a5,a4,a5
+   115b0:	e2843703          	ld	a4,-472(s0)
+   115b4:	00e7b023          	sd	a4,0(a5)
+   115b8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   115bc:	0007879b          	sext.w	a5,a5
+   115c0:	0027879b          	addiw	a5,a5,2
+   115c4:	0007871b          	sext.w	a4,a5
+   115c8:	00371713          	slli	a4,a4,0x3
+   115cc:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   115d0:	00f707b3          	add	a5,a4,a5
+   115d4:	e2043703          	ld	a4,-480(s0)
+   115d8:	00e7b023          	sd	a4,0(a5)
+   115dc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   115e0:	0007879b          	sext.w	a5,a5
+   115e4:	0037879b          	addiw	a5,a5,3
+   115e8:	0007871b          	sext.w	a4,a5
+   115ec:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   115f0:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   115f4:	0007879b          	sext.w	a5,a5
+   115f8:	00078713          	mv	a4,a5
+   115fc:	00300793          	li	a5,3
+   11600:	0ee7de63          	bge	a5,a4,116fc <petrinet_main+0x1514>
+   11604:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11608:	0007879b          	sext.w	a5,a5
+   1160c:	0037879b          	addiw	a5,a5,3
+   11610:	0007879b          	sext.w	a5,a5
+   11614:	00078713          	mv	a4,a5
+   11618:	00600793          	li	a5,6
+   1161c:	0ee7c063          	blt	a5,a4,116fc <petrinet_main+0x1514>
+   11620:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11624:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11628:	0187b783          	ld	a5,24(a5)
+   1162c:	0cf71863          	bne	a4,a5,116fc <petrinet_main+0x1514>
+   11630:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11634:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11638:	0087b783          	ld	a5,8(a5)
+   1163c:	0cf71063          	bne	a4,a5,116fc <petrinet_main+0x1514>
+   11640:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11644:	0107b783          	ld	a5,16(a5)
+   11648:	e0f43c23          	sd	a5,-488(s0)
+   1164c:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11650:	e0f43823          	sd	a5,-496(s0)
+   11654:	e1043703          	ld	a4,-496(s0)
+   11658:	e1843783          	ld	a5,-488(s0)
+   1165c:	0ae7d063          	bge	a5,a4,116fc <petrinet_main+0x1514>
+   11660:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11664:	0007879b          	sext.w	a5,a5
+   11668:	ffc7879b          	addiw	a5,a5,-4
+   1166c:	0007871b          	sext.w	a4,a5
+   11670:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11674:	e1843703          	ld	a4,-488(s0)
+   11678:	e1043783          	ld	a5,-496(s0)
+   1167c:	00f707b3          	add	a5,a4,a5
+   11680:	e0f43423          	sd	a5,-504(s0)
+   11684:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11688:	0007871b          	sext.w	a4,a5
+   1168c:	00371713          	slli	a4,a4,0x3
+   11690:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11694:	00f707b3          	add	a5,a4,a5
+   11698:	e1843703          	ld	a4,-488(s0)
+   1169c:	00e7b023          	sd	a4,0(a5)
+   116a0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   116a4:	0007879b          	sext.w	a5,a5
+   116a8:	0017879b          	addiw	a5,a5,1
+   116ac:	0007871b          	sext.w	a4,a5
+   116b0:	00371713          	slli	a4,a4,0x3
+   116b4:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   116b8:	00f707b3          	add	a5,a4,a5
+   116bc:	e1043703          	ld	a4,-496(s0)
+   116c0:	00e7b023          	sd	a4,0(a5)
+   116c4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   116c8:	0007879b          	sext.w	a5,a5
+   116cc:	0027879b          	addiw	a5,a5,2
+   116d0:	0007871b          	sext.w	a4,a5
+   116d4:	00371713          	slli	a4,a4,0x3
+   116d8:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   116dc:	00f707b3          	add	a5,a4,a5
+   116e0:	e0843703          	ld	a4,-504(s0)
+   116e4:	00e7b023          	sd	a4,0(a5)
+   116e8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   116ec:	0007879b          	sext.w	a5,a5
+   116f0:	0037879b          	addiw	a5,a5,3
+   116f4:	0007871b          	sext.w	a4,a5
+   116f8:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   116fc:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11700:	0007879b          	sext.w	a5,a5
+   11704:	00078713          	mv	a4,a5
+   11708:	00300793          	li	a5,3
+   1170c:	10e7d263          	bge	a5,a4,11810 <petrinet_main+0x1628>
+   11710:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11714:	0007879b          	sext.w	a5,a5
+   11718:	0037879b          	addiw	a5,a5,3
+   1171c:	0007879b          	sext.w	a5,a5
+   11720:	00078713          	mv	a4,a5
+   11724:	00600793          	li	a5,6
+   11728:	0ee7c463          	blt	a5,a4,11810 <petrinet_main+0x1628>
+   1172c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11730:	0087b703          	ld	a4,8(a5)
+   11734:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11738:	0cf71c63          	bne	a4,a5,11810 <petrinet_main+0x1628>
+   1173c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11740:	0087b703          	ld	a4,8(a5)
+   11744:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11748:	0187b783          	ld	a5,24(a5)
+   1174c:	0cf71263          	bne	a4,a5,11810 <petrinet_main+0x1628>
+   11750:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11754:	0107b783          	ld	a5,16(a5)
+   11758:	e0f43023          	sd	a5,-512(s0)
+   1175c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11760:	0087b783          	ld	a5,8(a5)
+   11764:	def43c23          	sd	a5,-520(s0)
+   11768:	df843703          	ld	a4,-520(s0)
+   1176c:	e0043783          	ld	a5,-512(s0)
+   11770:	0ae7d063          	bge	a5,a4,11810 <petrinet_main+0x1628>
+   11774:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11778:	0007879b          	sext.w	a5,a5
+   1177c:	ffc7879b          	addiw	a5,a5,-4
+   11780:	0007871b          	sext.w	a4,a5
+   11784:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11788:	e0043703          	ld	a4,-512(s0)
+   1178c:	df843783          	ld	a5,-520(s0)
+   11790:	00f707b3          	add	a5,a4,a5
+   11794:	def43823          	sd	a5,-528(s0)
+   11798:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1179c:	0007871b          	sext.w	a4,a5
+   117a0:	00371713          	slli	a4,a4,0x3
+   117a4:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   117a8:	00f707b3          	add	a5,a4,a5
+   117ac:	e0043703          	ld	a4,-512(s0)
+   117b0:	00e7b023          	sd	a4,0(a5)
+   117b4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   117b8:	0007879b          	sext.w	a5,a5
+   117bc:	0017879b          	addiw	a5,a5,1
+   117c0:	0007871b          	sext.w	a4,a5
+   117c4:	00371713          	slli	a4,a4,0x3
+   117c8:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   117cc:	00f707b3          	add	a5,a4,a5
+   117d0:	df843703          	ld	a4,-520(s0)
+   117d4:	00e7b023          	sd	a4,0(a5)
+   117d8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   117dc:	0007879b          	sext.w	a5,a5
+   117e0:	0027879b          	addiw	a5,a5,2
+   117e4:	0007871b          	sext.w	a4,a5
+   117e8:	00371713          	slli	a4,a4,0x3
+   117ec:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   117f0:	00f707b3          	add	a5,a4,a5
+   117f4:	df043703          	ld	a4,-528(s0)
+   117f8:	00e7b023          	sd	a4,0(a5)
+   117fc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11800:	0007879b          	sext.w	a5,a5
+   11804:	0037879b          	addiw	a5,a5,3
+   11808:	0007871b          	sext.w	a4,a5
+   1180c:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11810:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11814:	0007879b          	sext.w	a5,a5
+   11818:	00078713          	mv	a4,a5
+   1181c:	00300793          	li	a5,3
+   11820:	10e7d263          	bge	a5,a4,11924 <petrinet_main+0x173c>
+   11824:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11828:	0007879b          	sext.w	a5,a5
+   1182c:	0037879b          	addiw	a5,a5,3
+   11830:	0007879b          	sext.w	a5,a5
+   11834:	00078713          	mv	a4,a5
+   11838:	00600793          	li	a5,6
+   1183c:	0ee7c463          	blt	a5,a4,11924 <petrinet_main+0x173c>
+   11840:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11844:	0087b703          	ld	a4,8(a5)
+   11848:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   1184c:	0187b783          	ld	a5,24(a5)
+   11850:	0cf71a63          	bne	a4,a5,11924 <petrinet_main+0x173c>
+   11854:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11858:	0087b703          	ld	a4,8(a5)
+   1185c:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11860:	0cf71263          	bne	a4,a5,11924 <petrinet_main+0x173c>
+   11864:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11868:	0107b783          	ld	a5,16(a5)
+   1186c:	def43423          	sd	a5,-536(s0)
+   11870:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11874:	0087b783          	ld	a5,8(a5)
+   11878:	def43023          	sd	a5,-544(s0)
+   1187c:	de043703          	ld	a4,-544(s0)
+   11880:	de843783          	ld	a5,-536(s0)
+   11884:	0ae7d063          	bge	a5,a4,11924 <petrinet_main+0x173c>
+   11888:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   1188c:	0007879b          	sext.w	a5,a5
+   11890:	ffc7879b          	addiw	a5,a5,-4
+   11894:	0007871b          	sext.w	a4,a5
+   11898:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   1189c:	de843703          	ld	a4,-536(s0)
+   118a0:	de043783          	ld	a5,-544(s0)
+   118a4:	00f707b3          	add	a5,a4,a5
+   118a8:	dcf43c23          	sd	a5,-552(s0)
+   118ac:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   118b0:	0007871b          	sext.w	a4,a5
+   118b4:	00371713          	slli	a4,a4,0x3
+   118b8:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   118bc:	00f707b3          	add	a5,a4,a5
+   118c0:	de843703          	ld	a4,-536(s0)
+   118c4:	00e7b023          	sd	a4,0(a5)
+   118c8:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   118cc:	0007879b          	sext.w	a5,a5
+   118d0:	0017879b          	addiw	a5,a5,1
+   118d4:	0007871b          	sext.w	a4,a5
+   118d8:	00371713          	slli	a4,a4,0x3
+   118dc:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   118e0:	00f707b3          	add	a5,a4,a5
+   118e4:	de043703          	ld	a4,-544(s0)
+   118e8:	00e7b023          	sd	a4,0(a5)
+   118ec:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   118f0:	0007879b          	sext.w	a5,a5
+   118f4:	0027879b          	addiw	a5,a5,2
+   118f8:	0007871b          	sext.w	a4,a5
+   118fc:	00371713          	slli	a4,a4,0x3
+   11900:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11904:	00f707b3          	add	a5,a4,a5
+   11908:	dd843703          	ld	a4,-552(s0)
+   1190c:	00e7b023          	sd	a4,0(a5)
+   11910:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11914:	0007879b          	sext.w	a5,a5
+   11918:	0037879b          	addiw	a5,a5,3
+   1191c:	0007871b          	sext.w	a4,a5
+   11920:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11924:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11928:	0007879b          	sext.w	a5,a5
+   1192c:	00078713          	mv	a4,a5
+   11930:	00300793          	li	a5,3
+   11934:	10e7d263          	bge	a5,a4,11a38 <petrinet_main+0x1850>
+   11938:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   1193c:	0007879b          	sext.w	a5,a5
+   11940:	0037879b          	addiw	a5,a5,3
+   11944:	0007879b          	sext.w	a5,a5
+   11948:	00078713          	mv	a4,a5
+   1194c:	00600793          	li	a5,6
+   11950:	0ee7c463          	blt	a5,a4,11a38 <petrinet_main+0x1850>
+   11954:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11958:	0187b703          	ld	a4,24(a5)
+   1195c:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11960:	0cf71c63          	bne	a4,a5,11a38 <petrinet_main+0x1850>
+   11964:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11968:	0187b703          	ld	a4,24(a5)
+   1196c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11970:	0087b783          	ld	a5,8(a5)
+   11974:	0cf71263          	bne	a4,a5,11a38 <petrinet_main+0x1850>
+   11978:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   1197c:	0107b783          	ld	a5,16(a5)
+   11980:	dcf43823          	sd	a5,-560(s0)
+   11984:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11988:	0187b783          	ld	a5,24(a5)
+   1198c:	dcf43423          	sd	a5,-568(s0)
+   11990:	dc843703          	ld	a4,-568(s0)
+   11994:	dd043783          	ld	a5,-560(s0)
+   11998:	0ae7d063          	bge	a5,a4,11a38 <petrinet_main+0x1850>
+   1199c:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   119a0:	0007879b          	sext.w	a5,a5
+   119a4:	ffc7879b          	addiw	a5,a5,-4
+   119a8:	0007871b          	sext.w	a4,a5
+   119ac:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   119b0:	dd043703          	ld	a4,-560(s0)
+   119b4:	dc843783          	ld	a5,-568(s0)
+   119b8:	00f707b3          	add	a5,a4,a5
+   119bc:	dcf43023          	sd	a5,-576(s0)
+   119c0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   119c4:	0007871b          	sext.w	a4,a5
+   119c8:	00371713          	slli	a4,a4,0x3
+   119cc:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   119d0:	00f707b3          	add	a5,a4,a5
+   119d4:	dd043703          	ld	a4,-560(s0)
+   119d8:	00e7b023          	sd	a4,0(a5)
+   119dc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   119e0:	0007879b          	sext.w	a5,a5
+   119e4:	0017879b          	addiw	a5,a5,1
+   119e8:	0007871b          	sext.w	a4,a5
+   119ec:	00371713          	slli	a4,a4,0x3
+   119f0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   119f4:	00f707b3          	add	a5,a4,a5
+   119f8:	dc843703          	ld	a4,-568(s0)
+   119fc:	00e7b023          	sd	a4,0(a5)
+   11a00:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11a04:	0007879b          	sext.w	a5,a5
+   11a08:	0027879b          	addiw	a5,a5,2
+   11a0c:	0007871b          	sext.w	a4,a5
+   11a10:	00371713          	slli	a4,a4,0x3
+   11a14:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11a18:	00f707b3          	add	a5,a4,a5
+   11a1c:	dc043703          	ld	a4,-576(s0)
+   11a20:	00e7b023          	sd	a4,0(a5)
+   11a24:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11a28:	0007879b          	sext.w	a5,a5
+   11a2c:	0037879b          	addiw	a5,a5,3
+   11a30:	0007871b          	sext.w	a4,a5
+   11a34:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11a38:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11a3c:	0007879b          	sext.w	a5,a5
+   11a40:	00078713          	mv	a4,a5
+   11a44:	00300793          	li	a5,3
+   11a48:	10e7d263          	bge	a5,a4,11b4c <petrinet_main+0x1964>
+   11a4c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11a50:	0007879b          	sext.w	a5,a5
+   11a54:	0037879b          	addiw	a5,a5,3
+   11a58:	0007879b          	sext.w	a5,a5
+   11a5c:	00078713          	mv	a4,a5
+   11a60:	00600793          	li	a5,6
+   11a64:	0ee7c463          	blt	a5,a4,11b4c <petrinet_main+0x1964>
+   11a68:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11a6c:	0187b703          	ld	a4,24(a5)
+   11a70:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11a74:	0087b783          	ld	a5,8(a5)
+   11a78:	0cf71a63          	bne	a4,a5,11b4c <petrinet_main+0x1964>
+   11a7c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11a80:	0187b703          	ld	a4,24(a5)
+   11a84:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11a88:	0cf71263          	bne	a4,a5,11b4c <petrinet_main+0x1964>
+   11a8c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11a90:	0107b783          	ld	a5,16(a5)
+   11a94:	daf43c23          	sd	a5,-584(s0)
+   11a98:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11a9c:	0187b783          	ld	a5,24(a5)
+   11aa0:	daf43823          	sd	a5,-592(s0)
+   11aa4:	db043703          	ld	a4,-592(s0)
+   11aa8:	db843783          	ld	a5,-584(s0)
+   11aac:	0ae7d063          	bge	a5,a4,11b4c <petrinet_main+0x1964>
+   11ab0:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11ab4:	0007879b          	sext.w	a5,a5
+   11ab8:	ffc7879b          	addiw	a5,a5,-4
+   11abc:	0007871b          	sext.w	a4,a5
+   11ac0:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11ac4:	db843703          	ld	a4,-584(s0)
+   11ac8:	db043783          	ld	a5,-592(s0)
+   11acc:	00f707b3          	add	a5,a4,a5
+   11ad0:	daf43423          	sd	a5,-600(s0)
+   11ad4:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11ad8:	0007871b          	sext.w	a4,a5
+   11adc:	00371713          	slli	a4,a4,0x3
+   11ae0:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11ae4:	00f707b3          	add	a5,a4,a5
+   11ae8:	db843703          	ld	a4,-584(s0)
+   11aec:	00e7b023          	sd	a4,0(a5)
+   11af0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11af4:	0007879b          	sext.w	a5,a5
+   11af8:	0017879b          	addiw	a5,a5,1
+   11afc:	0007871b          	sext.w	a4,a5
+   11b00:	00371713          	slli	a4,a4,0x3
+   11b04:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11b08:	00f707b3          	add	a5,a4,a5
+   11b0c:	db043703          	ld	a4,-592(s0)
+   11b10:	00e7b023          	sd	a4,0(a5)
+   11b14:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11b18:	0007879b          	sext.w	a5,a5
+   11b1c:	0027879b          	addiw	a5,a5,2
+   11b20:	0007871b          	sext.w	a4,a5
+   11b24:	00371713          	slli	a4,a4,0x3
+   11b28:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11b2c:	00f707b3          	add	a5,a4,a5
+   11b30:	da843703          	ld	a4,-600(s0)
+   11b34:	00e7b023          	sd	a4,0(a5)
+   11b38:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11b3c:	0007879b          	sext.w	a5,a5
+   11b40:	0037879b          	addiw	a5,a5,3
+   11b44:	0007871b          	sext.w	a4,a5
+   11b48:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11b4c:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11b50:	0007879b          	sext.w	a5,a5
+   11b54:	00078713          	mv	a4,a5
+   11b58:	00300793          	li	a5,3
+   11b5c:	0ee7de63          	bge	a5,a4,11c58 <petrinet_main+0x1a70>
+   11b60:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11b64:	0007879b          	sext.w	a5,a5
+   11b68:	0037879b          	addiw	a5,a5,3
+   11b6c:	0007879b          	sext.w	a5,a5
+   11b70:	00078713          	mv	a4,a5
+   11b74:	00600793          	li	a5,6
+   11b78:	0ee7c063          	blt	a5,a4,11c58 <petrinet_main+0x1a70>
+   11b7c:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11b80:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11b84:	0087b783          	ld	a5,8(a5)
+   11b88:	0cf71863          	bne	a4,a5,11c58 <petrinet_main+0x1a70>
+   11b8c:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11b90:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11b94:	0107b783          	ld	a5,16(a5)
+   11b98:	0cf71063          	bne	a4,a5,11c58 <petrinet_main+0x1a70>
+   11b9c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11ba0:	0187b783          	ld	a5,24(a5)
+   11ba4:	daf43023          	sd	a5,-608(s0)
+   11ba8:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11bac:	d8f43c23          	sd	a5,-616(s0)
+   11bb0:	d9843703          	ld	a4,-616(s0)
+   11bb4:	da043783          	ld	a5,-608(s0)
+   11bb8:	0ae7d063          	bge	a5,a4,11c58 <petrinet_main+0x1a70>
+   11bbc:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11bc0:	0007879b          	sext.w	a5,a5
+   11bc4:	ffc7879b          	addiw	a5,a5,-4
+   11bc8:	0007871b          	sext.w	a4,a5
+   11bcc:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11bd0:	da043703          	ld	a4,-608(s0)
+   11bd4:	d9843783          	ld	a5,-616(s0)
+   11bd8:	00f707b3          	add	a5,a4,a5
+   11bdc:	d8f43823          	sd	a5,-624(s0)
+   11be0:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11be4:	0007871b          	sext.w	a4,a5
+   11be8:	00371713          	slli	a4,a4,0x3
+   11bec:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11bf0:	00f707b3          	add	a5,a4,a5
+   11bf4:	da043703          	ld	a4,-608(s0)
+   11bf8:	00e7b023          	sd	a4,0(a5)
+   11bfc:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11c00:	0007879b          	sext.w	a5,a5
+   11c04:	0017879b          	addiw	a5,a5,1
+   11c08:	0007871b          	sext.w	a4,a5
+   11c0c:	00371713          	slli	a4,a4,0x3
+   11c10:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11c14:	00f707b3          	add	a5,a4,a5
+   11c18:	d9843703          	ld	a4,-616(s0)
+   11c1c:	00e7b023          	sd	a4,0(a5)
+   11c20:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11c24:	0007879b          	sext.w	a5,a5
+   11c28:	0027879b          	addiw	a5,a5,2
+   11c2c:	0007871b          	sext.w	a4,a5
+   11c30:	00371713          	slli	a4,a4,0x3
+   11c34:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11c38:	00f707b3          	add	a5,a4,a5
+   11c3c:	d9043703          	ld	a4,-624(s0)
+   11c40:	00e7b023          	sd	a4,0(a5)
+   11c44:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11c48:	0007879b          	sext.w	a5,a5
+   11c4c:	0037879b          	addiw	a5,a5,3
+   11c50:	0007871b          	sext.w	a4,a5
+   11c54:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11c58:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11c5c:	0007879b          	sext.w	a5,a5
+   11c60:	00078713          	mv	a4,a5
+   11c64:	00300793          	li	a5,3
+   11c68:	0ee7de63          	bge	a5,a4,11d64 <petrinet_main+0x1b7c>
+   11c6c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11c70:	0007879b          	sext.w	a5,a5
+   11c74:	0037879b          	addiw	a5,a5,3
+   11c78:	0007879b          	sext.w	a5,a5
+   11c7c:	00078713          	mv	a4,a5
+   11c80:	00600793          	li	a5,6
+   11c84:	0ee7c063          	blt	a5,a4,11d64 <petrinet_main+0x1b7c>
+   11c88:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11c8c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11c90:	0107b783          	ld	a5,16(a5)
+   11c94:	0cf71863          	bne	a4,a5,11d64 <petrinet_main+0x1b7c>
+   11c98:	8881b703          	ld	a4,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11c9c:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11ca0:	0087b783          	ld	a5,8(a5)
+   11ca4:	0cf71063          	bne	a4,a5,11d64 <petrinet_main+0x1b7c>
+   11ca8:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11cac:	0187b783          	ld	a5,24(a5)
+   11cb0:	d8f43423          	sd	a5,-632(s0)
+   11cb4:	8881b783          	ld	a5,-1912(gp) # 13b20 <petrinet_P2_marking_member_0>
+   11cb8:	d8f43023          	sd	a5,-640(s0)
+   11cbc:	d8043703          	ld	a4,-640(s0)
+   11cc0:	d8843783          	ld	a5,-632(s0)
+   11cc4:	0ae7d063          	bge	a5,a4,11d64 <petrinet_main+0x1b7c>
+   11cc8:	8d01a783          	lw	a5,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11ccc:	0007879b          	sext.w	a5,a5
+   11cd0:	ffc7879b          	addiw	a5,a5,-4
+   11cd4:	0007871b          	sext.w	a4,a5
+   11cd8:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11cdc:	d8843703          	ld	a4,-632(s0)
+   11ce0:	d8043783          	ld	a5,-640(s0)
+   11ce4:	00f707b3          	add	a5,a4,a5
+   11ce8:	d6f43c23          	sd	a5,-648(s0)
+   11cec:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11cf0:	0007871b          	sext.w	a4,a5
+   11cf4:	00371713          	slli	a4,a4,0x3
+   11cf8:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11cfc:	00f707b3          	add	a5,a4,a5
+   11d00:	d8843703          	ld	a4,-632(s0)
+   11d04:	00e7b023          	sd	a4,0(a5)
+   11d08:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11d0c:	0007879b          	sext.w	a5,a5
+   11d10:	0017879b          	addiw	a5,a5,1
+   11d14:	0007871b          	sext.w	a4,a5
+   11d18:	00371713          	slli	a4,a4,0x3
+   11d1c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11d20:	00f707b3          	add	a5,a4,a5
+   11d24:	d8043703          	ld	a4,-640(s0)
+   11d28:	00e7b023          	sd	a4,0(a5)
+   11d2c:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11d30:	0007879b          	sext.w	a5,a5
+   11d34:	0027879b          	addiw	a5,a5,2
+   11d38:	0007871b          	sext.w	a4,a5
+   11d3c:	00371713          	slli	a4,a4,0x3
+   11d40:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11d44:	00f707b3          	add	a5,a4,a5
+   11d48:	d7843703          	ld	a4,-648(s0)
+   11d4c:	00e7b023          	sd	a4,0(a5)
+   11d50:	8b41a783          	lw	a5,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11d54:	0007879b          	sext.w	a5,a5
+   11d58:	0037879b          	addiw	a5,a5,3
+   11d5c:	0007871b          	sext.w	a4,a5
+   11d60:	8ae1aa23          	sw	a4,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11d64:	fec42783          	lw	a5,-20(s0)
+   11d68:	0007879b          	sext.w	a5,a5
+   11d6c:	00f05463          	blez	a5,11d74 <petrinet_main+0x1b8c>
+   11d70:	c90fe06f          	j	10200 <petrinet_main+0x18>
+   11d74:	00000013          	nop
+   11d78:	28813403          	ld	s0,648(sp)
+   11d7c:	29010113          	addi	sp,sp,656
+   11d80:	00008067          	ret
+
+0000000000011d84 <petrinet_init>:
+   11d84:	ff010113          	addi	sp,sp,-16
+   11d88:	00813423          	sd	s0,8(sp)
+   11d8c:	01010413          	addi	s0,sp,16
+   11d90:	00300713          	li	a4,3
+   11d94:	8ae1a823          	sw	a4,-1872(gp) # 13b48 <petrinet_P1_is_marked>
+   11d98:	00500713          	li	a4,5
+   11d9c:	8ce1a823          	sw	a4,-1840(gp) # 13b68 <petrinet_P2_is_marked>
+   11da0:	8a01aa23          	sw	zero,-1868(gp) # 13b4c <petrinet_P3_is_marked>
+   11da4:	00000013          	nop
+   11da8:	00813403          	ld	s0,8(sp)
+   11dac:	01010113          	addi	sp,sp,16
+   11db0:	00008067          	ret
+
+0000000000011db4 <petrinet_return>:
+   11db4:	fe010113          	addi	sp,sp,-32
+   11db8:	00813c23          	sd	s0,24(sp)
+   11dbc:	02010413          	addi	s0,sp,32
+   11dc0:	fe042623          	sw	zero,-20(s0)
+   11dc4:	fe042423          	sw	zero,-24(s0)
+   11dc8:	0380006f          	j	11e00 <petrinet_return+0x4c>
+   11dcc:	fe842703          	lw	a4,-24(s0)
+   11dd0:	00371713          	slli	a4,a4,0x3
+   11dd4:	8b818793          	addi	a5,gp,-1864 # 13b50 <petrinet_P1_marking_member_0>
+   11dd8:	00f707b3          	add	a5,a4,a5
+   11ddc:	0007b783          	ld	a5,0(a5)
+   11de0:	0007871b          	sext.w	a4,a5
+   11de4:	fec42783          	lw	a5,-20(s0)
+   11de8:	00f707bb          	addw	a5,a4,a5
+   11dec:	0007879b          	sext.w	a5,a5
+   11df0:	fef42623          	sw	a5,-20(s0)
+   11df4:	fe842783          	lw	a5,-24(s0)
+   11df8:	0017879b          	addiw	a5,a5,1
+   11dfc:	fef42423          	sw	a5,-24(s0)
+   11e00:	fe842783          	lw	a5,-24(s0)
+   11e04:	0007871b          	sext.w	a4,a5
+   11e08:	00200793          	li	a5,2
+   11e0c:	fce7d0e3          	bge	a5,a4,11dcc <petrinet_return+0x18>
+   11e10:	fe042423          	sw	zero,-24(s0)
+   11e14:	0380006f          	j	11e4c <petrinet_return+0x98>
+   11e18:	fe842703          	lw	a4,-24(s0)
+   11e1c:	00371713          	slli	a4,a4,0x3
+   11e20:	88818793          	addi	a5,gp,-1912 # 13b20 <petrinet_P2_marking_member_0>
+   11e24:	00f707b3          	add	a5,a4,a5
+   11e28:	0007b783          	ld	a5,0(a5)
+   11e2c:	0007871b          	sext.w	a4,a5
+   11e30:	fec42783          	lw	a5,-20(s0)
+   11e34:	00f707bb          	addw	a5,a4,a5
+   11e38:	0007879b          	sext.w	a5,a5
+   11e3c:	fef42623          	sw	a5,-20(s0)
+   11e40:	fe842783          	lw	a5,-24(s0)
+   11e44:	0017879b          	addiw	a5,a5,1
+   11e48:	fef42423          	sw	a5,-24(s0)
+   11e4c:	fe842783          	lw	a5,-24(s0)
+   11e50:	0007871b          	sext.w	a4,a5
+   11e54:	00400793          	li	a5,4
+   11e58:	fce7d0e3          	bge	a5,a4,11e18 <petrinet_return+0x64>
+   11e5c:	fe042423          	sw	zero,-24(s0)
+   11e60:	0380006f          	j	11e98 <petrinet_return+0xe4>
+   11e64:	fe842703          	lw	a4,-24(s0)
+   11e68:	00371713          	slli	a4,a4,0x3
+   11e6c:	85818793          	addi	a5,gp,-1960 # 13af0 <petrinet_P3_marking_member_0>
+   11e70:	00f707b3          	add	a5,a4,a5
+   11e74:	0007b783          	ld	a5,0(a5)
+   11e78:	0007871b          	sext.w	a4,a5
+   11e7c:	fec42783          	lw	a5,-20(s0)
+   11e80:	00f707bb          	addw	a5,a4,a5
+   11e84:	0007879b          	sext.w	a5,a5
+   11e88:	fef42623          	sw	a5,-20(s0)
+   11e8c:	fe842783          	lw	a5,-24(s0)
+   11e90:	0017879b          	addiw	a5,a5,1
+   11e94:	fef42423          	sw	a5,-24(s0)
+   11e98:	fe842783          	lw	a5,-24(s0)
+   11e9c:	0007871b          	sext.w	a4,a5
+   11ea0:	00500793          	li	a5,5
+   11ea4:	fce7d0e3          	bge	a5,a4,11e64 <petrinet_return+0xb0>
+   11ea8:	fec42783          	lw	a5,-20(s0)
+   11eac:	00000713          	li	a4,0
+   11eb0:	00e79663          	bne	a5,a4,11ebc <petrinet_return+0x108>
+   11eb4:	00000793          	li	a5,0
+   11eb8:	0080006f          	j	11ec0 <petrinet_return+0x10c>
+   11ebc:	fff00793          	li	a5,-1
+   11ec0:	00078513          	mv	a0,a5
+   11ec4:	01813403          	ld	s0,24(sp)
+   11ec8:	02010113          	addi	sp,sp,32
+   11ecc:	00008067          	ret
+
+0000000000011ed0 <main>:
+   11ed0:	fe010113          	addi	sp,sp,-32
+   11ed4:	00113c23          	sd	ra,24(sp)
+   11ed8:	00813823          	sd	s0,16(sp)
+   11edc:	02010413          	addi	s0,sp,32
+   11ee0:	fe042623          	sw	zero,-20(s0)
+   11ee4:	0140006f          	j	11ef8 <main+0x28>
+   11ee8:	b00fe0ef          	jal	ra,101e8 <petrinet_main>
+   11eec:	fec42783          	lw	a5,-20(s0)
+   11ef0:	0017879b          	addiw	a5,a5,1
+   11ef4:	fef42623          	sw	a5,-20(s0)
+   11ef8:	fec42783          	lw	a5,-20(s0)
+   11efc:	0007871b          	sext.w	a4,a5
+   11f00:	03100793          	li	a5,49
+   11f04:	fee7d2e3          	bge	a5,a4,11ee8 <main+0x18>
+   11f08:	eadff0ef          	jal	ra,11db4 <petrinet_return>
+   11f0c:	00050793          	mv	a5,a0
+   11f10:	00078513          	mv	a0,a5
+   11f14:	01813083          	ld	ra,24(sp)
+   11f18:	01013403          	ld	s0,16(sp)
+   11f1c:	02010113          	addi	sp,sp,32
+   11f20:	00008067          	ret
+
+0000000000011f24 <atexit>:
+   11f24:	00050593          	mv	a1,a0
+   11f28:	00000693          	li	a3,0
+   11f2c:	00000613          	li	a2,0
+   11f30:	00000513          	li	a0,0
+   11f34:	2240006f          	j	12158 <__register_exitproc>
+
+0000000000011f38 <exit>:
+   11f38:	ff010113          	addi	sp,sp,-16
+   11f3c:	00000593          	li	a1,0
+   11f40:	00813023          	sd	s0,0(sp)
+   11f44:	00113423          	sd	ra,8(sp)
+   11f48:	00050413          	mv	s0,a0
+   11f4c:	290000ef          	jal	ra,121dc <__call_exitprocs>
+   11f50:	8101b503          	ld	a0,-2032(gp) # 13aa8 <_global_impure_ptr>
+   11f54:	05853783          	ld	a5,88(a0)
+   11f58:	00078463          	beqz	a5,11f60 <exit+0x28>
+   11f5c:	000780e7          	jalr	a5
+   11f60:	00040513          	mv	a0,s0
+   11f64:	38c000ef          	jal	ra,122f0 <_exit>
+
+0000000000011f68 <__libc_fini_array>:
+   11f68:	fd010113          	addi	sp,sp,-48
+   11f6c:	000137b7          	lui	a5,0x13
+   11f70:	00013737          	lui	a4,0x13
+   11f74:	02813023          	sd	s0,32(sp)
+   11f78:	34870713          	addi	a4,a4,840 # 13348 <__do_global_dtors_aux_fini_array_entry>
+   11f7c:	35078413          	addi	s0,a5,848 # 13350 <impure_data>
+   11f80:	40e40433          	sub	s0,s0,a4
+   11f84:	00913c23          	sd	s1,24(sp)
+   11f88:	01213823          	sd	s2,16(sp)
+   11f8c:	01313423          	sd	s3,8(sp)
+   11f90:	02113423          	sd	ra,40(sp)
+   11f94:	40345413          	srai	s0,s0,0x3
+   11f98:	00000493          	li	s1,0
+   11f9c:	35078913          	addi	s2,a5,848
+   11fa0:	ff800993          	li	s3,-8
+   11fa4:	02941063          	bne	s0,s1,11fc4 <__libc_fini_array+0x5c>
+   11fa8:	02013403          	ld	s0,32(sp)
+   11fac:	02813083          	ld	ra,40(sp)
+   11fb0:	01813483          	ld	s1,24(sp)
+   11fb4:	01013903          	ld	s2,16(sp)
+   11fb8:	00813983          	ld	s3,8(sp)
+   11fbc:	03010113          	addi	sp,sp,48
+   11fc0:	930fe06f          	j	100f0 <_fini>
+   11fc4:	033487b3          	mul	a5,s1,s3
+   11fc8:	00148493          	addi	s1,s1,1
+   11fcc:	00f907b3          	add	a5,s2,a5
+   11fd0:	ff87b783          	ld	a5,-8(a5)
+   11fd4:	000780e7          	jalr	a5
+   11fd8:	fcdff06f          	j	11fa4 <__libc_fini_array+0x3c>
+
+0000000000011fdc <__libc_init_array>:
+   11fdc:	fe010113          	addi	sp,sp,-32
+   11fe0:	00813823          	sd	s0,16(sp)
+   11fe4:	00913423          	sd	s1,8(sp)
+   11fe8:	00013437          	lui	s0,0x13
+   11fec:	000134b7          	lui	s1,0x13
+   11ff0:	34048793          	addi	a5,s1,832 # 13340 <__frame_dummy_init_array_entry>
+   11ff4:	34040413          	addi	s0,s0,832 # 13340 <__frame_dummy_init_array_entry>
+   11ff8:	40f40433          	sub	s0,s0,a5
+   11ffc:	01213023          	sd	s2,0(sp)
+   12000:	00113c23          	sd	ra,24(sp)
+   12004:	40345413          	srai	s0,s0,0x3
+   12008:	34048493          	addi	s1,s1,832
+   1200c:	00000913          	li	s2,0
+   12010:	04891263          	bne	s2,s0,12054 <__libc_init_array+0x78>
+   12014:	000134b7          	lui	s1,0x13
+   12018:	8d8fe0ef          	jal	ra,100f0 <_fini>
+   1201c:	00013437          	lui	s0,0x13
+   12020:	34048793          	addi	a5,s1,832 # 13340 <__frame_dummy_init_array_entry>
+   12024:	34840413          	addi	s0,s0,840 # 13348 <__do_global_dtors_aux_fini_array_entry>
+   12028:	40f40433          	sub	s0,s0,a5
+   1202c:	40345413          	srai	s0,s0,0x3
+   12030:	34048493          	addi	s1,s1,832
+   12034:	00000913          	li	s2,0
+   12038:	02891863          	bne	s2,s0,12068 <__libc_init_array+0x8c>
+   1203c:	01813083          	ld	ra,24(sp)
+   12040:	01013403          	ld	s0,16(sp)
+   12044:	00813483          	ld	s1,8(sp)
+   12048:	00013903          	ld	s2,0(sp)
+   1204c:	02010113          	addi	sp,sp,32
+   12050:	00008067          	ret
+   12054:	0004b783          	ld	a5,0(s1)
+   12058:	00190913          	addi	s2,s2,1
+   1205c:	00848493          	addi	s1,s1,8
+   12060:	000780e7          	jalr	a5
+   12064:	fadff06f          	j	12010 <__libc_init_array+0x34>
+   12068:	0004b783          	ld	a5,0(s1)
+   1206c:	00190913          	addi	s2,s2,1
+   12070:	00848493          	addi	s1,s1,8
+   12074:	000780e7          	jalr	a5
+   12078:	fc1ff06f          	j	12038 <__libc_init_array+0x5c>
+
+000000000001207c <memset>:
+   1207c:	00f00313          	li	t1,15
+   12080:	00050713          	mv	a4,a0
+   12084:	02c37a63          	bgeu	t1,a2,120b8 <memset+0x3c>
+   12088:	00f77793          	andi	a5,a4,15
+   1208c:	0a079063          	bnez	a5,1212c <memset+0xb0>
+   12090:	06059e63          	bnez	a1,1210c <memset+0x90>
+   12094:	ff067693          	andi	a3,a2,-16
+   12098:	00f67613          	andi	a2,a2,15
+   1209c:	00e686b3          	add	a3,a3,a4
+   120a0:	00b73023          	sd	a1,0(a4)
+   120a4:	00b73423          	sd	a1,8(a4)
+   120a8:	01070713          	addi	a4,a4,16
+   120ac:	fed76ae3          	bltu	a4,a3,120a0 <memset+0x24>
+   120b0:	00061463          	bnez	a2,120b8 <memset+0x3c>
+   120b4:	00008067          	ret
+   120b8:	40c306b3          	sub	a3,t1,a2
+   120bc:	00269693          	slli	a3,a3,0x2
+   120c0:	00000297          	auipc	t0,0x0
+   120c4:	005686b3          	add	a3,a3,t0
+   120c8:	00c68067          	jr	12(a3)
+   120cc:	00b70723          	sb	a1,14(a4)
+   120d0:	00b706a3          	sb	a1,13(a4)
+   120d4:	00b70623          	sb	a1,12(a4)
+   120d8:	00b705a3          	sb	a1,11(a4)
+   120dc:	00b70523          	sb	a1,10(a4)
+   120e0:	00b704a3          	sb	a1,9(a4)
+   120e4:	00b70423          	sb	a1,8(a4)
+   120e8:	00b703a3          	sb	a1,7(a4)
+   120ec:	00b70323          	sb	a1,6(a4)
+   120f0:	00b702a3          	sb	a1,5(a4)
+   120f4:	00b70223          	sb	a1,4(a4)
+   120f8:	00b701a3          	sb	a1,3(a4)
+   120fc:	00b70123          	sb	a1,2(a4)
+   12100:	00b700a3          	sb	a1,1(a4)
+   12104:	00b70023          	sb	a1,0(a4)
+   12108:	00008067          	ret
+   1210c:	0ff5f593          	zext.b	a1,a1
+   12110:	00859693          	slli	a3,a1,0x8
+   12114:	00d5e5b3          	or	a1,a1,a3
+   12118:	01059693          	slli	a3,a1,0x10
+   1211c:	00d5e5b3          	or	a1,a1,a3
+   12120:	02059693          	slli	a3,a1,0x20
+   12124:	00d5e5b3          	or	a1,a1,a3
+   12128:	f6dff06f          	j	12094 <memset+0x18>
+   1212c:	00279693          	slli	a3,a5,0x2
+   12130:	00000297          	auipc	t0,0x0
+   12134:	005686b3          	add	a3,a3,t0
+   12138:	00008293          	mv	t0,ra
+   1213c:	f98680e7          	jalr	-104(a3)
+   12140:	00028093          	mv	ra,t0
+   12144:	ff078793          	addi	a5,a5,-16
+   12148:	40f70733          	sub	a4,a4,a5
+   1214c:	00f60633          	add	a2,a2,a5
+   12150:	f6c374e3          	bgeu	t1,a2,120b8 <memset+0x3c>
+   12154:	f3dff06f          	j	12090 <memset+0x14>
+
+0000000000012158 <__register_exitproc>:
+   12158:	8101b703          	ld	a4,-2032(gp) # 13aa8 <_global_impure_ptr>
+   1215c:	00050313          	mv	t1,a0
+   12160:	1f873783          	ld	a5,504(a4)
+   12164:	00079663          	bnez	a5,12170 <__register_exitproc+0x18>
+   12168:	20070793          	addi	a5,a4,512
+   1216c:	1ef73c23          	sd	a5,504(a4)
+   12170:	0087a703          	lw	a4,8(a5)
+   12174:	01f00813          	li	a6,31
+   12178:	fff00513          	li	a0,-1
+   1217c:	04e84e63          	blt	a6,a4,121d8 <__register_exitproc+0x80>
+   12180:	02030e63          	beqz	t1,121bc <__register_exitproc+0x64>
+   12184:	00371813          	slli	a6,a4,0x3
+   12188:	01078833          	add	a6,a5,a6
+   1218c:	10c83823          	sd	a2,272(a6)
+   12190:	3107a883          	lw	a7,784(a5)
+   12194:	00100613          	li	a2,1
+   12198:	00e6163b          	sllw	a2,a2,a4
+   1219c:	00c8e8b3          	or	a7,a7,a2
+   121a0:	3117a823          	sw	a7,784(a5)
+   121a4:	20d83823          	sd	a3,528(a6)
+   121a8:	00200693          	li	a3,2
+   121ac:	00d31863          	bne	t1,a3,121bc <__register_exitproc+0x64>
+   121b0:	3147a683          	lw	a3,788(a5)
+   121b4:	00c6e633          	or	a2,a3,a2
+   121b8:	30c7aa23          	sw	a2,788(a5)
+   121bc:	0017069b          	addiw	a3,a4,1
+   121c0:	00270713          	addi	a4,a4,2
+   121c4:	00371713          	slli	a4,a4,0x3
+   121c8:	00d7a423          	sw	a3,8(a5)
+   121cc:	00e787b3          	add	a5,a5,a4
+   121d0:	00b7b023          	sd	a1,0(a5)
+   121d4:	00000513          	li	a0,0
+   121d8:	00008067          	ret
+
+00000000000121dc <__call_exitprocs>:
+   121dc:	fb010113          	addi	sp,sp,-80
+   121e0:	03313423          	sd	s3,40(sp)
+   121e4:	8101b983          	ld	s3,-2032(gp) # 13aa8 <_global_impure_ptr>
+   121e8:	03413023          	sd	s4,32(sp)
+   121ec:	01513c23          	sd	s5,24(sp)
+   121f0:	01613823          	sd	s6,16(sp)
+   121f4:	04113423          	sd	ra,72(sp)
+   121f8:	04813023          	sd	s0,64(sp)
+   121fc:	02913c23          	sd	s1,56(sp)
+   12200:	03213823          	sd	s2,48(sp)
+   12204:	01713423          	sd	s7,8(sp)
+   12208:	00050a93          	mv	s5,a0
+   1220c:	00058a13          	mv	s4,a1
+   12210:	00100b13          	li	s6,1
+   12214:	1f89b403          	ld	s0,504(s3)
+   12218:	00040c63          	beqz	s0,12230 <__call_exitprocs+0x54>
+   1221c:	00842483          	lw	s1,8(s0)
+   12220:	fff4849b          	addiw	s1,s1,-1
+   12224:	00349913          	slli	s2,s1,0x3
+   12228:	01240933          	add	s2,s0,s2
+   1222c:	0204d863          	bgez	s1,1225c <__call_exitprocs+0x80>
+   12230:	04813083          	ld	ra,72(sp)
+   12234:	04013403          	ld	s0,64(sp)
+   12238:	03813483          	ld	s1,56(sp)
+   1223c:	03013903          	ld	s2,48(sp)
+   12240:	02813983          	ld	s3,40(sp)
+   12244:	02013a03          	ld	s4,32(sp)
+   12248:	01813a83          	ld	s5,24(sp)
+   1224c:	01013b03          	ld	s6,16(sp)
+   12250:	00813b83          	ld	s7,8(sp)
+   12254:	05010113          	addi	sp,sp,80
+   12258:	00008067          	ret
+   1225c:	000a0c63          	beqz	s4,12274 <__call_exitprocs+0x98>
+   12260:	21093783          	ld	a5,528(s2)
+   12264:	01478863          	beq	a5,s4,12274 <__call_exitprocs+0x98>
+   12268:	fff4849b          	addiw	s1,s1,-1
+   1226c:	ff890913          	addi	s2,s2,-8
+   12270:	fbdff06f          	j	1222c <__call_exitprocs+0x50>
+   12274:	00842783          	lw	a5,8(s0)
+   12278:	01093683          	ld	a3,16(s2)
+   1227c:	fff7879b          	addiw	a5,a5,-1
+   12280:	02979e63          	bne	a5,s1,122bc <__call_exitprocs+0xe0>
+   12284:	00942423          	sw	s1,8(s0)
+   12288:	fe0680e3          	beqz	a3,12268 <__call_exitprocs+0x8c>
+   1228c:	31042703          	lw	a4,784(s0)
+   12290:	009b163b          	sllw	a2,s6,s1
+   12294:	00842b83          	lw	s7,8(s0)
+   12298:	00c77733          	and	a4,a4,a2
+   1229c:	0007071b          	sext.w	a4,a4
+   122a0:	02071263          	bnez	a4,122c4 <__call_exitprocs+0xe8>
+   122a4:	000680e7          	jalr	a3
+   122a8:	00842703          	lw	a4,8(s0)
+   122ac:	1f89b783          	ld	a5,504(s3)
+   122b0:	f77712e3          	bne	a4,s7,12214 <__call_exitprocs+0x38>
+   122b4:	faf40ae3          	beq	s0,a5,12268 <__call_exitprocs+0x8c>
+   122b8:	f5dff06f          	j	12214 <__call_exitprocs+0x38>
+   122bc:	00093823          	sd	zero,16(s2)
+   122c0:	fc9ff06f          	j	12288 <__call_exitprocs+0xac>
+   122c4:	31442783          	lw	a5,788(s0)
+   122c8:	11093583          	ld	a1,272(s2)
+   122cc:	00c7f7b3          	and	a5,a5,a2
+   122d0:	0007879b          	sext.w	a5,a5
+   122d4:	00079863          	bnez	a5,122e4 <__call_exitprocs+0x108>
+   122d8:	000a8513          	mv	a0,s5
+   122dc:	000680e7          	jalr	a3
+   122e0:	fc9ff06f          	j	122a8 <__call_exitprocs+0xcc>
+   122e4:	00058513          	mv	a0,a1
+   122e8:	000680e7          	jalr	a3
+   122ec:	fbdff06f          	j	122a8 <__call_exitprocs+0xcc>
+
+00000000000122f0 <_exit>:
+   122f0:	00000593          	li	a1,0
+   122f4:	00000613          	li	a2,0
+   122f8:	00000693          	li	a3,0
+   122fc:	00000713          	li	a4,0
+   12300:	00000793          	li	a5,0
+   12304:	05d00893          	li	a7,93
+   12308:	00000073          	ecall
+   1230c:	02055263          	bgez	a0,12330 <_exit+0x40>
+   12310:	ff010113          	addi	sp,sp,-16
+   12314:	00813023          	sd	s0,0(sp)
+   12318:	00050413          	mv	s0,a0
+   1231c:	00113423          	sd	ra,8(sp)
+   12320:	4080043b          	negw	s0,s0
+   12324:	010000ef          	jal	ra,12334 <__errno>
+   12328:	00852023          	sw	s0,0(a0)
+   1232c:	0000006f          	j	1232c <_exit+0x3c>
+   12330:	0000006f          	j	12330 <_exit+0x40>
+
+0000000000012334 <__errno>:
+   12334:	8181b503          	ld	a0,-2024(gp) # 13ab0 <_impure_ptr>
+   12338:	00008067          	ret

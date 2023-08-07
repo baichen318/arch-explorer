@@ -1,0 +1,676 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AnalysisWindow	graph/graph.h	/^    static uint32_t AnalysisWindow;$/;"	m	class:Graph
+Atomic	common/calipers_types.h	/^    Atomic,$/;"	e	enum:ExecutionType
+BRANCH_PREDICTOR_H	branch_predictor/branch_predictor.h	28;"	d
+BranchCond	common/calipers_types.h	/^    BranchCond,$/;"	e	enum:ExecutionType
+BranchPredictor	branch_predictor/branch_predictor.h	/^class BranchPredictor$/;"	c
+BranchPredictorType	common/calipers_types.h	/^enum BranchPredictorType$/;"	g
+BranchUncond	common/calipers_types.h	/^    BranchUncond,$/;"	e	enum:ExecutionType
+CACHE_ADDRESS_ZEROS	common/calipers_defs.h	49;"	d
+CACHE_H	memory/cache.h	28;"	d
+CACHE_LINE	memory/real_cache.h	/^typedef struct CACHE_LINE$/;"	s
+CACHE_LINE_BYTES	common/calipers_defs.h	48;"	d
+CACHE_SET	memory/real_cache.h	/^typedef struct CACHE_SET$/;"	s
+CALIPERS_DEFS_H	common/calipers_defs.h	28;"	d
+CALIPERS_ERROR	common/calipers_defs.h	41;"	d
+CALIPERS_INFO	common/calipers_defs.h	35;"	d
+CALIPERS_TYPES_H	common/calipers_types.h	28;"	d
+CALIPERS_UTIL_H	common/calipers_util.h	28;"	d
+CALIPERS_WARNING	common/calipers_defs.h	38;"	d
+CYCLE_TYPES	common/calipers_types.h	/^typedef struct CYCLE_TYPES$/;"	s
+Cache	memory/cache.h	/^class Cache$/;"	c
+CacheInternals	memory/real_cache.h	/^    CacheInternals(uint64_t cache_config,$/;"	f	class:CacheInternals
+CacheInternals	memory/real_cache.h	/^class CacheInternals$/;"	c
+CacheLine	memory/real_cache.h	/^} CacheLine; $/;"	t	typeref:struct:CACHE_LINE
+CacheSet	memory/real_cache.h	/^} CacheSet;$/;"	t	typeref:struct:CACHE_SET
+CacheType	common/calipers_types.h	/^enum CacheType$/;"	g
+Csr	trace/riscv_stream.h	/^    enum Csr$/;"	g	class:RiscvStream
+Cycle	trace/riscv_stream.h	/^        Cycle = 0xc00,$/;"	e	enum:RiscvStream::Csr
+CycleTypes	common/calipers_types.h	/^} CycleTypes;$/;"	t	typeref:struct:CYCLE_TYPES
+Cycleh	trace/riscv_stream.h	/^        Cycleh = 0xc80,$/;"	e	enum:RiscvStream::Csr
+ExecutionType	common/calipers_types.h	/^enum ExecutionType$/;"	g
+Fcsr	trace/riscv_stream.h	/^        Fcsr = 0x003,$/;"	e	enum:RiscvStream::Csr
+Fflags	trace/riscv_stream.h	/^        Fflags = 0x001,$/;"	e	enum:RiscvStream::Csr
+FpBase	common/calipers_types.h	/^    FpBase,$/;"	e	enum:ExecutionType
+FpDiv	common/calipers_types.h	/^    FpDiv,$/;"	e	enum:ExecutionType
+FpMul	common/calipers_types.h	/^    FpMul,$/;"	e	enum:ExecutionType
+FpReg	trace/riscv_stream.h	/^    enum FpReg$/;"	g	class:RiscvStream
+Frm	trace/riscv_stream.h	/^        Frm = 0x002,$/;"	e	enum:RiscvStream::Csr
+GRAPH_H	graph/graph.h	28;"	d
+GRAPH_UTIL_H	graph/graph_util.h	28;"	d
+Graph	graph/graph.cpp	/^Graph::Graph($/;"	f	class:Graph
+Graph	graph/graph.h	/^    Graph() {}$/;"	f	class:Graph
+Graph	graph/graph.h	/^class Graph$/;"	c
+HIT	memory/real_cache.h	/^const uint64_t HIT = 1;$/;"	v
+IDEAL_CACHE_H	memory/ideal_cache.h	28;"	d
+INCOMING_EDGE	graph/graph_util.h	/^    INCOMING_EDGE() : parent(Vertex(0, 0)), weight(0)$/;"	f	struct:INCOMING_EDGE
+INCOMING_EDGE	graph/graph_util.h	/^    INCOMING_EDGE(Vertex parent, Vector& v) : parent(parent)$/;"	f	struct:INCOMING_EDGE
+INCOMING_EDGE	graph/graph_util.h	/^    INCOMING_EDGE(Vertex parent, int64_t val) : parent(parent), weight(val)$/;"	f	struct:INCOMING_EDGE
+INCOMING_EDGE	graph/graph_util.h	/^    INCOMING_EDGE(Vertex parent, int64_t val, uint32_t idx) : parent(parent), weight(val, idx)$/;"	f	struct:INCOMING_EDGE
+INCOMING_EDGE	graph/graph_util.h	/^typedef struct INCOMING_EDGE$/;"	s
+INO_WINDOW	common/calipers_defs.h	55;"	d
+INSTRUCTION	common/calipers_types.h	/^typedef struct INSTRUCTION$/;"	s
+INSTRUCTION_STREAM_H	trace/instruction_stream.h	28;"	d
+INSTRUCTION_TYPES	common/calipers_types.h	/^typedef struct INSTRUCTION_TYPES$/;"	s
+IN_ORDER_CORE_GRAPH_H	graph/inorder_core_graph.h	28;"	d
+IdealC	common/calipers_types.h	/^    IdealC,$/;"	e	enum:CacheType
+IdealCache	memory/ideal_cache.h	/^class IdealCache: public Cache$/;"	c
+IncomingEdge	graph/graph_util.h	/^} IncomingEdge;$/;"	t	typeref:struct:INCOMING_EDGE
+InorderCoreGraph	graph/inorder_core_graph.cpp	/^InorderCoreGraph::InorderCoreGraph(string trace_file_name,$/;"	f	class:InorderCoreGraph
+InorderCoreGraph	graph/inorder_core_graph.h	/^class InorderCoreGraph : public Graph$/;"	c
+InstrCommit	common/calipers_types.h	/^    InstrCommit = 4,$/;"	e	enum:VertexType
+InstrDispatch	common/calipers_types.h	/^    InstrDispatch = 1,$/;"	e	enum:VertexType
+InstrExecute	common/calipers_types.h	/^    InstrExecute = 2,$/;"	e	enum:VertexType
+InstrFetch	common/calipers_types.h	/^    InstrFetch = 0,$/;"	e	enum:VertexType
+Instret	trace/riscv_stream.h	/^        Instret = 0xc02,$/;"	e	enum:RiscvStream::Csr
+Instreth	trace/riscv_stream.h	/^        Instreth = 0xc82$/;"	e	enum:RiscvStream::Csr
+Instruction	common/calipers_types.h	/^} Instruction;$/;"	t	typeref:struct:INSTRUCTION
+InstructionStream	trace/instruction_stream.cpp	/^InstructionStream::InstructionStream($/;"	f	class:InstructionStream
+InstructionStream	trace/instruction_stream.h	/^class InstructionStream$/;"	c
+InstructionTypes	common/calipers_types.h	/^} InstructionTypes;$/;"	t	typeref:struct:INSTRUCTION_TYPES
+IntBase	common/calipers_types.h	/^    IntBase,$/;"	e	enum:ExecutionType
+IntDiv	common/calipers_types.h	/^    IntDiv,$/;"	e	enum:ExecutionType
+IntMul	common/calipers_types.h	/^    IntMul,$/;"	e	enum:ExecutionType
+IntReg	trace/riscv_stream.h	/^    enum IntReg$/;"	g	class:RiscvStream
+Last	common/calipers_types.h	/^    Last = 4$/;"	e	enum:VertexType
+Load	common/calipers_types.h	/^    Load,$/;"	e	enum:ExecutionType
+MAX_OPERANDS	common/calipers_defs.h	53;"	d
+MAX_PARENTS	common/calipers_defs.h	56;"	d
+MAX_REG_RD	common/calipers_defs.h	51;"	d
+MAX_REG_WR	common/calipers_defs.h	52;"	d
+MAX_WAYS	memory/real_cache.h	34;"	d
+MISS	memory/real_cache.h	/^const uint64_t MISS = 0;$/;"	v
+MemExecute	common/calipers_types.h	/^    MemExecute = 3,$/;"	e	enum:VertexType
+MyCache	memory/real_cache.h	/^class MyCache$/;"	c
+O3CoreGraph	graph/o3_core_graph.cpp	/^O3CoreGraph::O3CoreGraph(string trace_file_name,$/;"	f	class:O3CoreGraph
+O3CoreGraph	graph/o3_core_graph.h	/^class O3CoreGraph : public Graph$/;"	c
+O3CoreGraphAdvanced	graph/o3_core_graph_advanced.cpp	/^O3CoreGraphAdvanced::O3CoreGraphAdvanced($/;"	f	class:O3CoreGraphAdvanced
+O3CoreGraphAdvanced	graph/o3_core_graph_advanced.h	/^class O3CoreGraphAdvanced : public Graph$/;"	c
+O3_CORE_GRAPH	graph/o3_core_graph.h	27;"	d
+O3_CORE_GRAPH_ADVANCED	graph/o3_core_graph_advanced.h	28;"	d
+OOO_HOPPING_WINDOW	common/calipers_defs.h	58;"	d
+OOO_SLIDING_WINDOW	common/calipers_defs.h	59;"	d
+OUTGOING_EDGE	graph/graph_util.h	/^    OUTGOING_EDGE() : child(Vertex(0, 0)), weight(0)$/;"	f	struct:OUTGOING_EDGE
+OUTGOING_EDGE	graph/graph_util.h	/^    OUTGOING_EDGE(Vertex child, Vector& v) : child(child)$/;"	f	struct:OUTGOING_EDGE
+OUTGOING_EDGE	graph/graph_util.h	/^    OUTGOING_EDGE(Vertex child, int64_t val) : child(child), weight(val)$/;"	f	struct:OUTGOING_EDGE
+OUTGOING_EDGE	graph/graph_util.h	/^    OUTGOING_EDGE(Vertex child, int64_t val, uint32_t idx) : child(child), weight(val, idx)$/;"	f	struct:OUTGOING_EDGE
+OUTGOING_EDGE	graph/graph_util.h	/^typedef struct OUTGOING_EDGE$/;"	s
+Other	common/calipers_types.h	/^    Other$/;"	e	enum:ExecutionType
+OutgoingEdge	graph/graph_util.h	/^} OutgoingEdge;$/;"	t	typeref:struct:OUTGOING_EDGE
+QUEUE_INSTANCE	graph/scoreboard.h	/^    typedef struct QUEUE_INSTANCE$/;"	s	class:Scoreboard
+QueueInstance	graph/scoreboard.h	/^    } QueueInstance;$/;"	t	class:Scoreboard	typeref:struct:Scoreboard::QUEUE_INSTANCE
+QueueResource	common/calipers_types.h	/^enum QueueResource$/;"	g
+RAND_SEED	common/calipers_defs.h	44;"	d
+REAL_CACHE_H	memory/real_cache.h	28;"	d
+RESOURCE_INSTANCE	graph/scoreboard.h	/^    typedef struct RESOURCE_INSTANCE$/;"	s	class:Scoreboard
+RESOURCE_INSTANCE	graph/scoreboard_simple.h	/^    typedef struct RESOURCE_INSTANCE$/;"	s	class:ScoreboardSimple
+RESOURCE_RECORD	graph/scoreboard_simple.h	/^    typedef struct RESOURCE_RECORD$/;"	s	class:ScoreboardSimple
+RISCV_STREAM_H	trace/riscv_stream.h	28;"	d
+RealC	common/calipers_types.h	/^    RealC$/;"	e	enum:CacheType
+RealCache	memory/real_cache.h	/^    RealCache(string config)$/;"	f	class:RealCache
+RealCache	memory/real_cache.h	/^class RealCache: public Cache$/;"	c
+Resource	common/calipers_types.h	/^enum Resource$/;"	g
+ResourceInstance	graph/scoreboard.h	/^    } ResourceInstance;$/;"	t	class:Scoreboard	typeref:struct:Scoreboard::RESOURCE_INSTANCE
+ResourceInstance	graph/scoreboard_simple.h	/^    } ResourceInstance;$/;"	t	class:ScoreboardSimple	typeref:struct:ScoreboardSimple::RESOURCE_INSTANCE
+ResourceRecord	graph/scoreboard_simple.h	/^    } ResourceRecord;$/;"	t	class:ScoreboardSimple	typeref:struct:ScoreboardSimple::RESOURCE_RECORD
+RiscvStream	trace/riscv_stream.h	/^    RiscvStream(string trace_file_name, bool trace_bp, bool trace_icache, bool trace_dcache) :$/;"	f	class:RiscvStream
+RiscvStream	trace/riscv_stream.h	/^class RiscvStream : public InstructionStream$/;"	c
+RscCommit	common/calipers_types.h	/^    RscCommit,$/;"	e	enum:Resource
+RscDispatch	common/calipers_types.h	/^    RscDispatch,$/;"	e	enum:Resource
+RscFetch	common/calipers_types.h	/^    RscFetch,$/;"	e	enum:Resource
+RscFpAlu	common/calipers_types.h	/^    RscFpAlu,$/;"	e	enum:Resource
+RscFpDiv	common/calipers_types.h	/^    RscFpDiv,$/;"	e	enum:Resource
+RscFpMul	common/calipers_types.h	/^    RscFpMul,$/;"	e	enum:Resource
+RscFpMulDiv	common/calipers_types.h	/^    RscFpMulDiv,$/;"	e	enum:Resource
+RscFpu	common/calipers_types.h	/^    RscFpu,$/;"	e	enum:Resource
+RscInstrQ	common/calipers_types.h	/^    RscInstrQ,$/;"	e	enum:QueueResource
+RscIntAlu	common/calipers_types.h	/^    RscIntAlu,$/;"	e	enum:Resource
+RscIntDiv	common/calipers_types.h	/^    RscIntDiv,$/;"	e	enum:Resource
+RscIntMul	common/calipers_types.h	/^    RscIntMul,$/;"	e	enum:Resource
+RscIntMulDiv	common/calipers_types.h	/^    RscIntMulDiv,$/;"	e	enum:Resource
+RscIssue	common/calipers_types.h	/^    RscIssue,$/;"	e	enum:Resource
+RscLQ	common/calipers_types.h	/^    RscLQ,$/;"	e	enum:QueueResource
+RscLsu	common/calipers_types.h	/^    RscLsu,$/;"	e	enum:Resource
+RscMemCommit	common/calipers_types.h	/^    RscMemCommit,$/;"	e	enum:Resource
+RscMemIssue	common/calipers_types.h	/^    RscMemIssue,$/;"	e	enum:Resource
+RscSQ	common/calipers_types.h	/^    RscSQ,$/;"	e	enum:QueueResource
+SCOREBOARD_H	graph/scoreboard.h	28;"	d
+SCOREBOARD_SIMPLE_H	graph/scoreboard_simple.h	28;"	d
+STATISTICAL_BP_H	branch_predictor/statistical_bp.h	28;"	d
+STATISTICAL_CACHE_H	memory/statistical_cache.h	28;"	d
+ScheduleComparison	graph/graph.h	/^    struct ScheduleComparison$/;"	s	class:Graph
+ScheduleSet	graph/graph.h	/^    typedef std::set<pair<uint64_t, int64_t>, ScheduleComparison> ScheduleSet;$/;"	t	class:Graph
+Scoreboard	graph/scoreboard.h	/^class Scoreboard$/;"	c
+ScoreboardSimple	graph/scoreboard_simple.h	/^class ScoreboardSimple$/;"	c
+StatisticalB	common/calipers_types.h	/^    StatisticalB$/;"	e	enum:BranchPredictorType
+StatisticalBp	branch_predictor/statistical_bp.h	/^    StatisticalBp(string config)$/;"	f	class:StatisticalBp
+StatisticalBp	branch_predictor/statistical_bp.h	/^class StatisticalBp : public BranchPredictor$/;"	c
+StatisticalC	common/calipers_types.h	/^    StatisticalC,$/;"	e	enum:CacheType
+StatisticalCache	memory/statistical_cache.h	/^    StatisticalCache(string config)$/;"	f	class:StatisticalCache
+StatisticalCache	memory/statistical_cache.h	/^class StatisticalCache: public Cache$/;"	c
+Store	common/calipers_types.h	/^    Store,$/;"	e	enum:ExecutionType
+Syscall	common/calipers_types.h	/^    Syscall,$/;"	e	enum:ExecutionType
+TICKS_PER_CYCLE	common/calipers_defs.h	46;"	d
+Time	trace/riscv_stream.h	/^        Time = 0xc01,$/;"	e	enum:RiscvStream::Csr
+Timeh	trace/riscv_stream.h	/^        Timeh = 0xc81,$/;"	e	enum:RiscvStream::Csr
+TraceB	common/calipers_types.h	/^    TraceB, \/\/ Provided by the trace$/;"	e	enum:BranchPredictorType
+TraceC	common/calipers_types.h	/^    TraceC, \/\/ Provided by the trace$/;"	e	enum:CacheType
+Ucause	trace/riscv_stream.h	/^        Ucause = 0x042,$/;"	e	enum:RiscvStream::Csr
+Uepc	trace/riscv_stream.h	/^        Uepc = 0x041,$/;"	e	enum:RiscvStream::Csr
+Uie	trace/riscv_stream.h	/^        Uie = 0x004,$/;"	e	enum:RiscvStream::Csr
+Uio	trace/riscv_stream.h	/^        Uio = 0x044,$/;"	e	enum:RiscvStream::Csr
+Uscratch	trace/riscv_stream.h	/^        Uscratch = 0x040,$/;"	e	enum:RiscvStream::Csr
+Ustatus	trace/riscv_stream.h	/^        Ustatus = 0x000,$/;"	e	enum:RiscvStream::Csr
+Utval	trace/riscv_stream.h	/^        Utval = 0x043,$/;"	e	enum:RiscvStream::Csr
+Utvec	trace/riscv_stream.h	/^        Utvec = 0x005,$/;"	e	enum:RiscvStream::Csr
+VECTOR_WIDTH	common/calipers_defs.h	61;"	d
+VERTEX	graph/graph_util.h	/^    VERTEX() : type(0), instrNum(0)$/;"	f	struct:VERTEX
+VERTEX	graph/graph_util.h	/^    VERTEX(int type, uint64_t instrNum) : type(type), instrNum(instrNum) {$/;"	f	struct:VERTEX
+VERTEX	graph/graph_util.h	/^    VERTEX(int type, uint64_t instrNum, string inst): type(type), instrNum(instrNum), inst(inst) {}$/;"	f	struct:VERTEX
+VERTEX	graph/graph_util.h	/^typedef struct VERTEX$/;"	s
+VISUALIZER_H	tools/visualizer.h	5;"	d
+Vector	graph/graph_util.h	/^    Vector() : Vector(0)$/;"	f	class:Vector
+Vector	graph/graph_util.h	/^    Vector(const Vector& v_in, int64_t offset)$/;"	f	class:Vector
+Vector	graph/graph_util.h	/^    Vector(int64_t val)$/;"	f	class:Vector
+Vector	graph/graph_util.h	/^    Vector(int64_t val, uint32_t idx)$/;"	f	class:Vector
+Vector	graph/graph_util.h	/^    Vector(int64_t* arr, uint32_t width)$/;"	f	class:Vector
+Vector	graph/graph_util.h	/^    Vector(int64_t* arr, uint32_t width, int64_t offset)$/;"	f	class:Vector
+Vector	graph/graph_util.h	/^class Vector$/;"	c
+Vertex	graph/graph_util.h	/^} Vertex;$/;"	t	typeref:struct:VERTEX
+VertexEqual	graph/graph.h	/^    struct VertexEqual$/;"	s	class:Graph
+VertexHash	graph/graph.h	/^    struct VertexHash$/;"	s	class:Graph
+VertexScheduleComparison	graph/graph.h	/^    struct VertexScheduleComparison$/;"	s	class:Graph
+VertexScheduleSet	graph/graph.h	/^    typedef std::set<pair<Vertex, int64_t>, VertexScheduleComparison> VertexScheduleSet;$/;"	t	class:Graph
+VertexType	common/calipers_types.h	/^enum VertexType$/;"	g
+Visualizer	tools/visualizer.h	/^	Visualizer($/;"	f	class:Visualizer
+Visualizer	tools/visualizer.h	/^class Visualizer : public Graph {$/;"	c
+_g	tools/visualizer.h	/^	graph _g;$/;"	m	class:edges_writer
+_g	tools/visualizer.h	/^	graph _g;$/;"	m	class:vertex_writer
+_graph	tools/visualizer.h	/^	bg_t _graph;$/;"	m	class:Visualizer
+a0	trace/riscv_stream.h	/^        a0 = 10,$/;"	e	enum:RiscvStream::IntReg
+a1	trace/riscv_stream.h	/^        a1 = 11,$/;"	e	enum:RiscvStream::IntReg
+a2	trace/riscv_stream.h	/^        a2 = 12,$/;"	e	enum:RiscvStream::IntReg
+a3	trace/riscv_stream.h	/^        a3 = 13,$/;"	e	enum:RiscvStream::IntReg
+a4	trace/riscv_stream.h	/^        a4 = 14,$/;"	e	enum:RiscvStream::IntReg
+a5	trace/riscv_stream.h	/^        a5 = 15,$/;"	e	enum:RiscvStream::IntReg
+a6	trace/riscv_stream.h	/^        a6 = 16,$/;"	e	enum:RiscvStream::IntReg
+a7	trace/riscv_stream.h	/^        a7 = 17,$/;"	e	enum:RiscvStream::IntReg
+accuracy	branch_predictor/statistical_bp.h	/^    float accuracy;$/;"	m	class:StatisticalBp
+addEdge	graph/inorder_core_graph.cpp	/^void InorderCoreGraph::addEdge(Vertex& parent, OutgoingEdge& e)$/;"	f	class:InorderCoreGraph
+addEdge	graph/o3_core_graph.cpp	/^void O3CoreGraph::addEdge(Vertex& parent, OutgoingEdge& e)$/;"	f	class:O3CoreGraph
+addEdge	graph/o3_core_graph_advanced.cpp	/^void O3CoreGraphAdvanced::addEdge(Vertex& parent, OutgoingEdge& e)$/;"	f	class:O3CoreGraphAdvanced
+add_edge_with_property	tools/visualizer.h	/^typename boost::graph_traits<graph>::edge_descriptor add_edge_with_property($/;"	f
+alreadyScheduled	graph/o3_core_graph_advanced.h	/^    set<uint64_t> alreadyScheduled[VECTOR_WIDTH];$/;"	m	class:O3CoreGraphAdvanced
+analyzedWindows	graph/graph.h	/^    uint64_t analyzedWindows;$/;"	m	class:Graph
+anaylzeWindow	graph/o3_core_graph.cpp	/^void O3CoreGraph::anaylzeWindow()$/;"	f	class:O3CoreGraph
+arch_explorer_root	trace/instruction_stream.h	/^    filesystem::path arch_explorer_root;$/;"	m	class:InstructionStream
+assignedInstrNum	graph/scoreboard.h	/^        uint64_t* assignedInstrNum;$/;"	m	struct:Scoreboard::QUEUE_INSTANCE
+assignedInstrNum	graph/scoreboard.h	/^        uint64_t* assignedInstrNum;$/;"	m	struct:Scoreboard::RESOURCE_INSTANCE
+assignedOp	graph/scoreboard.h	/^        int* assignedOp; \/\/ For resources that do a mixture of operations$/;"	m	struct:Scoreboard::RESOURCE_INSTANCE
+atomicCycles	common/calipers_types.h	/^    Vector atomicCycles;$/;"	m	struct:CYCLE_TYPES
+badFetchHitCycles	common/calipers_types.h	/^    Vector badFetchHitCycles;$/;"	m	struct:CYCLE_TYPES
+badFetchMissCycles	common/calipers_types.h	/^    Vector badFetchMissCycles;$/;"	m	struct:CYCLE_TYPES
+between	graph/graph_util.h	/^    void between(int64_t val1, int64_t val2, bool* mask, bool* result, uint32_t width)$/;"	f	class:Vector
+bp	graph/graph.h	/^    BranchPredictor* bp;$/;"	m	class:Graph
+bpConfig	graph/o3_core_graph.h	/^    string bpConfig;$/;"	m	class:O3CoreGraph
+bpConfig	graph/o3_core_graph_advanced.h	/^    string bpConfig;$/;"	m	class:O3CoreGraphAdvanced
+bpMisses	graph/graph.h	/^    uint64_t bpMisses;$/;"	m	class:Graph
+bpType	graph/o3_core_graph.h	/^    int bpType;$/;"	m	class:O3CoreGraph
+bpType	graph/o3_core_graph_advanced.h	/^    int bpType;$/;"	m	class:O3CoreGraphAdvanced
+bp_type	common/main.cpp	/^int bp_type(string str) {$/;"	f
+branchCount	graph/graph.h	/^    uint64_t branchCount;$/;"	m	class:Graph
+branchCycles	common/calipers_types.h	/^    Vector branchCycles;$/;"	m	struct:CYCLE_TYPES
+branchInstructions	common/calipers_types.h	/^    Vector branchInstructions;$/;"	m	struct:INSTRUCTION_TYPES
+bytes	common/calipers_types.h	/^    uint32_t bytes;$/;"	m	struct:INSTRUCTION
+bytesMap	trace/riscv_stream.h	/^    unordered_map<string, uint32_t> bytesMap;$/;"	m	class:RiscvStream
+cacheAccessInstall	memory/real_cache.h	/^    uint32_t cacheAccessInstall(MyCache* c, uint64_t p_addr, uint32_t type)$/;"	f	class:CacheInternals
+cacheInternals	memory/real_cache.h	/^    CacheInternals* cacheInternals;$/;"	m	class:RealCache
+cacheNew	memory/real_cache.h	/^    MyCache* cacheNew(uint64_t size, uint64_t assoc, uint64_t line_size)$/;"	f	class:CacheInternals
+cache_type	common/main.cpp	/^int cache_type(string str) {$/;"	f
+calculateCriticalPathForScheduling	graph/o3_core_graph.cpp	/^void O3CoreGraph::calculateCriticalPathForScheduling()$/;"	f	class:O3CoreGraph
+calculateFinalCriticalPath	graph/o3_core_graph.cpp	/^void O3CoreGraph::calculateFinalCriticalPath()$/;"	f	class:O3CoreGraph
+calculateInstructionCriticalPath	graph/inorder_core_graph.cpp	/^void InorderCoreGraph::calculateInstructionCriticalPath()$/;"	f	class:InorderCoreGraph
+calculateInstructionCriticalPath	graph/o3_core_graph_advanced.cpp	/^void O3CoreGraphAdvanced::calculateInstructionCriticalPath()$/;"	f	class:O3CoreGraphAdvanced
+calipers_trace_file_name	trace/instruction_stream.h	/^    string calipers_trace_file_name;$/;"	m	class:InstructionStream
+child	graph/graph_util.h	/^    Vertex child;$/;"	m	struct:OUTGOING_EDGE
+commitBandwidth	graph/inorder_core_graph.h	/^    uint32_t commitBandwidth; \/\/ MinorCPU: executeCommitLimit$/;"	m	class:InorderCoreGraph
+commitBandwidth	graph/o3_core_graph.h	/^    uint32_t commitBandwidth;$/;"	m	class:O3CoreGraph
+commitBandwidth	graph/o3_core_graph_advanced.h	/^    uint32_t commitBandwidth;$/;"	m	class:O3CoreGraphAdvanced
+commitCycles	common/calipers_types.h	/^    Vector commitCycles;$/;"	m	struct:CYCLE_TYPES
+convert_m5_trace_to_calipers_trace	trace/instruction_stream.cpp	/^void InstructionStream::convert_m5_trace_to_calipers_trace() {$/;"	f	class:InstructionStream
+count	graph/scoreboard.h	/^        uint32_t count;$/;"	m	struct:Scoreboard::RESOURCE_INSTANCE
+count	graph/scoreboard_simple.h	/^        uint32_t count;$/;"	m	struct:ScoreboardSimple::RESOURCE_INSTANCE
+criticalPathCycles	graph/graph.h	/^    unordered_map<Vertex, CycleTypes, VertexHash, VertexEqual> criticalPathCycles;$/;"	m	class:Graph
+criticalPathInstructions	graph/graph.h	/^    unordered_map<Vertex, InstructionTypes, VertexHash, VertexEqual> criticalPathInstructions;$/;"	m	class:Graph
+currentIcacheLine	graph/o3_core_graph.h	/^    uint64_t currentIcacheLine;$/;"	m	class:O3CoreGraph
+currentIcacheLine	graph/o3_core_graph_advanced.h	/^    uint64_t currentIcacheLine;$/;"	m	class:O3CoreGraphAdvanced
+dashed	tools/visualizer.h	/^		bool dashed;$/;"	m	struct:edge_property::graphviz_property
+dcache	graph/graph.h	/^    Cache* dcache;$/;"	m	class:Graph
+dcacheConfig	graph/o3_core_graph.h	/^    string dcacheConfig;$/;"	m	class:O3CoreGraph
+dcacheConfig	graph/o3_core_graph_advanced.h	/^    string dcacheConfig;$/;"	m	class:O3CoreGraphAdvanced
+dcacheType	graph/o3_core_graph.h	/^    int dcacheType;$/;"	m	class:O3CoreGraph
+dcacheType	graph/o3_core_graph_advanced.h	/^    int dcacheType;$/;"	m	class:O3CoreGraphAdvanced
+decodeCycles	common/calipers_types.h	/^    Vector decodeCycles;$/;"	m	struct:CYCLE_TYPES
+decodeCycles	graph/inorder_core_graph.h	/^    uint32_t decodeCycles; \/\/ MinorCPU: fetch1ToFetch2ForwardDelay + fetch2ToDecodeForwardDelay$/;"	m	class:InorderCoreGraph
+decodeCycles	graph/o3_core_graph.h	/^    uint32_t decodeCycles;$/;"	m	class:O3CoreGraph
+decodeCycles	graph/o3_core_graph_advanced.h	/^    uint32_t decodeCycles;$/;"	m	class:O3CoreGraphAdvanced
+deg2bg	tools/visualizer.h	/^boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, vertex_property, edge_property> Visualizer::deg2bg(deg_t graph) {$/;"	f	class:Visualizer
+dirty	memory/real_cache.h	/^    uint32_t dirty;$/;"	m	struct:CACHE_LINE
+dispatchBandwidth	graph/inorder_core_graph.h	/^    uint32_t dispatchBandwidth; \/\/ MinorCPU: decodeInputWidth$/;"	m	class:InorderCoreGraph
+dispatchBandwidth	graph/o3_core_graph.h	/^    uint32_t dispatchBandwidth;$/;"	m	class:O3CoreGraph
+dispatchBandwidth	graph/o3_core_graph_advanced.h	/^    uint32_t dispatchBandwidth;$/;"	m	class:O3CoreGraphAdvanced
+dispatchCycles	common/calipers_types.h	/^    Vector dispatchCycles;$/;"	m	struct:CYCLE_TYPES
+dispatchCycles	graph/inorder_core_graph.h	/^    uint32_t dispatchCycles; \/\/ MinorCPU: decodeToExecuteForwardDelay$/;"	m	class:InorderCoreGraph
+dispatchCycles	graph/o3_core_graph.h	/^    uint32_t dispatchCycles;$/;"	m	class:O3CoreGraph
+dispatchCycles	graph/o3_core_graph_advanced.h	/^    uint32_t dispatchCycles;$/;"	m	class:O3CoreGraphAdvanced
+edge_property	tools/visualizer.h	/^	explicit edge_property(std::string _weight): weight(_weight) {}$/;"	f	struct:edge_property
+edge_property	tools/visualizer.h	/^	explicit edge_property(std::string _weight, graphviz_property _property): weight(_weight), property(_property) {}$/;"	f	struct:edge_property
+edge_property	tools/visualizer.h	/^struct edge_property {$/;"	s
+edges_writer	tools/visualizer.h	/^	edges_writer(graph g): _g(g) {}$/;"	f	class:edges_writer
+edges_writer	tools/visualizer.h	/^class edges_writer {$/;"	c
+executeToCommitCycles	graph/inorder_core_graph.h	/^    uint32_t executeToCommitCycles;$/;"	m	class:InorderCoreGraph
+executeToCommitCycles	graph/o3_core_graph.h	/^    uint32_t executeToCommitCycles;$/;"	m	class:O3CoreGraph
+executeToCommitCycles	graph/o3_core_graph_advanced.h	/^    uint32_t executeToCommitCycles;$/;"	m	class:O3CoreGraphAdvanced
+executionCycles	graph/o3_core_graph.h	/^    unordered_map<uint64_t, uint32_t> executionCycles;$/;"	m	class:O3CoreGraph
+executionCycles	graph/o3_core_graph_advanced.h	/^    unordered_map<uint64_t, uint32_t> executionCycles;$/;"	m	class:O3CoreGraphAdvanced
+executionType	common/calipers_types.h	/^    int executionType; \/\/ From the ExecutionType enum$/;"	m	struct:INSTRUCTION
+executionType	graph/graph.h	/^    unordered_map<uint64_t, int> executionType;$/;"	m	class:Graph
+extraLoadLatency	graph/inorder_core_graph.h	/^    uint32_t extraLoadLatency;$/;"	m	class:InorderCoreGraph
+extract_config	common/main.cpp	/^void extract_config(string config_file_name, unordered_map<string, string>& config) {$/;"	f
+fa0	trace/riscv_stream.h	/^        fa0,$/;"	e	enum:RiscvStream::FpReg
+fa1	trace/riscv_stream.h	/^        fa1,$/;"	e	enum:RiscvStream::FpReg
+fa2	trace/riscv_stream.h	/^        fa2,$/;"	e	enum:RiscvStream::FpReg
+fa3	trace/riscv_stream.h	/^        fa3,$/;"	e	enum:RiscvStream::FpReg
+fa4	trace/riscv_stream.h	/^        fa4,$/;"	e	enum:RiscvStream::FpReg
+fa5	trace/riscv_stream.h	/^        fa5,$/;"	e	enum:RiscvStream::FpReg
+fa6	trace/riscv_stream.h	/^        fa6,$/;"	e	enum:RiscvStream::FpReg
+fa7	trace/riscv_stream.h	/^        fa7,$/;"	e	enum:RiscvStream::FpReg
+fetchBandwidth	graph/inorder_core_graph.h	/^    uint32_t fetchBandwidth; \/\/ Bandwidth is in instructions per cycle$/;"	m	class:InorderCoreGraph
+fetchBandwidth	graph/o3_core_graph.h	/^    uint32_t fetchBandwidth;$/;"	m	class:O3CoreGraph
+fetchBandwidth	graph/o3_core_graph_advanced.h	/^    uint32_t fetchBandwidth;$/;"	m	class:O3CoreGraphAdvanced
+fetchCycles	common/calipers_types.h	/^    uint32_t fetchCycles;$/;"	m	struct:INSTRUCTION
+finish	common/main.cpp	/^void finish(InstructionStream* instr_stream, Graph* graph) {$/;"	f
+fp	trace/riscv_stream.h	/^        fp = 8,$/;"	e	enum:RiscvStream::IntReg
+fpCycles	common/calipers_types.h	/^    Vector fpCycles;$/;"	m	struct:CYCLE_TYPES
+fpInstructions	common/calipers_types.h	/^    Vector fpInstructions;$/;"	m	struct:INSTRUCTION_TYPES
+fs0	trace/riscv_stream.h	/^        fs0,$/;"	e	enum:RiscvStream::FpReg
+fs1	trace/riscv_stream.h	/^        fs1,$/;"	e	enum:RiscvStream::FpReg
+fs10	trace/riscv_stream.h	/^        fs10,$/;"	e	enum:RiscvStream::FpReg
+fs11	trace/riscv_stream.h	/^        fs11,$/;"	e	enum:RiscvStream::FpReg
+fs2	trace/riscv_stream.h	/^        fs2,$/;"	e	enum:RiscvStream::FpReg
+fs3	trace/riscv_stream.h	/^        fs3,$/;"	e	enum:RiscvStream::FpReg
+fs4	trace/riscv_stream.h	/^        fs4,$/;"	e	enum:RiscvStream::FpReg
+fs5	trace/riscv_stream.h	/^        fs5,$/;"	e	enum:RiscvStream::FpReg
+fs6	trace/riscv_stream.h	/^        fs6,$/;"	e	enum:RiscvStream::FpReg
+fs7	trace/riscv_stream.h	/^        fs7,$/;"	e	enum:RiscvStream::FpReg
+fs8	trace/riscv_stream.h	/^        fs8,$/;"	e	enum:RiscvStream::FpReg
+fs9	trace/riscv_stream.h	/^        fs9,$/;"	e	enum:RiscvStream::FpReg
+ft0	trace/riscv_stream.h	/^        ft0 = IntReg::last + 1,$/;"	e	enum:RiscvStream::FpReg
+ft1	trace/riscv_stream.h	/^        ft1,$/;"	e	enum:RiscvStream::FpReg
+ft10	trace/riscv_stream.h	/^        ft10,$/;"	e	enum:RiscvStream::FpReg
+ft11	trace/riscv_stream.h	/^        ft11$/;"	e	enum:RiscvStream::FpReg
+ft2	trace/riscv_stream.h	/^        ft2,$/;"	e	enum:RiscvStream::FpReg
+ft3	trace/riscv_stream.h	/^        ft3,$/;"	e	enum:RiscvStream::FpReg
+ft4	trace/riscv_stream.h	/^        ft4,$/;"	e	enum:RiscvStream::FpReg
+ft5	trace/riscv_stream.h	/^        ft5,$/;"	e	enum:RiscvStream::FpReg
+ft6	trace/riscv_stream.h	/^        ft6,$/;"	e	enum:RiscvStream::FpReg
+ft7	trace/riscv_stream.h	/^        ft7,$/;"	e	enum:RiscvStream::FpReg
+ft8	trace/riscv_stream.h	/^        ft8,$/;"	e	enum:RiscvStream::FpReg
+ft9	trace/riscv_stream.h	/^        ft9,$/;"	e	enum:RiscvStream::FpReg
+generate_dot	tools/visualizer.h	/^void Visualizer::generate_dot(const string& view_dot_path) {$/;"	f	class:Visualizer
+getQueueSize	graph/scoreboard.h	/^    uint32_t getQueueSize(int type)$/;"	f	class:Scoreboard
+getResourceCount	graph/scoreboard.h	/^    uint32_t getResourceCount(int type)$/;"	f	class:Scoreboard
+getResourceLatency	graph/scoreboard.h	/^    uint32_t getResourceLatency(int type)$/;"	f	class:Scoreboard
+getVictimInSet	memory/real_cache.h	/^    uint64_t getVictimInSet(uint64_t set)$/;"	f	class:MyCache
+get_base_name	common/calipers_util.cpp	/^string get_base_name(const string& path) {$/;"	f
+get_inst	trace/riscv_stream.cpp	/^string RiscvStream::get_inst(string line) {$/;"	f	class:RiscvStream
+goodFetchHitCycles	common/calipers_types.h	/^    Vector goodFetchHitCycles;$/;"	m	struct:CYCLE_TYPES
+goodFetchMissCycles	common/calipers_types.h	/^    Vector goodFetchMissCycles;$/;"	m	struct:CYCLE_TYPES
+gp	trace/riscv_stream.h	/^        gp = 3,$/;"	e	enum:RiscvStream::IntReg
+graph	graph/o3_core_graph.h	/^    unordered_map<Vertex, vector<OutgoingEdge>, VertexHash, VertexEqual> graph;$/;"	m	class:O3CoreGraph
+graphAnalysisTime	graph/graph.h	/^    uint64_t graphAnalysisTime;$/;"	m	class:Graph
+graphChildren	graph/o3_core_graph_advanced.h	/^    unordered_map<Vertex, vector<OutgoingEdge>, VertexHash, VertexEqual> graphChildren;$/;"	m	class:O3CoreGraphAdvanced
+graphConstructionTime	graph/graph.h	/^    uint64_t graphConstructionTime;$/;"	m	class:Graph
+graphParents	graph/o3_core_graph_advanced.h	/^    unordered_map<Vertex, vector<IncomingEdge>, VertexHash, VertexEqual> graphParents;$/;"	m	class:O3CoreGraphAdvanced
+graphviz_property	tools/visualizer.h	/^		explicit graphviz_property(bool _dashed): dashed(_dashed) {}$/;"	f	struct:edge_property::graphviz_property
+graphviz_property	tools/visualizer.h	/^		explicit graphviz_property(std::pair<int, int> _pos): pos(_pos) {}$/;"	f	struct:vertex_property::graphviz_property
+graphviz_property	tools/visualizer.h	/^		explicit graphviz_property(std::pair<int, int> _pos, std::string _xlabel): pos(_pos), xlabel(_xlabel) {}$/;"	f	struct:vertex_property::graphviz_property
+graphviz_property	tools/visualizer.h	/^	struct graphviz_property {$/;"	s	struct:edge_property
+graphviz_property	tools/visualizer.h	/^	struct graphviz_property {$/;"	s	struct:vertex_property
+headInstr	graph/o3_core_graph_advanced.h	/^    uint64_t headInstr;$/;"	m	class:O3CoreGraphAdvanced
+headScheduledInstr	graph/o3_core_graph_advanced.h	/^    uint64_t headScheduledInstr;$/;"	m	class:O3CoreGraphAdvanced
+icache	graph/graph.h	/^    Cache* icache;$/;"	m	class:Graph
+icacheConfig	graph/o3_core_graph.h	/^    string icacheConfig;$/;"	m	class:O3CoreGraph
+icacheConfig	graph/o3_core_graph_advanced.h	/^    string icacheConfig;$/;"	m	class:O3CoreGraphAdvanced
+icacheType	graph/o3_core_graph.h	/^    int icacheType;$/;"	m	class:O3CoreGraph
+icacheType	graph/o3_core_graph_advanced.h	/^    int icacheType;$/;"	m	class:O3CoreGraphAdvanced
+init	common/main.cpp	/^Graph* init(unordered_map<string, string> &args, InstructionStream* instr_stream) {$/;"	f
+initBookKeeping	graph/inorder_core_graph.cpp	/^void InorderCoreGraph::initBookKeeping()$/;"	f	class:InorderCoreGraph
+initBookKeeping	graph/o3_core_graph.cpp	/^void O3CoreGraph::initBookKeeping()$/;"	f	class:O3CoreGraph
+initBookKeeping	graph/o3_core_graph_advanced.cpp	/^void O3CoreGraphAdvanced::initBookKeeping()$/;"	f	class:O3CoreGraphAdvanced
+initMaps	trace/riscv_stream.cpp	/^void RiscvStream::initMaps() {$/;"	f	class:RiscvStream
+initQueue	graph/scoreboard.h	/^    void initQueue(int type, uint32_t size)$/;"	f	class:Scoreboard
+initRecords	graph/scoreboard_simple.h	/^    void initRecords()$/;"	f	class:ScoreboardSimple
+initReplacementState	memory/real_cache.h	/^    void initReplacementState()$/;"	f	class:MyCache
+initResource	graph/scoreboard.h	/^    void initResource(int resource_type, uint32_t count,$/;"	f	class:Scoreboard
+initResource	graph/scoreboard_simple.h	/^    void initResource(int type, uint32_t count, uint32_t total_cycles,$/;"	f	class:ScoreboardSimple
+inst	common/calipers_types.h	/^    string inst;$/;"	m	struct:INSTRUCTION
+inst	graph/graph_util.h	/^    string inst;$/;"	m	struct:VERTEX
+inst	tools/visualizer.h	/^	string inst;$/;"	m	struct:vertex_property
+inst	trace/riscv_stream.h	/^    string inst;$/;"	m	class:RiscvStream
+inst_num	tools/visualizer.h	/^	uint64_t inst_num;$/;"	m	struct:vertex_property
+instr	trace/instruction_stream.h	/^    Instruction instr;$/;"	m	class:InstructionStream
+instrBufferSize	graph/o3_core_graph.h	/^    uint32_t instrBufferSize; \/\/ Bandwidth is in instructions per cycle$/;"	m	class:O3CoreGraph
+instrBufferSize	graph/o3_core_graph_advanced.h	/^    uint32_t instrBufferSize; \/\/ Bandwidth is in instructions per cycle$/;"	m	class:O3CoreGraphAdvanced
+instrCount	graph/graph.h	/^    uint64_t instrCount;$/;"	m	class:Graph
+instrNum	graph/graph_util.h	/^    uint64_t instrNum;$/;"	m	struct:VERTEX
+instrStream	graph/graph.h	/^    InstructionStream* instrStream;$/;"	m	class:Graph
+instructionMix	graph/graph.h	/^    uint64_t instructionMix[6];$/;"	m	class:Graph
+intAluTotalCycles	graph/graph.h	/^    uint32_t intAluTotalCycles; \/\/ Ugly but OK$/;"	m	class:Graph
+intCycles	common/calipers_types.h	/^    Vector intCycles;$/;"	m	struct:CYCLE_TYPES
+intInstructions	common/calipers_types.h	/^    Vector intInstructions;$/;"	m	struct:INSTRUCTION_TYPES
+issueBandwidth	graph/inorder_core_graph.h	/^    uint32_t issueBandwidth; \/\/ MinorCPU: executeIssueLimit$/;"	m	class:InorderCoreGraph
+issueBandwidth	graph/o3_core_graph.h	/^    uint32_t issueBandwidth;$/;"	m	class:O3CoreGraph
+issueBandwidth	graph/o3_core_graph_advanced.h	/^    uint32_t issueBandwidth;$/;"	m	class:O3CoreGraphAdvanced
+l1Assoc	memory/real_cache.h	/^    uint32_t l1Assoc;$/;"	m	class:RealCache
+l1LoadHitCycles	memory/real_cache.h	/^    uint32_t l1LoadHitCycles;$/;"	m	class:RealCache
+l1Size	memory/real_cache.h	/^    uint32_t l1Size;$/;"	m	class:RealCache
+l1StoreHitCycles	memory/real_cache.h	/^    uint32_t l1StoreHitCycles;$/;"	m	class:RealCache
+l1cache	memory/real_cache.h	/^    MyCache* l1cache;$/;"	m	class:CacheInternals
+l1dMisses	graph/graph.h	/^    uint64_t l1dMisses;$/;"	m	class:Graph
+l1dThreshold	graph/graph.h	/^    uint32_t l1dThreshold;$/;"	m	class:Graph
+l1iMisses	graph/graph.h	/^    uint64_t l1iMisses;$/;"	m	class:Graph
+l1iThreshold	graph/graph.h	/^    uint32_t l1iThreshold;$/;"	m	class:Graph
+l2Assoc	memory/real_cache.h	/^    uint32_t l2Assoc;$/;"	m	class:RealCache
+l2LoadHitCycles	memory/real_cache.h	/^    uint32_t l2LoadHitCycles;$/;"	m	class:RealCache
+l2LoadMissCycles	memory/real_cache.h	/^    uint32_t l2LoadMissCycles;$/;"	m	class:RealCache
+l2Size	memory/real_cache.h	/^    uint32_t l2Size;$/;"	m	class:RealCache
+l2StoreHitCycles	memory/real_cache.h	/^    uint32_t l2StoreHitCycles;$/;"	m	class:RealCache
+l2StoreMissCycles	memory/real_cache.h	/^    uint32_t l2StoreMissCycles;$/;"	m	class:RealCache
+l2cache	memory/real_cache.h	/^    MyCache* l2cache;$/;"	m	class:CacheInternals
+l2dMisses	graph/graph.h	/^    uint64_t l2dMisses;$/;"	m	class:Graph
+l2dThreshold	graph/graph.h	/^    uint32_t l2dThreshold;$/;"	m	class:Graph
+l2iMisses	graph/graph.h	/^    uint64_t l2iMisses;$/;"	m	class:Graph
+l2iThreshold	graph/graph.h	/^    uint32_t l2iThreshold;$/;"	m	class:Graph
+l3cache	memory/real_cache.h	/^    MyCache* l3cache;$/;"	m	class:CacheInternals
+largerThan	graph/graph_util.h	/^    void largerThan(int64_t val, bool* mask, bool* result, uint32_t width)$/;"	f	class:Vector
+last	trace/riscv_stream.h	/^        last = 32$/;"	e	enum:RiscvStream::IntReg
+lastBranch	graph/o3_core_graph.h	/^    uint64_t lastBranch;$/;"	m	class:O3CoreGraph
+lastBranch	graph/o3_core_graph_advanced.h	/^    uint64_t lastBranch;$/;"	m	class:O3CoreGraphAdvanced
+lastEvictedLine	memory/real_cache.h	/^    CacheLine lastEvictedLine; \/\/ For checking write-backs$/;"	m	class:MyCache
+lastInstrLine	trace/riscv_stream.h	/^    string lastInstrLine;$/;"	m	class:RiscvStream
+lastLdStCriticalCycles	graph/inorder_core_graph.h	/^    uint32_t lastLdStCriticalCycles;$/;"	m	class:InorderCoreGraph
+lastLdStCriticalNum	graph/inorder_core_graph.h	/^    uint64_t lastLdStCriticalNum;$/;"	m	class:InorderCoreGraph
+lastMemLdSt	graph/inorder_core_graph.h	/^    uint64_t lastMemLdSt;$/;"	m	class:InorderCoreGraph
+lastMemLdSt	graph/o3_core_graph.h	/^    uint64_t lastMemLdSt;$/;"	m	class:O3CoreGraph
+lastMemLdSt	graph/o3_core_graph_advanced.h	/^    uint64_t lastMemLdSt;$/;"	m	class:O3CoreGraphAdvanced
+lastMisprediction	graph/inorder_core_graph.h	/^    uint64_t lastMisprediction;$/;"	m	class:InorderCoreGraph
+lastMisprediction	graph/o3_core_graph.h	/^    uint64_t lastMisprediction;$/;"	m	class:O3CoreGraph
+lastMisprediction	graph/o3_core_graph_advanced.h	/^    uint64_t lastMisprediction;$/;"	m	class:O3CoreGraphAdvanced
+latency	graph/scoreboard.h	/^        uint32_t latency;$/;"	m	struct:Scoreboard::RESOURCE_INSTANCE
+latency	graph/scoreboard.h	/^        uint64_t* latency;$/;"	m	struct:Scoreboard::QUEUE_INSTANCE
+ldStWindow	graph/inorder_core_graph.h	/^    pair<uint64_t, uint32_t>* ldStWindow; \/\/ First: Load\/store number, Second: Access cycles$/;"	m	class:InorderCoreGraph
+ldStWindow	graph/o3_core_graph.h	/^         pair<uint64_t, uint32_t>>* ldStWindow; \/\/ Second: <Base, Length> of address$/;"	m	class:O3CoreGraph
+ldStWindow	graph/o3_core_graph_advanced.h	/^         pair<uint64_t, uint32_t>>* ldStWindow; \/\/ Second: <Base, Length> of address$/;"	m	class:O3CoreGraphAdvanced
+ldStWindowPointer	graph/inorder_core_graph.h	/^    uint32_t ldStWindowPointer;$/;"	m	class:InorderCoreGraph
+ldStWindowPointer	graph/o3_core_graph.h	/^    uint32_t ldStWindowPointer;$/;"	m	class:O3CoreGraph
+ldStWindowPointer	graph/o3_core_graph_advanced.h	/^    uint32_t ldStWindowPointer;$/;"	m	class:O3CoreGraphAdvanced
+ldStWindowType	graph/o3_core_graph.h	/^    bool* ldStWindowType; \/\/ Is load?$/;"	m	class:O3CoreGraph
+ldStWindowType	graph/o3_core_graph_advanced.h	/^    bool* ldStWindowType; \/\/ Is load?$/;"	m	class:O3CoreGraphAdvanced
+length	graph/graph.h	/^    unordered_map<Vertex, Vector, VertexHash, VertexEqual> length;$/;"	m	class:Graph
+line	memory/real_cache.h	/^    CacheLine line[MAX_WAYS];$/;"	m	struct:CACHE_SET
+lineSize	memory/real_cache.h	/^    uint64_t lineSize;$/;"	m	class:MyCache
+linearPC	graph/inorder_core_graph.h	/^    uint64_t linearPC;$/;"	m	class:InorderCoreGraph
+linearPC	graph/o3_core_graph.h	/^    uint64_t linearPC;$/;"	m	class:O3CoreGraph
+linearPC	graph/o3_core_graph_advanced.h	/^    uint64_t linearPC;$/;"	m	class:O3CoreGraphAdvanced
+loadCycles	memory/ideal_cache.h	/^    uint32_t loadCycles(uint64_t base, uint32_t length)$/;"	f	class:IdealCache
+loadCycles	memory/real_cache.h	/^    uint32_t loadCycles(uint64_t base, uint32_t length)$/;"	f	class:RealCache
+loadCycles	memory/statistical_cache.h	/^    uint32_t loadCycles(uint64_t base, uint32_t length)$/;"	f	class:StatisticalCache
+loadDependentEarlyIssue	graph/inorder_core_graph.h	/^    bool loadDependentEarlyIssue;$/;"	m	class:InorderCoreGraph
+loadEarlyIssue	graph/inorder_core_graph.h	/^    bool loadEarlyIssue;$/;"	m	class:InorderCoreGraph
+loadHitCycles	memory/statistical_cache.h	/^    uint32_t loadHitCycles;$/;"	m	class:StatisticalCache
+loadHitRate	memory/statistical_cache.h	/^    float loadHitRate;$/;"	m	class:StatisticalCache
+loadInstructions	common/calipers_types.h	/^    Vector loadInstructions;$/;"	m	struct:INSTRUCTION_TYPES
+loadL1HitCycles	common/calipers_types.h	/^    Vector loadL1HitCycles;$/;"	m	struct:CYCLE_TYPES
+loadL2HitCycles	common/calipers_types.h	/^    Vector loadL2HitCycles;$/;"	m	struct:CYCLE_TYPES
+loadMissCycles	common/calipers_types.h	/^    Vector loadMissCycles;$/;"	m	struct:CYCLE_TYPES
+loadMissCycles	memory/statistical_cache.h	/^    uint32_t loadMissCycles;$/;"	m	class:StatisticalCache
+lruStack	memory/real_cache.h	/^    deque<uint64_t>* lruStack; \/\/ Try list as well$/;"	m	class:MyCache
+lruStackHit	memory/real_cache.h	/^    uint64_t lruStackHit[16];$/;"	m	class:MyCache
+lsCycles	common/calipers_types.h	/^    Vector lsCycles;$/;"	m	struct:CYCLE_TYPES
+lsCycles	common/calipers_types.h	/^    uint32_t lsCycles;$/;"	m	struct:INSTRUCTION
+lsCycles	graph/o3_core_graph.h	/^    unordered_map<uint64_t, uint32_t> lsCycles;$/;"	m	class:O3CoreGraph
+lsCycles	graph/o3_core_graph_advanced.h	/^    unordered_map<uint64_t, uint32_t> lsCycles;$/;"	m	class:O3CoreGraphAdvanced
+lstrip	common/calipers_util.cpp	/^string& lstrip(string& s) {$/;"	f
+m5_trace_file	trace/instruction_stream.h	/^    ifstream m5_trace_file, next_m5_trace_file;$/;"	m	class:InstructionStream
+main	common/main.cpp	/^int main(int argc, char* argv[]) {$/;"	f
+make_edges_writer	tools/visualizer.h	/^inline edges_writer<graph> make_edges_writer(const graph & g) {$/;"	f
+make_vertex_writer	tools/visualizer.h	/^inline vertex_writer<graph> make_vertex_writer(const graph & g) {$/;"	f
+maskedAdd	graph/graph_util.h	/^    void maskedAdd(const Vector& v_in, bool* mask, uint32_t width)$/;"	f	class:Vector
+maskedSet	graph/graph_util.h	/^    void maskedSet(const Vector& v_in, bool* mask, uint32_t width)$/;"	f	class:Vector
+maxMemAccesses	graph/inorder_core_graph.h	/^    uint32_t maxMemAccesses;$/;"	m	class:InorderCoreGraph
+maxSchedInstrNum	graph/o3_core_graph_advanced.h	/^    uint64_t maxSchedInstrNum[VECTOR_WIDTH];$/;"	m	class:O3CoreGraphAdvanced
+memAccessMap	trace/riscv_stream.h	/^    unordered_map<string, char> memAccessMap;$/;"	m	class:RiscvStream
+memCommitBandwidth	graph/inorder_core_graph.h	/^    uint32_t memCommitBandwidth;$/;"	m	class:InorderCoreGraph
+memCommitBandwidth	graph/o3_core_graph.h	/^    uint32_t memCommitBandwidth;$/;"	m	class:O3CoreGraph
+memCommitBandwidth	graph/o3_core_graph_advanced.h	/^    uint32_t memCommitBandwidth;$/;"	m	class:O3CoreGraphAdvanced
+memIssueBandwidth	graph/inorder_core_graph.h	/^    uint32_t memIssueBandwidth;$/;"	m	class:InorderCoreGraph
+memIssueBandwidth	graph/o3_core_graph.h	/^    uint32_t memIssueBandwidth;$/;"	m	class:O3CoreGraph
+memIssueBandwidth	graph/o3_core_graph_advanced.h	/^    uint32_t memIssueBandwidth;$/;"	m	class:O3CoreGraphAdvanced
+memLengthMap	trace/riscv_stream.h	/^    unordered_map<string, uint32_t> memLengthMap;$/;"	m	class:RiscvStream
+memLoadBase	common/calipers_types.h	/^    uint64_t memLoadBase;$/;"	m	struct:INSTRUCTION
+memLoadCount	common/calipers_types.h	/^    uint32_t memLoadCount;$/;"	m	struct:INSTRUCTION
+memLoadLength	common/calipers_types.h	/^    uint32_t memLoadLength;$/;"	m	struct:INSTRUCTION
+memStoreBase	common/calipers_types.h	/^    uint64_t memStoreBase;$/;"	m	struct:INSTRUCTION
+memStoreCount	common/calipers_types.h	/^    uint32_t memStoreCount;$/;"	m	struct:INSTRUCTION
+memStoreLength	common/calipers_types.h	/^    uint32_t memStoreLength;$/;"	m	struct:INSTRUCTION
+memoryAccess	memory/real_cache.h	/^    uint32_t memoryAccess(uint64_t addr, uint32_t type)$/;"	f	class:CacheInternals
+miniGraph	graph/inorder_core_graph.h	/^    IncomingEdge miniGraph[VertexType::Last + 1][MAX_PARENTS];$/;"	m	class:InorderCoreGraph
+mispredicted	branch_predictor/statistical_bp.h	/^    bool mispredicted(uint64_t pc)$/;"	f	class:StatisticalBp
+mispredicted	common/calipers_types.h	/^    bool mispredicted;$/;"	m	struct:INSTRUCTION
+mispredictionPenalty	graph/inorder_core_graph.h	/^    uint32_t mispredictionPenalty;$/;"	m	class:InorderCoreGraph
+mispredictionPenalty	graph/o3_core_graph.h	/^    uint32_t mispredictionPenalty;$/;"	m	class:O3CoreGraph
+mispredictionPenalty	graph/o3_core_graph_advanced.h	/^    uint32_t mispredictionPenalty;$/;"	m	class:O3CoreGraphAdvanced
+mixedOperationResource	graph/scoreboard.h	/^    unordered_map<int, int> mixedOperationResource;$/;"	m	class:Scoreboard
+mixedOperationSpec	graph/scoreboard.h	/^    unordered_map<int, pair<uint32_t, bool>> mixedOperationSpec;$/;"	m	class:Scoreboard
+model	graph/inorder_core_graph.cpp	/^void InorderCoreGraph::model(Instruction* instr)$/;"	f	class:InorderCoreGraph
+model	graph/o3_core_graph.cpp	/^void O3CoreGraph::model(Instruction* instr)$/;"	f	class:O3CoreGraph
+model	graph/o3_core_graph_advanced.cpp	/^void O3CoreGraphAdvanced::model(Instruction* instr)$/;"	f	class:O3CoreGraphAdvanced
+modelMemoryOrderConstraint	graph/inorder_core_graph.cpp	/^void InorderCoreGraph::modelMemoryOrderConstraint(Vertex& mem_vertex, bool is_load, bool is_store)$/;"	f	class:InorderCoreGraph
+modelMemoryOrderConstraint	graph/o3_core_graph.cpp	/^bool O3CoreGraph::modelMemoryOrderConstraint(Instruction* instr, Vertex& mem_vertex)$/;"	f	class:O3CoreGraph
+modelMemoryOrderConstraint	graph/o3_core_graph_advanced.cpp	/^bool O3CoreGraphAdvanced::modelMemoryOrderConstraint(Instruction* instr, Vertex& mem_vertex)$/;"	f	class:O3CoreGraphAdvanced
+modelPipeline	graph/inorder_core_graph.cpp	/^void InorderCoreGraph::modelPipeline(Vertex& fetch_vertex, Vertex& dispatch_vertex,$/;"	f	class:InorderCoreGraph
+modelPipeline	graph/o3_core_graph.cpp	/^void O3CoreGraph::modelPipeline(Vertex& fetch_vertex, Vertex& dispatch_vertex,$/;"	f	class:O3CoreGraph
+modelPipeline	graph/o3_core_graph_advanced.cpp	/^void O3CoreGraphAdvanced::modelPipeline(Vertex& fetch_vertex, Vertex& dispatch_vertex,$/;"	f	class:O3CoreGraphAdvanced
+modelResourceDependencies	graph/o3_core_graph.cpp	/^void O3CoreGraph::modelResourceDependencies()$/;"	f	class:O3CoreGraph
+modelResourceDependencies	graph/o3_core_graph_advanced.cpp	/^pair<uint32_t, bool> O3CoreGraphAdvanced::modelResourceDependencies()$/;"	f	class:O3CoreGraphAdvanced
+modelResourceDependenciesSimple	graph/inorder_core_graph.cpp	/^void InorderCoreGraph::modelResourceDependenciesSimple($/;"	f	class:InorderCoreGraph
+name_of_vertex_type	tools/visualizer.h	/^static const std::unordered_map<int, std::string> name_of_vertex_type = {$/;"	v
+neededRsc	graph/inorder_core_graph.h	/^    pair<int, uint32_t> neededRsc[INO_WINDOW];$/;"	m	class:InorderCoreGraph
+next	graph/scoreboard_simple.h	/^        uint32_t next; \/\/ Index of the unit to be used by the next instruction$/;"	m	struct:ScoreboardSimple::RESOURCE_RECORD
+next	trace/riscv_stream.cpp	/^Instruction* RiscvStream::next() {$/;"	f	class:RiscvStream
+nextAvailable	graph/scoreboard.h	/^        uint32_t nextAvailable;$/;"	m	struct:Scoreboard::QUEUE_INSTANCE
+nextAvailable	graph/scoreboard.h	/^        uint32_t nextAvailable;$/;"	m	struct:Scoreboard::RESOURCE_INSTANCE
+nextIssueCycles	graph/scoreboard_simple.h	/^        uint32_t nextIssueCycles; \/\/ Cycles before the next operation can be issued$/;"	m	struct:ScoreboardSimple::RESOURCE_INSTANCE
+next_m5_trace_file	trace/instruction_stream.h	/^    ifstream m5_trace_file, next_m5_trace_file;$/;"	m	class:InstructionStream
+numSets	memory/real_cache.h	/^    uint64_t numSets;$/;"	m	class:MyCache
+numWays	memory/real_cache.h	/^    uint64_t numWays;$/;"	m	class:MyCache
+opcodeToTypeMap	trace/riscv_stream.h	/^    unordered_map<string, int> opcodeToTypeMap;$/;"	m	class:RiscvStream
+operator ()	graph/graph.h	/^        bool operator()(const pair<Vertex, int64_t>& lhs, const pair<Vertex, int64_t>& rhs)$/;"	f	struct:Graph::VertexScheduleComparison
+operator ()	graph/graph.h	/^        bool operator()(const pair<uint64_t, int64_t>& lhs, const pair<uint64_t, int64_t>& rhs)$/;"	f	struct:Graph::ScheduleComparison
+operator ()	graph/graph.h	/^        uint64_t operator()(const Vertex& vertex) const$/;"	f	struct:Graph::VertexHash
+operator ()	graph/graph.h	/^       bool operator()(const Vertex& lhs, const Vertex& rhs) const$/;"	f	struct:Graph::VertexEqual
+operator =	graph/graph_util.h	/^    void operator=(const Vector& v_in)$/;"	f	class:Vector
+operator []	graph/graph_util.h	/^    int64_t operator[](const uint32_t idx) const$/;"	f	class:Vector
+otherCycles	common/calipers_types.h	/^    Vector otherCycles;$/;"	m	struct:CYCLE_TYPES
+otherInstructions	common/calipers_types.h	/^    Vector otherInstructions;$/;"	m	struct:INSTRUCTION_TYPES
+pCacheConfig	memory/real_cache.h	/^    uint64_t pCacheConfig;$/;"	m	class:CacheInternals
+parent	graph/graph_util.h	/^    Vertex parent;$/;"	m	struct:INCOMING_EDGE
+parents	graph/inorder_core_graph.h	/^    uint32_t parents[VertexType::Last + 1];$/;"	m	class:InorderCoreGraph
+parseBranch	trace/riscv_stream.cpp	/^bool RiscvStream::parseBranch(string& branch_line)$/;"	f	class:RiscvStream
+parseFetchCycles	trace/riscv_stream.cpp	/^uint32_t RiscvStream::parseFetchCycles(string& fetch_line)$/;"	f	class:RiscvStream
+parseInstr	trace/riscv_stream.cpp	/^void RiscvStream::parseInstr(string& instr_line) {$/;"	f	class:RiscvStream
+parseMemoryCycles	trace/riscv_stream.cpp	/^uint32_t RiscvStream::parseMemoryCycles(string& mem_line)$/;"	f	class:RiscvStream
+parseNext	trace/riscv_stream.cpp	/^string RiscvStream::parseNext(string& instr_line, size_t& current_pos) {$/;"	f	class:RiscvStream
+parse_args	common/main.cpp	/^unordered_map<string, string> parse_args(int argc, char* argv[]) {$/;"	f
+pc	common/calipers_types.h	/^    uint64_t pc;$/;"	m	struct:INSTRUCTION
+pc	trace/riscv_stream.h	/^        pc = 32,$/;"	e	enum:RiscvStream::IntReg
+pipelineHead	graph/scoreboard_simple.h	/^        uint32_t* pipelineHead; \/\/ Index of the pipeline head (in prevUsers) for each unit$/;"	m	struct:ScoreboardSimple::RESOURCE_RECORD
+pipelined	graph/scoreboard.h	/^        bool pipelined;$/;"	m	struct:Scoreboard::RESOURCE_INSTANCE
+plruEffecAssoc	memory/real_cache.h	/^    uint64_t plruEffecAssoc;$/;"	m	class:MyCache
+plruNumLevels	memory/real_cache.h	/^    uint64_t plruNumLevels;$/;"	m	class:MyCache
+plruTree	memory/real_cache.h	/^    uint64_t* plruTree;$/;"	m	class:MyCache
+pos	tools/visualizer.h	/^		std::pair<int, int> pos;$/;"	m	struct:vertex_property::graphviz_property
+predictionCycles	branch_predictor/branch_predictor.h	/^    uint32_t predictionCycles;$/;"	m	class:BranchPredictor
+predictionCycles	graph/inorder_core_graph.h	/^    uint32_t predictionCycles;$/;"	m	class:InorderCoreGraph
+predictionCycles	graph/o3_core_graph.h	/^    uint32_t predictionCycles;$/;"	m	class:O3CoreGraph
+predictionCycles	graph/o3_core_graph_advanced.h	/^    uint32_t predictionCycles;$/;"	m	class:O3CoreGraphAdvanced
+prevExecutionCycles	graph/o3_core_graph_advanced.h	/^    uint32_t prevExecutionCycles;$/;"	m	class:O3CoreGraphAdvanced
+prevUsers	graph/scoreboard_simple.h	/^        uint64_t** prevUsers; \/\/ Instruction numbers of the previous users of each unit$/;"	m	struct:ScoreboardSimple::RESOURCE_RECORD
+previousInstrMispredicted	graph/inorder_core_graph.h	/^    bool previousInstrMispredicted;$/;"	m	class:InorderCoreGraph
+previousInstrMispredicted	graph/o3_core_graph.h	/^    bool previousInstrMispredicted;$/;"	m	class:O3CoreGraph
+previousInstrMispredicted	graph/o3_core_graph_advanced.h	/^    bool previousInstrMispredicted;$/;"	m	class:O3CoreGraphAdvanced
+previousWasBranch	graph/inorder_core_graph.h	/^    bool previousWasBranch;$/;"	m	class:InorderCoreGraph
+previousWasBranch	graph/o3_core_graph.h	/^    bool previousWasBranch;$/;"	m	class:O3CoreGraph
+previousWasBranch	graph/o3_core_graph_advanced.h	/^    bool previousWasBranch;$/;"	m	class:O3CoreGraphAdvanced
+printEdge	graph/graph.cpp	/^void Graph::printEdge(Vertex& child, IncomingEdge& e)$/;"	f	class:Graph
+printEdge	graph/graph.cpp	/^void Graph::printEdge(Vertex& parent, OutgoingEdge& e)$/;"	f	class:Graph
+printStats	memory/cache.h	/^    virtual void printStats() {}$/;"	f	class:Cache
+printStats	memory/real_cache.h	/^    void printStats()$/;"	f	class:RealCache
+print_instruction	common/calipers_util.cpp	/^void print_instruction(Instruction& instr)$/;"	f
+property	tools/visualizer.h	/^	graphviz_property property;$/;"	m	struct:edge_property
+property	tools/visualizer.h	/^	graphviz_property property;$/;"	m	struct:vertex_property
+queues	graph/scoreboard.h	/^    unordered_map<int, QueueInstance> queues;$/;"	m	class:Scoreboard
+ra	trace/riscv_stream.h	/^        ra = 1,$/;"	e	enum:RiscvStream::IntReg
+readFromFile	trace/riscv_stream.h	/^    bool readFromFile = true;$/;"	m	class:RiscvStream
+recordStats	graph/graph.cpp	/^void Graph::recordStats(bool show_details, bool hopping_window)$/;"	f	class:Graph
+records	graph/scoreboard_simple.h	/^    unordered_map<int, ResourceRecord> records; \/\/ Key: Resource type (from enum Resource)$/;"	m	class:ScoreboardSimple
+regLastWrittenBy	graph/inorder_core_graph.h	/^    unordered_map<int, pair<uint64_t, uint32_t>> regLastWrittenBy;$/;"	m	class:InorderCoreGraph
+regLastWrittenBy	graph/o3_core_graph.h	/^    unordered_map<int, pair<uint64_t, uint32_t>> regLastWrittenBy;$/;"	m	class:O3CoreGraph
+regLastWrittenBy	graph/o3_core_graph_advanced.h	/^    unordered_map<int, pair<uint64_t, uint32_t>> regLastWrittenBy;$/;"	m	class:O3CoreGraphAdvanced
+regLastWrittenByLoad	graph/inorder_core_graph.h	/^    unordered_map<int, bool> regLastWrittenByLoad;$/;"	m	class:InorderCoreGraph
+regLastWrittenByLoad	graph/o3_core_graph.h	/^    unordered_map<int, bool> regLastWrittenByLoad;$/;"	m	class:O3CoreGraph
+regLastWrittenByLoad	graph/o3_core_graph_advanced.h	/^    unordered_map<int, bool> regLastWrittenByLoad;$/;"	m	class:O3CoreGraphAdvanced
+regMap	trace/riscv_stream.h	/^    unordered_map<string, int> regMap;$/;"	m	class:RiscvStream
+regRead	common/calipers_types.h	/^    int regRead[MAX_REG_RD];$/;"	m	struct:INSTRUCTION
+regReadCount	common/calipers_types.h	/^    uint32_t regReadCount;$/;"	m	struct:INSTRUCTION
+regWrite	common/calipers_types.h	/^    int regWrite[MAX_REG_WR];$/;"	m	struct:INSTRUCTION
+regWriteCount	common/calipers_types.h	/^    uint32_t regWriteCount;$/;"	m	struct:INSTRUCTION
+resetQueue	graph/scoreboard.h	/^    void resetQueue(int type)$/;"	f	class:Scoreboard
+resetResource	graph/scoreboard.h	/^    void resetResource(int resource_type)$/;"	f	class:Scoreboard
+resourceCount	graph/scoreboard_simple.h	/^    uint32_t resourceCount(int type)$/;"	f	class:ScoreboardSimple
+resourceNextIssueCycles	graph/scoreboard_simple.h	/^    uint32_t resourceNextIssueCycles(int type)$/;"	f	class:ScoreboardSimple
+resourceSourceIndependentCycles	graph/scoreboard_simple.h	/^    uint32_t resourceSourceIndependentCycles(int type)$/;"	f	class:ScoreboardSimple
+resourceTotalCycles	graph/scoreboard_simple.h	/^    uint32_t resourceTotalCycles(int type)$/;"	f	class:ScoreboardSimple
+resources	graph/scoreboard.h	/^    unordered_map<int, ResourceInstance> resources;$/;"	m	class:Scoreboard
+resources	graph/scoreboard_simple.h	/^    unordered_map<int, ResourceInstance> resources; \/\/ Key: Resource type (from enum Resource)$/;"	m	class:ScoreboardSimple
+resultFileName	graph/graph.h	/^    string resultFileName;$/;"	m	class:Graph
+rstrip	common/calipers_util.cpp	/^string& rstrip(string& s) {$/;"	f
+run	graph/inorder_core_graph.cpp	/^void InorderCoreGraph::run()$/;"	f	class:InorderCoreGraph
+run	graph/o3_core_graph.cpp	/^void O3CoreGraph::run() {$/;"	f	class:O3CoreGraph
+run	graph/o3_core_graph_advanced.cpp	/^void O3CoreGraphAdvanced::run() {$/;"	f	class:O3CoreGraphAdvanced
+run	tools/visualizer.h	/^	void run() {};$/;"	f	class:Visualizer
+s0	trace/riscv_stream.h	/^        s0 = 8,$/;"	e	enum:RiscvStream::IntReg
+s1	trace/riscv_stream.h	/^        s1 = 9,$/;"	e	enum:RiscvStream::IntReg
+s10	trace/riscv_stream.h	/^        s10 = 26,$/;"	e	enum:RiscvStream::IntReg
+s11	trace/riscv_stream.h	/^        s11 = 27,$/;"	e	enum:RiscvStream::IntReg
+s2	trace/riscv_stream.h	/^        s2 = 18,$/;"	e	enum:RiscvStream::IntReg
+s3	trace/riscv_stream.h	/^        s3 = 19,$/;"	e	enum:RiscvStream::IntReg
+s4	trace/riscv_stream.h	/^        s4 = 20,$/;"	e	enum:RiscvStream::IntReg
+s5	trace/riscv_stream.h	/^        s5 = 21,$/;"	e	enum:RiscvStream::IntReg
+s6	trace/riscv_stream.h	/^        s6 = 22,$/;"	e	enum:RiscvStream::IntReg
+s7	trace/riscv_stream.h	/^        s7 = 23,$/;"	e	enum:RiscvStream::IntReg
+s8	trace/riscv_stream.h	/^        s8 = 24,$/;"	e	enum:RiscvStream::IntReg
+s9	trace/riscv_stream.h	/^        s9 = 25,$/;"	e	enum:RiscvStream::IntReg
+sInstructionCount	memory/real_cache.h	/^    uint64_t sInstructionCount;$/;"	m	class:CacheInternals
+scheduleOrder	graph/o3_core_graph.h	/^    ScheduleSet scheduleOrder[VECTOR_WIDTH];$/;"	m	class:O3CoreGraph
+scheduleOrder	graph/o3_core_graph_advanced.h	/^    ScheduleSet scheduleOrder[VECTOR_WIDTH];$/;"	m	class:O3CoreGraphAdvanced
+scheduleQueue	graph/scoreboard.h	/^    void scheduleQueue(int type, uint64_t instr_num, uint32_t latency,$/;"	f	class:Scoreboard
+scheduleResource	graph/scoreboard.h	/^    void scheduleResource(int operation_type, uint64_t instr_num,$/;"	f	class:Scoreboard
+scheduleResource	graph/scoreboard_simple.h	/^    void scheduleResource(int type, uint64_t instrNum,$/;"	f	class:ScoreboardSimple
+scoreboard	graph/inorder_core_graph.h	/^    ScoreboardSimple scoreboard;  \/\/ Also performs bookkeeping$/;"	m	class:InorderCoreGraph
+scoreboard	graph/o3_core_graph.h	/^    Scoreboard scoreboard[VECTOR_WIDTH]; \/\/ Also performs bookkeeping$/;"	m	class:O3CoreGraph
+scoreboard	graph/o3_core_graph_advanced.h	/^    Scoreboard scoreboard[VECTOR_WIDTH]; \/\/ Also performs bookkeeping$/;"	m	class:O3CoreGraphAdvanced
+setMixedOperation	graph/scoreboard.h	/^    void setMixedOperation(int operation_type, int resource_type,$/;"	f	class:Scoreboard
+sets	memory/real_cache.h	/^    CacheSet* sets;$/;"	m	class:MyCache
+size	graph/scoreboard.h	/^        uint32_t size;$/;"	m	struct:Scoreboard::QUEUE_INSTANCE
+smallerThanOrEqual	graph/graph_util.h	/^    void smallerThanOrEqual(int64_t val, bool* mask, bool* result, uint32_t width)$/;"	f	class:Vector
+sourceIndependentCycles	graph/scoreboard_simple.h	/^        uint32_t sourceIndependentCycles; \/\/ Cycles possible to proceed without source operands$/;"	m	struct:ScoreboardSimple::RESOURCE_INSTANCE
+sp	trace/riscv_stream.h	/^        sp = 2,$/;"	e	enum:RiscvStream::IntReg
+split_string	common/calipers_util.cpp	/^vector<string> split_string(string str, char c)$/;"	f
+statDirtyEvicts	memory/real_cache.h	/^    uint64_t statDirtyEvicts; \/\/ How many dirty lines were evicted?$/;"	m	class:MyCache
+statReadAccess	memory/real_cache.h	/^    uint64_t statReadAccess; $/;"	m	class:MyCache
+statReadMiss	memory/real_cache.h	/^    uint64_t statReadMiss; $/;"	m	class:MyCache
+statWriteAccess	memory/real_cache.h	/^    uint64_t statWriteAccess; $/;"	m	class:MyCache
+statWriteMiss	memory/real_cache.h	/^    uint64_t statWriteMiss; $/;"	m	class:MyCache
+storeCycles	memory/ideal_cache.h	/^    uint32_t storeCycles(uint64_t base, uint32_t length)$/;"	f	class:IdealCache
+storeCycles	memory/real_cache.h	/^    uint32_t storeCycles(uint64_t base, uint32_t length)$/;"	f	class:RealCache
+storeCycles	memory/statistical_cache.h	/^    uint32_t storeCycles(uint64_t base, uint32_t length)$/;"	f	class:StatisticalCache
+storeHitCycles	memory/statistical_cache.h	/^    uint32_t storeHitCycles;$/;"	m	class:StatisticalCache
+storeHitRate	memory/statistical_cache.h	/^    float storeHitRate;$/;"	m	class:StatisticalCache
+storeInstructions	common/calipers_types.h	/^    Vector storeInstructions;$/;"	m	struct:INSTRUCTION_TYPES
+storeL1HitCycles	common/calipers_types.h	/^    Vector storeL1HitCycles;$/;"	m	struct:CYCLE_TYPES
+storeL2HitCycles	common/calipers_types.h	/^    Vector storeL2HitCycles;$/;"	m	struct:CYCLE_TYPES
+storeMissCycles	common/calipers_types.h	/^    Vector storeMissCycles;$/;"	m	struct:CYCLE_TYPES
+storeMissCycles	memory/statistical_cache.h	/^    uint32_t storeMissCycles;$/;"	m	class:StatisticalCache
+str_to_lower	common/calipers_util.cpp	/^string str_to_lower(string s) {$/;"	f
+streamTime	graph/graph.h	/^    uint64_t streamTime;$/;"	m	class:Graph
+syntaxMap	trace/riscv_stream.h	/^    unordered_map<string, char[MAX_OPERANDS]> syntaxMap;$/;"	m	class:RiscvStream
+syscallCycles	common/calipers_types.h	/^    Vector syscallCycles;$/;"	m	struct:CYCLE_TYPES
+t0	trace/riscv_stream.h	/^        t0 = 5,$/;"	e	enum:RiscvStream::IntReg
+t1	trace/riscv_stream.h	/^        t1 = 6,$/;"	e	enum:RiscvStream::IntReg
+t2	trace/riscv_stream.h	/^        t2 = 7,$/;"	e	enum:RiscvStream::IntReg
+t3	trace/riscv_stream.h	/^        t3 = 28,$/;"	e	enum:RiscvStream::IntReg
+t4	trace/riscv_stream.h	/^        t4 = 29,$/;"	e	enum:RiscvStream::IntReg
+t5	trace/riscv_stream.h	/^        t5 = 30,$/;"	e	enum:RiscvStream::IntReg
+t6	trace/riscv_stream.h	/^        t6 = 31,$/;"	e	enum:RiscvStream::IntReg
+tag	memory/real_cache.h	/^    uint64_t tag;$/;"	m	struct:CACHE_LINE
+toString	graph/graph_util.h	/^    string toString()$/;"	f	class:Vector
+totalCycles	graph/scoreboard_simple.h	/^        uint32_t totalCycles;$/;"	m	struct:ScoreboardSimple::RESOURCE_INSTANCE
+tp	trace/riscv_stream.h	/^        tp = 4,$/;"	e	enum:RiscvStream::IntReg
+traceBP	trace/instruction_stream.h	/^    bool traceBP; \/\/ Whether the trace provides branch prdecition outcomes$/;"	m	class:InstructionStream
+traceDCache	trace/instruction_stream.h	/^    bool traceDCache; \/\/ Whether the trace provides D-Cache access cycles$/;"	m	class:InstructionStream
+traceFile	trace/instruction_stream.h	/^    fstream traceFile;$/;"	m	class:InstructionStream
+traceFileName	graph/graph.h	/^    string traceFileName;$/;"	m	class:Graph
+traceICache	trace/instruction_stream.h	/^    bool traceICache; \/\/ Whether the trace provides I-Cache access cycles$/;"	m	class:InstructionStream
+trackDataDependencies	graph/inorder_core_graph.cpp	/^void InorderCoreGraph::trackDataDependencies(Instruction* instr,$/;"	f	class:InorderCoreGraph
+trackDataDependencies	graph/o3_core_graph.cpp	/^void O3CoreGraph::trackDataDependencies(Instruction* instr,$/;"	f	class:O3CoreGraph
+trackDataDependencies	graph/o3_core_graph_advanced.cpp	/^void O3CoreGraphAdvanced::trackDataDependencies(Instruction* instr,$/;"	f	class:O3CoreGraphAdvanced
+type	graph/graph_util.h	/^    int type; \/\/ From enum VertexType$/;"	m	struct:VERTEX
+type	tools/visualizer.h	/^	int type;$/;"	m	struct:vertex_property
+unsigned_diff	common/calipers_util.cpp	/^uint64_t unsigned_diff(uint64_t a, uint64_t b)$/;"	f
+update	graph/graph_util.h	/^    void update(const Vector& v_in1, const Vector& v_in2)$/;"	f	class:Vector
+update	graph/graph_util.h	/^    void update(const Vector& v_in1, const Vector& v_in2, bool* mask, uint32_t width)$/;"	f	class:Vector
+updateCriticalPath	graph/o3_core_graph_advanced.cpp	/^void O3CoreGraphAdvanced::updateCriticalPath(uint32_t idx,$/;"	f	class:O3CoreGraphAdvanced
+updateCriticalPathCycles	graph/graph.cpp	/^void Graph::updateCriticalPathCycles(Vertex& parent, OutgoingEdge& e)$/;"	f	class:Graph
+updateReplacementState	memory/real_cache.h	/^    void updateReplacementState(uint64_t set, uint64_t way)$/;"	f	class:MyCache
+use_bp_model	common/main.cpp	/^bool use_bp_model(unordered_map<string, string>& config) {$/;"	f
+use_dcache_model	common/main.cpp	/^bool use_dcache_model(unordered_map<string, string>& config) {$/;"	f
+use_icache_model	common/main.cpp	/^bool use_icache_model(unordered_map<string, string>& config) {$/;"	f
+users	graph/scoreboard_simple.h	/^        uint64_t* users; \/\/ Instruction number of the last user of each unit$/;"	m	struct:ScoreboardSimple::RESOURCE_RECORD
+valid	memory/real_cache.h	/^    uint32_t valid;$/;"	m	struct:CACHE_LINE
+vec	graph/graph_util.h	/^    int64_t vec[VECTOR_WIDTH];$/;"	m	class:Vector
+vertex_property	tools/visualizer.h	/^	explicit vertex_property($/;"	f	struct:vertex_property
+vertex_property	tools/visualizer.h	/^	explicit vertex_property(int _type, uint64_t _inst_num, string _inst): type(_type), inst_num(_inst_num), inst(_inst) {}$/;"	f	struct:vertex_property
+vertex_property	tools/visualizer.h	/^struct vertex_property {$/;"	s
+vertex_writer	tools/visualizer.h	/^	vertex_writer(graph g): _g(g) {}$/;"	f	class:vertex_writer
+vertex_writer	tools/visualizer.h	/^class vertex_writer {$/;"	c
+view	graph/graph.h	/^    bool view;$/;"	m	class:Graph
+view_dot_path	graph/graph.h	/^    string view_dot_path;$/;"	m	class:Graph
+weight	graph/graph_util.h	/^    Vector weight;$/;"	m	struct:INCOMING_EDGE
+weight	graph/graph_util.h	/^    Vector weight;$/;"	m	struct:OUTGOING_EDGE
+weight	tools/visualizer.h	/^	std::string weight;$/;"	m	struct:edge_property
+xlabel	tools/visualizer.h	/^		std::string xlabel;$/;"	m	struct:vertex_property::graphviz_property
+zero	trace/riscv_stream.h	/^        zero = 0,$/;"	e	enum:RiscvStream::IntReg
+~CacheInternals	memory/real_cache.h	/^    ~CacheInternals()$/;"	f	class:CacheInternals
+~InorderCoreGraph	graph/inorder_core_graph.cpp	/^InorderCoreGraph::~InorderCoreGraph()$/;"	f	class:InorderCoreGraph
+~O3CoreGraph	graph/o3_core_graph.cpp	/^O3CoreGraph::~O3CoreGraph()$/;"	f	class:O3CoreGraph
+~O3CoreGraphAdvanced	graph/o3_core_graph_advanced.cpp	/^O3CoreGraphAdvanced::~O3CoreGraphAdvanced()$/;"	f	class:O3CoreGraphAdvanced
+~Scoreboard	graph/scoreboard.h	/^    ~Scoreboard()$/;"	f	class:Scoreboard
+~ScoreboardSimple	graph/scoreboard_simple.h	/^    ~ScoreboardSimple()$/;"	f	class:ScoreboardSimple
+~Visualizer	tools/visualizer.h	/^Visualizer::~Visualizer() {$/;"	f	class:Visualizer

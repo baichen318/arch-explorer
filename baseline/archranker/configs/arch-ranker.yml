@@ -1,0 +1,8 @@
+# Author: baichen318@gmail.com
+
+
+sample-size: 10000
+
+
+report:
+  path: report
