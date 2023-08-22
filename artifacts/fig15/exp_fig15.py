@@ -4,11 +4,13 @@
 import os
 import re
 import sys
+import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 from collections import OrderedDict
 from utils.utils import get_configs_from_command, execute, \
-    remove, mkdir, info, error, if_exist, copy, assert_error
+    remove, mkdir, info, error, if_exist, copy, assert_error, \
+    get_configs
 from funcs.sim.o3cpu.o3cpu_simulation import O3CPUSimulation
 from funcs.design.o3cpu.o3cpu_design_space import parse_design_space
 
@@ -25,7 +27,24 @@ SPEC17_CONST =OrderedDict({
 })
 
 
-SPEC06 = OrderedDict({
+SPEC06_PARTIAL_BENCHMARK = OrderedDict({
+    # integer benchmarks
+    "401.bzip2": "BZIP2",
+    "429.mcf": "MCF",
+    "456.hmmer": "HMMER",
+    "458.sjeng": "SJENG",
+    "462.libquantum": "LIBQUANTUM",
+    "471.omnetpp": "OMNETPP",
+    "483.xalancbmk": "XALANCBMK",
+    # floating-point benchmarks
+    "444.namd": "NAMD",
+    "447.dealII": "DEALII",
+    "450.soplex": "SOPLEX",
+    "453.povray": "POVRAY"
+})
+
+
+SPEC06_FULL_BENCHMARK = OrderedDict({
     # integer benchmarks
     "401.bzip2": "BZIP2",
     "429.mcf": "MCF",
@@ -43,7 +62,25 @@ SPEC06 = OrderedDict({
 })
 
 
-SPEC17 = OrderedDict({
+SPEC17_PARTIAL_BENCHMARK = OrderedDict({
+    # integer benchmarks
+    "602.gcc_s": "GCC",
+    "605.mcf_s": "MCF",
+    "631.deepsjeng_s": "DEEPSJENG",
+    "641.leela_s": "LEELA",
+    "657.xz_s": "XZ",
+    # floating-point benchmarks
+    # "603.bwaves_s", # this benchmark is too slow!
+    "607.cactuBSSN_s": "CACTUBSSN",
+    "619.lbm_s": "LBM",
+    "621.wrf_s": "WRF",
+    "627.cam4_s": "CAM4",
+    "628.pop2_s": "POP2",
+    "644.nab_s": "NAB"
+})
+
+
+SPEC17_FULL_BENCHMARK = OrderedDict({
     # integer benchmarks
     "600.perlbench_s": "PERLBENCH",
     "602.gcc_s": "GCC",
@@ -64,76 +101,59 @@ SPEC17 = OrderedDict({
 })
 
 
-def simulate():
-    # SPEC06
+def parse_multi_args():
+    def initialize_parser(parser):
+        parser.add_argument(
+            "-c", "--configs",
+            required=True,
+            type=str,
+            default=[],
+            action="append",
+            help="YAML files to be handled")
+        return parser
 
-    # check benchmark path
-    configs = get_configs(artifacts_yml)
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+    parser = initialize_parser(parser)
+    return parser.parse_args()
+
+
+def simulate():
+    # check benchmark path for SPEC06
+    configs = get_configs(exp_fig15_spec06_yml)
     if not if_exist(
-        configs["spec2006"]["benchmark-root"],
+        configs["simulation"]["benchmark"]["spec2006"]["benchmark-root"],
         quiet=False
     ):
         error("SPEC06 benchmark root directory path is not found. "
-            "Please have a double-check.")
+            "Please have a double-check (could docker mapping be incorrect?).")
+
+    # check benchmark path for SPEC17
+    configs = get_configs(exp_fig15_spec17_yml)
     if not if_exist(
-        configs["spec2017"]["benchmark-root"],
+        configs["simulation"]["benchmark"]["spec2017"]["benchmark-root"],
         quiet=False
     ) or not if_exist(
-        configs["spec2017"]["checkpoint-root"],
+        configs["simulation"]["benchmark"]["spec2017"]["checkpoint-root"],
         quiet=False
     ):
         error("SPEC17 benchmark root directory path is not found. "
-            "Please have a double-check.")
+            "Please have a double-check (could docker mapping be incorrect?).")
 
-    # re-configurate gem5 & benchmark path
-    with open(exp_spec06_fig15_yml, 'r') as fin:
-        data = fin.read()
-    with open(exp_spec06_fig15_yml, 'w') as fout:
-        data = data.replace("/path/to/gem5-research-root",
-            os.path.join(
-                archexplorer_root,
-                "infras",
-                "gem5-research"
-            )
-        )
-        data = data.replace("/path/to/spec2006",
-            configs["spec2006"]["benchmark-root"]
-        )
-        fout.write(data)
-
+    # SPEC06
     cmd = "{} {} -c {}".format(
         sys.executable,
         os.path.join(archexplorer_root, "main", "main.py"),
-        exp_spec06_fig15_yml
+        exp_fig15_spec06_yml
     )
     execute(cmd)
 
     # SPEC17
-
-    # re-configurate gem5 & benchmark path
-    with open(exp_spec17_fig15_yml, 'r') as fin:
-        data = fin.read()
-    with open(exp_spec17_fig15_yml, 'w') as fout:
-        data = data.replace("/path/to/gem5-research-root",
-            os.path.join(
-                archexplorer_root,
-                "infras",
-                "gem5-research"
-            )
-        )
-        data = data.replace("/path/to/spec2017",
-            configs["spec2017"]["benchmark-root"]
-        )
-        data = data.replace("/path/to/checkpoint",
-            configs["spec2017"]["checkpoint-root"]
-        )
-        fout.write(data)
-
-    # check benchmark path
     cmd = "{} {} -c {}".format(
         sys.executable,
         os.path.join(archexplorer_root, "main", "main.py"),
-        exp_spec17_fig15_yml
+        exp_fig15_spec17_yml
     )
     execute(cmd)
 
@@ -143,6 +163,13 @@ def get_sim_result():
         "spec06": OrderedDict(),
         "spec17": OrderedDict()
     }
+
+    if "partial" in exp_fig15_spec06_yml:
+        SPEC06_BENCHMARK = SPEC06_PARTIAL_BENCHMARK
+        SPEC17_BENCHMARK = SPEC17_PARTIAL_BENCHMARK
+    else:
+        SPEC06_BENCHMARK = SPEC06_FULL_BENCHMARK
+        SPEC17_BENCHMARK = SPEC17_FULL_BENCHMARK
 
     # SPEC06
     for idx in SPEC06_CONST.values():
@@ -154,7 +181,7 @@ def get_sim_result():
         )
         execute(cmd)
 
-        for benchmark, alias in SPEC06.items():
+        for benchmark, alias in SPEC06_BENCHMARK.items():
             benchmark_root = os.path.join(
                 archexplorer_root, "temp", "gem5-{}".format(idx), benchmark
             )
@@ -178,7 +205,7 @@ def get_sim_result():
         )
         execute(cmd)
 
-        for benchmark, alias in SPEC17.items():
+        for benchmark, alias in SPEC17_BENCHMARK.items():
             benchmark_root = os.path.join(
                 archexplorer_root, "temp", "gem5-{}".format(idx), benchmark
             )
@@ -198,14 +225,26 @@ def get_sim_result():
 
 def plot(result_summary):
     # plot
+    if "partial" in exp_fig15_spec06_yml:
+        SPEC06_BENCHMARK = SPEC06_PARTIAL_BENCHMARK
+        SPEC17_BENCHMARK = SPEC17_PARTIAL_BENCHMARK
+        tex = "fig15_partial_mode_template.tex"
+        name = "fig15_partial_mode"
+    else:
+        SPEC06_BENCHMARK = SPEC06_FULL_BENCHMARK
+        SPEC17_BENCHMARK = SPEC17_FULL_BENCHMARK
+        tex = "fig15_full_mode_template.tex"
+        name = "fig15_full_mode"
+
     props = [
         "PERF", "POWER"
     ]
-    with open(os.path.join(cur_root, "fig15_latex_template.tex"), 'r') as f:
+
+    with open(os.path.join(cur_root, tex), 'r') as f:
         data = f.read()
 
         for method, idx in SPEC06_CONST.items():
-            for benchmark, alias in SPEC06.items():
+            for benchmark, alias in SPEC06_BENCHMARK.items():
                 for prop in props:
                     value = method + "_SPEC06_" + alias + '_' + prop
                     if prop == "PERF":
@@ -217,7 +256,7 @@ def plot(result_summary):
 
         for method, idx in SPEC06_CONST.items():
             avg_perf, avg_power = [], []
-            for benchmark, alias in SPEC06.items():
+            for benchmark, alias in SPEC06_BENCHMARK.items():
                 avg_perf.append(result_summary["spec06"][idx][alias][0])
                 avg_power.append(result_summary["spec06"][idx][alias][2])
             avg_perf = np.average(avg_perf)
@@ -232,7 +271,7 @@ def plot(result_summary):
                     data = data.replace(value, str(avg_power))
 
         for method, idx in SPEC17_CONST.items():
-            for benchmark, alias in SPEC17.items():
+            for benchmark, alias in SPEC17_BENCHMARK.items():
                 for prop in props:
                     value = method + "_SPEC17_" + alias + '_' + prop
                     if prop == "PERF":
@@ -244,7 +283,7 @@ def plot(result_summary):
 
         for method, idx in SPEC17_CONST.items():
             avg_perf, avg_power = [], []
-            for benchmark, alias in SPEC17.items():
+            for benchmark, alias in SPEC17_BENCHMARK.items():
                 avg_perf.append(result_summary["spec17"][idx][alias][0])
                 avg_power.append(result_summary["spec17"][idx][alias][2])
             avg_perf = np.average(avg_perf)
@@ -258,14 +297,14 @@ def plot(result_summary):
                         assert_error("unknown prop: {}".format(prop))
                     data = data.replace(value, str(avg_power))
 
-    with open(os.path.join(cur_root, "fig15_latex.tex"), 'w') as f:
+    with open(os.path.join(cur_root, "{}.tex".format(name)), 'w') as f:
         f.write(data)
 
-    cmd = "pdflatex {}".format(os.path.join(cur_root, "fig15_latex.tex"))
+    cmd = "pdflatex {}".format(os.path.join(cur_root, "{}.tex".format(name)))
     execute(cmd)
 
-    remove(os.path.join(cur_root, "fig15_latex.aux"))
-    remove(os.path.join(cur_root, "fig15_latex.log"))
+    remove(os.path.join(cur_root, "{}.aux".format(name)))
+    remove(os.path.join(cur_root, "{}.log".format(name)))
 
 
 def main():
@@ -283,14 +322,11 @@ if __name__ == "__main__":
     cur_root = os.path.join(
         os.path.dirname(os.path.abspath(__file__))
     )
-    artifacts_yml = os.path.join(
-        archexplorer_root, "artifacts", "configs", "artifacts.yml"
-    )
-    exp_spec06_fig15_yml = os.path.join(
-        cur_root, "configs", "exp-spec06-fig15.yml"
-    )
-    exp_spec17_fig15_yml = os.path.join(
-        cur_root, "configs", "exp-spec17-fig15.yml"
-    )
+    args = parse_multi_args()
+    for arg in args.configs:
+        if "spec06" in arg:
+            exp_fig15_spec06_yml = arg
+        elif "spec17" in arg:
+            exp_fig15_spec17_yml = arg
     pat_ppa_rpt = re.compile(r"\d+\.\d+")
     main()

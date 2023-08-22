@@ -6,9 +6,21 @@
 
 
 spec2006:
-  benchmark-root: /path/to/spec06
+  # one possible root path: /root/workspace/benchmarks/spec2006
+  # The path depends on users' machine. However, if users strictly follow
+  # our provided steps by referring to `/path/to/arch-explorer/artifacts/README.md`,
+  # `benchmark-root` shoud be /root/workspace/benchmarks/spec2006.
+  benchmark-root: /root/workspace/benchmarks/spec2006
 
 
 spec2017:
-  benchmark-root: /path/to/spec17
-  checkpoint-root: /path/to/checkpoint
+  # one possible root path: /root/workspace/benchmarks/spec2017/spec2017
+  # The path depends on users' machine. However, if users strictly follow
+  # our provided steps by referring to `/path/to/arch-explorer/artifacts/README.md`,
+  # `benchmark-root` shoud be /root/workspace/benchmarks/spec2017/spec2017.
+  benchmark-root: /root/workspace/benchmarks/spec2017/spec2017
+  # one possible root path: /root/workspace/benchmarks/spec2017/checkpoint
+  # The path depends on users' machine. However, if users strictly follow
+  # our provided steps by referring to `/path/to/arch-explorer/artifacts/README.md`,
+  # `benchmark-root` shoud be /root/workspace/benchmarks/spec2017/checkpoint.
+  checkpoint-root: /root/workspace/benchmarks/spec2017/checkpoint

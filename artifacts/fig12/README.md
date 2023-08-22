@@ -1,10 +1,12 @@
 # ArchExplorer Artifacts Evaluation
 
-## Figure 12 reproduction
+## Fig. 12 reproduction
+
+Once you enter the docker image, execute following commands to reproduce Figure 12.
 
 - Enter the sub-directory
 ```bash
-$ cd /path/to/arch-explorer/artifacts/fig12
+$ cd arch-explorer/artifacts/fig12
 ```
 
 - SPEC CPU2006 results

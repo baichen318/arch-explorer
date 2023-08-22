@@ -1,67 +1,111 @@
-# ArchExplorer Artifacts Evaluation
-
+# Artifact Evaluation (AE) of ArchExplorer for MICRO 2023
 
 ## Abstract
 
-The artifact contains ArchExplorer’s code and its setup & running descriptions.
-We provide instructions and click-to-run scripts for reproducing the main results in the paper.
-Specifically, we reproduce results of Figure 2, Figure 3, Figure. 12, Figure 13, Figure 14, and Figure. 15.
+The artifact contains ArchExplorer’s code and its setup and running descriptions.
+We provide instructions and click-to-run scripts for reproducing the main results in this paper.
+Specifically, we reproduce the results of Figure 2, Figure 3, Figure 12, Figure 13, Figure 14, and Figure 15.
 
 
-## Hardware dependencies
+## Overview
+
+[1. Project Structure](#1-project-structure)  
+[2. Getting Started](#2-getting-started) (5 human-minutes + 20 compute-minutes)  
+[3. Run Experiments](#3-run-experiments) (10 human-minutes + 60 compute-minutes)  
+[4. Validate Results](#4-validate-results) (15 human-minutes + 1 compute-minutes)  
+[5. Appendix](#5-appendix)  
+
+## 1. Project Structure
+
+First of all, let's take a glance at the file structure of ArchExplorer.
+We only list the main components here:
+
+```
+├── algo
+├── artifacts                        # main directory for MICRO 2023 AE reviewers to reproduce results
+├── baseline                         # baselines used in our papers
+│     ├── adaboost
+│     ├── archranker
+│     ├── boom_explorer
+│     └── calipers
+├── funcs
+│     ├── dataset_generation.py
+│     ├── design
+│     ├── initialize.py
+│     ├── sim
+│     └── simulation.py
+├── infras
+│     ├── calipers
+│     ├── deg
+│     ├── gem5-research
+│     ├── gem5-research-calipers
+│     ├── mcpat-research
+├── LICENSE
+├── main
+│     ├── configs
+│     └── main.py
+├── tools
+```
+`algo`, `artifacts`, `baseline`, `funcs` are directories that we heavily develop and maintain/depend on.
+
+
+Highlights of where we implement:
+
+* `algo/core/model.py`, `infras/deg/src/graph/o3.h`: the new DEG data structures and induced DEG constructions.
+* `algo/core/arch_bottleneck.py`, `infras/deg/src/graph/bottleneck.h`: our bottleneck analysis.
+* `algo/dse.py`: bottleneck-removal-driven design space exploration.
+* `funcs/sim/o3cpu/o3cpu_simulation.py`: the interfaces between our core and infrastructures.
+* `infras/gem5-research`: modified GEM5 simulator to support the new DEG model.
+
+## 2. Getting Started
+
+### Hardware requirements
 
 The artifact requires a high-end Linux server machine with at least 2 TB disk space.
 The main memory should be at least 64 GB to support parallel compilation and simulations.
 
+For reference, we list our system configurations here:
 
-## Software dependencies
+> * OS: Ubuntu 18.04
+> * CPU: Intel Xeon Platinum 8163 CPU @ 2.50GHz (96 cores)
+> * DRAM: 400GB
+> * Disk: 9.6TB
+
+### Software requirements
+
+The minimum software dependencies include: 
+
+> `pdflatex`
+> 
+> `gcc>=7.4.0`
+> 
+> `automake`
+> 
+> `protobuf`
+> 
+> `python==3.8.0`
 
 The software dependencies are resolved by our provided docker environment.
-Users are required to support docker commands in their machines.
+Users are required to support docker commands in their machines if using our provided docker environment.
 
+### Setup the docker environment
 
-## Get the repo & Enter the docker image.
+#### Get the ArchExplorer repo
 
-The artifact is archived in Zenodo.
-
-```bash
-$ git clone http://gitlab.alibaba-inc.com/baichen.bai/arch-explorer.git
-$ cd arch-explorer
-$ docker run -it -d
-  --name micro23 \ # docker environment name
-  --hostname micro23 \ # host machine name
-  --network=host \ # use the host network
-  -v $(pwd):/root/workspace/arch-explorer \ # map the current path (arch-explorer's root path) to docker's path: /root/workspace/arch-explorer
-  -v /path/to/benchmarks:/root/workspace/benchmarks \ # map users' provided SPEC CPU benchmarks root path to docker's path: /root/workspace/benchmarks. Users need to provide SPEC CPU benchmarks, and the benchmark preparations are discussed below.
-  -w /root/workspace \ # workspace root path
-  docker.io/troore/arch-explorer:2.0 # `username` is `troore`, tag id is `2.0`
-$ docker exec -it micro23 /bin/bash
-```
-
-## Set the repo.
-
-After users enter the docker image, please execute following commands.
+The repo for artifact evaluation is archived in both Zenodo and GitHub.
+During the AE process, we recommend the reviewers to get the repo through GitHub with our latest updates.
 
 ```bash
-$ cd arch-explorer && ./tools/settings.sh
-$ export PYTHONPATH=`pwd`
-$ cd artifacts
-$ vim configs/artifacts.yml
+$ git clone https://github.com/baichen318/arch-explorer
 ```
 
-In `artifacts.yml`, fill `spec2006/benchmark-root` with the SPEC CPU2006 benchmarks root path.
-One possible root path could be `/root/workspace/benchmarks/spec2006`.
-Fill `spec2017/benchmark-root` with the SPEC CPU2017 benchmarks root path. One possible root path could be `/root/workspace/benchmarks/spec2017/spec2017`.
-Fill `spec2017/checkpoint-root` with the SPEC CPU2017 Simpoints checkpoints root path. One possible root path could be `/root/workspace/benchmarks/spec2017/checkpoint`.
-Regarding the directory tree, please read [Prepare SPEC CPU Benchmarks](#prepare-spec-cpu-benchmarks)
+Suppose the `arch-explorer` repo is located at `/path/to/arch-explorer`.
 
-
-## Prepare SPEC CPU Benchmarks
+#### Prepare SPEC CPU Benchmarks
 
 This step may take some time since it is necessary to prepare for the workflow.
 Due to the SPEC CPU Benchmarks license, we cannot release benchmarks to the public.
 You need to prepare SPEC CPU benchmarks and install them in a manner *w.r.t.* our accepted directories trees.
-The codes implementing automated simulations with SPEC CPU benchmarks include hard-coded workloads paths.
 
 - Benchmark list
 
@@ -71,25 +115,167 @@ The codes implementing automated simulations with SPEC CPU benchmarks include ha
     We do not require SPEC CPU2006 Simpoints checkpoints but require SPEC CPU2017 Simpoints checkpoints.
     SPEC CPU2017 Simpoints checkpoints are created with an interval length equal to `10000000`, and warmup length equal to `1000000`.
 
-- Benchmark installations: the directory tree should satisfy the examples so that ArchExplorer can conduct DSE automatically. [Appendix](#appendix) only lists key files and directories.
+- Benchmark installations: the directory tree should satisfy the examples so that ArchExplorer can conduct DSE automatically. [Appendix](#appendix) lists the required directory tree (only critical directories and files are shown).
 
-	+ SPEC CPU benchmarks root directory tree: please see [Appendix](#appendix)
-	+ SPEC CPU2006 directory tree: please see [Appendix](#appendix)
-	+ SPEC CPU2017 directory & checkpoint tree: please see [Appendix](#appendix)
-	
+	+ SPEC CPU benchmarks root directory tree: please see [Appendix 1](#appendix-1)
+	+ SPEC CPU2006 directory tree: please see [Appendix 2](#appendix-2)
+	+ SPEC CPU2017 directory & checkpoint tree: please see [Appendix 3](#appendix-3) and [Appendix 4](#appendix-4)
 
-- Benchmark reconfigurations: after users enter the docker image, some benchmarks should be reconfigured to support the simulations. Otherwise, those benchmarks would be failed in simulations and stuck the entire program. The reconfiguration is due to SPEC CPU benchmarks hardcoded files' root path. And the only feasible solution is to reconfigure them manually after users enter the docker image. Hence, we provide two different scripts (for Figure 2 and Figure 3), allowing users to conduct experiments with/without benchmark reconfigurations since the reconfiguration may take some time. For example, `fig2/exp_fig2_full_benchmarks.sh` is for experimental scripts after reconfiguring benchmarks while `fig2/exp_fig2_partial_benchmarks.sh` is for experimental scripts before reconfiguring benchmarks. Below are descriptions for detailed reconfiguring steps.
+After SPEC CPU Benchmarks are ready, we suppose SPEC CPU2006 and CPU2017 are located at `/path/to/benchmarks/spec2006` and `/path/to/benchmarks/spec2017`, respectively (*i.e.*, both benchmarks are located under `/path/to/benchmarks` directory, and `/path/to/benchmarks/spec2017` includes `/path/to/benchmarks/spec2017/spec2017` and `/path/to/benchmarks/spec2017/checkpoint`, as shown in [Appendix 1](#appendix-1)).
+
+#### Setup docker
+
+* **Pull docker image**
+
+```bash
+$ docker run -it -d
+  --name micro23 \ # docker environment name
+  --hostname micro23 \ # host machine name
+  --network=host \ # use the host network
+  -v $(pwd):/root/workspace/arch-explorer \ # map the current path (arch-explorer's root path) to docker's path: /root/workspace/arch-explorer
+  -v /path/to/benchmarks:/root/workspace/benchmarks \ # map reviewers' provided SPEC CPU benchmarks root path to docker's path: /root/workspace/benchmarks. Users need to provide SPEC CPU benchmarks, and the benchmark preparations are discussed below.
+  -w /root/workspace \ # workspace root path
+  docker.io/troore/arch-explorer:2.0 # `username` is `troore`, tag id is `2.0`
+```
+
+* **Enter the docker image**
+
+```bash
+$ docker exec -it micro23 /bin/bash
+```
+
+Since reviewers have already set the directories mapping by executing `docker run` command, arch-explorer's codes should be placed in `/root/workspace/arch-explorer`, and SPEC CPU benchmarks are placed in `/root/workspace/benchmarks` once reviewers enter the docker image.
+
+![docker overview](../misc/docker-overview.png)
+
+The figure above shows the directory tree once reviewers enter the docker image.
+
+
+## 3. Run Experiments
+
+### Basic Setup
+
+After reviewers enter the docker image, please execute following command to build & config. infrastructures that ArchExplorer depends.
+
+```bash
+$ cd /path/to/arch-explorer && ./tools/settings.sh
+$ export PYTHONPATH=`pwd`
+```
+
+<!-- Then, reviewers need to setup the benchmark paths:
+
+```bash
+$ cd artifacts
+$ vim configs/artifacts.yml
+```
+
+In `artifacts.yml`, fill `spec2006/benchmark-root` with the SPEC CPU2006 benchmarks root path.
+One possible root path could be `/root/workspace/benchmarks/spec2006`.
+Fill `spec2017/benchmark-root` with the SPEC CPU2017 benchmarks root path. One possible root path could be `/root/workspace/benchmarks/spec2017/spec2017`.
+Fill `spec2017/checkpoint-root` with the SPEC CPU2017 Simpoints checkpoints root path. One possible root path could be `/root/workspace/benchmarks/spec2017/checkpoint`. -->
+
+### Run with 3 benchmark modes
+
+There are three possible factors that will probably prevent reviewers reproducing our paper results:
+
+1. benchmark availability
+2. hard-coded workload paths
+3. long runtime
+
+We assume that SPEC CPU benchmarks are available for reviewers. 
+However, if it is not true, we provide a **demo mode** for reviewers successfully run through some of our experiments.
+Under the **demo mode**, we use open source riscv workloads (*i.e.*, [riscv-tests](https://github.com/riscv-software-src/riscv-tests)) rather than SPEC CPU benchmarks.
+
+Moreover, some SPEC benchmarks MUST contain hard-coded workloads absolute paths, *e.g.*, SPEC CPU2006 workload: `464.h264ref`.
+These hard-coded paths would prevent reviewers reproducing results in a push-button way.
+Human efforts are required to configure the hard-coded paths before results related to these benchmarks are expected.
+
+Last, the whole process for reproducing all original results in our paper will take approximately 15 days on our testing systems (for high-end Linux server machines, *e.g.*, 80 cores of Intel(R) Xeon(R) CPU E7-4820 v3 @ 1.90GHz with 1 TB main memory).
+
+Therefore, if reviewers have SPEC CPU benchmarks, and do not want to manually resolve the hard-coded paths, or cannot accept the long runtime, we set a mode called **partial mode** in which only the benchmarks without hard-coded paths will be run.
+
+We also provide the **full mode** which can reproduce the exactly same results as our paper.
+
+
+#### Demo Mode (5 hours)
+
+- Execution
+
+```bash
+$ cd arch-explorer/artifacts/
+$ ./exp_demo_mode.sh
+```
+
+- Results
+
+```bash
+$ open fig2/fig2.pdf
+$ open fig3/fig3.pdf
+```
+
+#### Partial Mode (9 days)
+
+- Execution
+
+```bash
+$ cd /path/to/arch-explorer/artifacts
+$ ./exp_partial_mode.sh
+```
+
+- Results
+
+```bash
+$ open fig2/fig2.pdf
+$ open fig3/fig3.pdf
+$ open fig12/spec06/archranker-partial-spec06.pdf
+$ open fig12/spec06/adaboost-partial-spec06.pdf
+$ open fig12/spec06/boom_explorer-partial-spec06.pdf
+$ open fig12/spec06/archexplorer-partial-spec06.pdf
+$ open fig13/fig13.pdf
+$ open fig14/fig14_partial_mode.pdf
+$ open fig15/fig15_partial_mode.pdf
+```
+
+#### Full Mode (15 days)
+
+Before running in the full mode, reviewers are required to reconfigure SPEC CPU benchmarks as described below:
+
+- Benchmark reconfigurations
+ 
+    After reviewers enter the docker image, some benchmarks should be reconfigured to support the simulations. Otherwise, those benchmarks would be failed in simulations and stuck the entire program. The reconfiguration is due to SPEC CPU benchmarks hardcoded files' absolute root path. And the only feasible solution is to reconfigure them manually after reviewers enter the docker image. The reconfiguration method is shown below:
 
 	+ SPEC CPU2006
 
-		* `464.h264ref`: in `foreman_ref_encoder_baseline.cfg`, reconfigure the ‘InputFile’ with the absolute root path of ‘foreman_qcif.yuv’. The absolute path depends on the users’ machines. One possible absolute path could be `/root/workspace/benchmarks/spec2006/spec2006_int_ref_public/464.h264ref/foreman_qcif.yuv`
+		* `464.h264ref`: in `foreman_ref_encoder_baseline.cfg`, reconfigure the ‘InputFile’ with the absolute root path of ‘foreman_qcif.yuv’. The absolute path depends on the reviewers’ machines. One possible absolute path could be `/root/workspace/benchmarks/spec2006/spec2006_int_ref_public/464.h264ref/foreman_qcif.yuv`
 		
 	+ SPEC CPU2017
 	
 		* `600.perlbench_s`, `623.xalancbmk_s`, `623.x264_s`, `638.imagick_s`: reconfigure `m5.cpt` of each Simpoints checkpoints. In `m5.cpt`, assign '_fileName' with the absolute path of the benchmark input file.
-		For example, open the file: `/root/workspace/benchmarks/spec2017/checkpoint/600.perlbench_s/600.perlbench_s-checkpoint/cpt.simpoint_13_inst_569000000_weight_0.151515_interval_10000000_warmup_1000000/m5.cpt`, and revise '_fileName' to `_fileName=/root/workspace/benchmarks/spec2017/spec2017/600.perlbench_s/run/run_base_refspeed_rv64g-gcc-9.2-64.0000/lib/mailcomp.pm`. The file root path of `mailcomp.pm` depends on the users' machines.
+		For example, open the file: `/root/workspace/benchmarks/spec2017/checkpoint/600.perlbench_s/600.perlbench_s-checkpoint/cpt.simpoint_13_inst_569000000_weight_0.151515_interval_10000000_warmup_1000000/m5.cpt`, and revise '_fileName' to `_fileName=/root/workspace/benchmarks/spec2017/spec2017/600.perlbench_s/run/run_base_refspeed_rv64g-gcc-9.2-64.0000/lib/mailcomp.pm`. The file root path of `mailcomp.pm` depends on the reviewers' machines.
 
-    If you do not reconfigure benchmarks after you enter the docker image, different experimental results may expect. Once you reconfigure the benchmarks, you can simulate with all benchmarks. The steps to simulate all benchmarks in the experiments are described in `fig2/README.md` and `fig3/README.md`, respectively.
+    <!-- If you do not reconfigure benchmarks after you enter the docker image, different experimental results may expect. Once you reconfigure the benchmarks, you can simulate with all benchmarks. The steps to simulate all benchmarks in the experiments are described in `fig2/README.md` and `fig3/README.md`, respectively. -->
+
+- Execution
+
+```bash
+$ cd /path/to/arch-explorer/artifacts
+$ ./exp_full_mode.sh
+```
+
+- Results
+
+```bash
+$ open fig2/fig2.pdf
+$ open fig3/fig3.pdf
+$ open fig12/spec06/archranker-full-spec06.pdf
+$ open fig12/spec06/adaboost-full-spec06.pdf
+$ open fig12/spec06/boom_explorer-full-spec06.pdf
+$ open fig12/spec06/archexplorer-full-spec06.pdf
+$ open fig13/fig13.pdf
+$ open fig14/fig14_full_mode.pdf
+$ open fig15/fig15_full_mode.pdf
+```
+
 
 <!-- ## Pre-requisites
 
@@ -112,30 +298,18 @@ The pre-requisites includes:
 
 	* Modify `spec17`/`checkpoint-root` as your SPEC CPU2017 Simpoints checkpoints root path. -->
 
+## 4. Validate Results
 
-## Once for all
+Check the results produced in the corresponding sub-directory.
+The outputs of this artifact are figures with in PDF format to reproduce the main results in the paper.
 
-Once you have finished all pre-requisites discussed above (**including benchmark reconfigurations**), you can use one command to reproduce all experimental results.
-
-- One command to reproduce all experimental results.
-The command can take an extremely long runtime (For high-end Linux server machines, *e.g.*, 80 cores of Intel(R) Xeon(R) CPU E7-4820 v3 @ 1.90GHz with 1 TB main memory, this artifact can take around approximately two weeks to complete.).
-
-```bash
-$ ./artifacts_exp.sh
-```
-
-- Check results
-
-	Check the results produced in the corresponding sub-directory.
-	The outputs of this artifact are figures with in PDF format to reproduce the main results in the paper.
-
-
-## Reproduce with special interests
-
+Besides the push-button way illustrated in [Running Experiments](#3-run-experiments), reviewers can enter into subdirectories, *e.g.*, `artifacts/fig2` to reproduce the results with special interest. 
 Please enter the corresponding directory to read `README.md`, respectively.
 
 
-### Appendix
+## 5. Appendix
+
+### Appendix 1
 
 - SPEC CPU benchmarks root directory tree (in the docker image):
 ```bash
@@ -145,6 +319,8 @@ Please enter the corresponding directory to read `README.md`, respectively.
       ├── spec2017
       └── checkpoint
 ```
+
+### Appendix 2
 
 - SPEC CPU2006 directory tree (the asterisk `*` is a wildcard character):
 ```bash
@@ -264,6 +440,8 @@ spec2006/
           ├── t5.xml
           └── xalanc.xsl
 ```
+
+### Appendix 3
 
 - SPEC CPU2017 directory tree (the asterisk `*` is a wildcard character):
 ```bash
@@ -465,6 +643,8 @@ spec2017/
                     ├── speccmds.*
                     └── xz_s_base.rv64g-gcc-9.2-64
 ```
+
+### Appendix 4
 
 - SPEC CPU2017 checkpoint directory tree:
 ```bash

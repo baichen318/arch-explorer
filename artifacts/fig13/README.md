@@ -1,8 +1,8 @@
 # ArchExplorer Artifacts Evaluation
 
-## Figure 13 reproduction
+## Fig. 13 reproduction
 
-You need to reproduce Fig. 12 with `fig12` first.
+Reviewers need to reproduce Fig. 12 first.
 
 - Execution
 ```bash
@@ -11,5 +11,5 @@ $ ./exp_fig13.sh
 
 - Results
 ```
-$ open fig13_latex.pdf
+$ open fig13.pdf
 ```

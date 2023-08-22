@@ -1,0 +1,78 @@
+# Author: baichen.bai@alibaba-inc.com
+
+
+## working mode specifications
+# simulation | exploration
+mode: simulation
+
+
+## design space specifications
+design-space: design-space/design-space-motivation-example.xlsx
+
+
+## simulation specifications
+simulation:
+  simulator:
+    # gem5-research root path
+    gem5-research-root: /root/workspace/arch-explorer/infras/gem5-research
+    # choose the simulator to run
+    start-idx: ~
+    end-idx: ~
+    candidate-idx: ~
+    # select designs from design dataset
+    candidate-design-set: ~
+    candidate-embedding:
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 24, 3, 1, 2, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 100, 50, 50, 32, 24, 24, 3, 1, 2, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 100, 50, 32, 24, 24, 3, 1, 2, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 100, 32, 24, 24, 3, 1, 2, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 64, 24, 24, 3, 1, 2, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 48, 24, 3, 1, 2, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 48, 3, 1, 2, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 24, 6, 1, 2, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 24, 3, 2, 2, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 24, 3, 1, 4, 1, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 24, 3, 1, 2, 2, 32, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 24, 3, 1, 2, 1, 64, 2, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 24, 3, 1, 2, 1, 32, 4, 32, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 24, 3, 1, 2, 1, 32, 2, 64, 2]
+      - [4, 64, 32, 2048, 8192, 8192, 16, 4096, 50, 50, 50, 32, 24, 24, 3, 1, 2, 1, 32, 2, 32, 4]
+  # benchmark specifications
+  benchmark:
+    # choose the benchmark to run
+    run: spec2006
+    spec2006:
+      benchmark-root: /root/workspace/benchmarks/spec2006
+      candidate:
+        - 401.bzip2
+        - 429.mcf
+        - 456.hmmer
+        - 458.sjeng
+        - 462.libquantum
+        - 471.omnetpp
+        - 483.xalancbmk
+        - 444.namd
+        - 447.dealII
+        - 450.soplex
+        - 453.povray
+      # set `dse` to True if you conduct DSE for spec2006
+      dse: False
+    spec2017:
+      benchmark-root: ~
+      checkpoint-root: ~
+      # maximum instruction
+      max-insts: ~
+      candidate: ~
+    bare-model:
+      warmup-insts: ~
+      fast-forward: ~
+      candidate: ~
+  misc-setting:
+    # True: use the new DEG to model, False: disable DEG modeling
+    deg-model: False
+    # True: enable visualization for DEG, False: disable visualization
+    vis: False
+    # specify the instruction sequence to view
+    # the index is started with 1
+    start-idx: ~
+    end-idx: ~

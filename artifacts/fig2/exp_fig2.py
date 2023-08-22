@@ -33,29 +33,23 @@ MACROS = OrderedDict({
 
 def simulate():
     # check benchmark path
-    configs = get_configs(artifacts_yml)
+    configs = get_configs(exp_fig2_yml)
+    spec06 = False if "demo" in exp_fig2_yml else True
+
+    if spec06:
+        if not if_exist(
+            configs["simulation"]["benchmark"]["spec2006"]["benchmark-root"],
+            quiet=False
+        ):
+            error("SPEC06 benchmark root directory path is not found. "
+                "Please have a double-check (could docker mapping be incorrect?).")
+
     if not if_exist(
-        configs["spec2006"]["benchmark-root"],
+        configs["simulation"]["simulator"]["gem5-research-root"],
         quiet=False
     ):
-        error("SPEC06 benchmark root directory path is not found. "
-            "Please have a double-check.")
-
-    # re-configurate gem5 & benchmark path
-    with open(exp_fig2_yml, 'r') as fin:
-        data = fin.read()
-    with open(exp_fig2_yml, 'w') as fout:
-        data = data.replace("/path/to/gem5-research-root",
-            os.path.join(
-                archexplorer_root,
-                "infras",
-                "gem5-research"
-            )
-        )
-        data = data.replace("/path/to/spec2006",
-            configs["spec2006"]["benchmark-root"]
-        )
-        fout.write(data)
+        error("\"gem5-research\" root directory path is not found. "
+            "Please have a double-check (could docker mapping be incorrect?).")
 
     cmd = "{} {} -c {}".format(
         sys.executable,
@@ -140,7 +134,7 @@ def calc_ratio(val, base):
 
 def summarize_result(result_summary):
     # plot
-    with open(os.path.join(cur_root, "fig2_latex_template.tex"), 'r') as f:
+    with open(os.path.join(cur_root, "fig2_template.tex"), 'r') as f:
         data = f.read()
 
         base = -1
@@ -178,14 +172,15 @@ def summarize_result(result_summary):
                     )
                 )
 
-    with open(os.path.join(cur_root, "fig2_latex.tex"), 'w') as f:
+    name = "fig2"
+    with open(os.path.join(cur_root, "{}.tex".format(name)), 'w') as f:
         f.write(data)
 
-    cmd = "pdflatex {}".format(os.path.join(cur_root, "fig2_latex.tex"))
+    cmd = "pdflatex {}".format(os.path.join(cur_root, "{}.tex".format(name)))
     execute(cmd)
 
-    remove(os.path.join(cur_root, "fig2_latex.aux"))
-    remove(os.path.join(cur_root, "fig2_latex.log"))
+    remove(os.path.join(cur_root, "{}.aux".format(name)))
+    remove(os.path.join(cur_root, "{}.log".format(name)))
 
 
 def main():
@@ -205,9 +200,6 @@ if __name__ == "__main__":
     )
     ppa_rpt = os.path.join(cur_root, "ppa.rpt")
     pat_ppa_rpt = re.compile(r"\d+\.\d+")
-    artifacts_yml = os.path.join(
-        archexplorer_root, "artifacts", "configs", "artifacts.yml"
-    )
     args = parse_args()
     exp_fig2_yml = args.configs
     main()

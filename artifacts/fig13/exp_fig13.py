@@ -21,15 +21,15 @@ def get_ppa(content):
 def summarize_archranker_result():
     mkdir(os.path.join(cur_root, "data"))
     raw_pf_rpt = os.path.join(
-            fig12_root, "spec06-archranker-pareto-hv-report",
-            "pareto-frontier.rpt"
-        )
+        fig12_root, "spec06-archranker-pareto-hv-report",
+        "pareto-frontier.rpt"
+    )
     orig_pf_rpt = os.path.join(cur_root, "data",
-            "archranker-orig-pareto-frontier.data"
-        )
+        "archranker-orig-pareto-frontier.data"
+    )
     pf_rpt = os.path.join(cur_root, "data",
-            "archranker-pareto-frontier.data"
-        )
+        "archranker-pareto-frontier.data"
+    )
     f_orig_pf_rpt = open(orig_pf_rpt, 'w')
     f_pf_rpt = open(pf_rpt, 'w')
     with open(raw_pf_rpt, 'r') as fin:
@@ -41,13 +41,13 @@ def summarize_archranker_result():
             perf, power, area = get_ppa(cnt)
             f_pf_rpt.write("{}\t{}\t{}\n".format(perf, 1 / power, 1 / area))
         info("generate archranker's original Pareto frontier: {}".format(
-                    orig_pf_rpt
-                )
+                orig_pf_rpt
             )
+        )
         info("generate archranker's Pareto frontier: {}".format(
-                    pf_rpt
-                )
+                pf_rpt
             )
+        )
 
     # copy all data points
     raw_data = os.path.join(fig12_root, "spec06-archranker-report")
@@ -62,27 +62,27 @@ def summarize_archranker_result():
                 perf, power, area = get_ppa(cnt)
                 fout.write("{}\t{}\t{}\n".format(perf, 1 / power, 1 / area))
             info("generate archranker's original PPA: {}".format(
-                        orig_data
-                    )
+                    orig_data
                 )
+            )
             info("generate archranker's PPA: {}".format(
-                        data
-                    )
+                    data
                 )
+            )
 
 
 def summarize_adaboost_result():
     mkdir(os.path.join(cur_root, "data"))
     raw_pf_rpt = os.path.join(
-            fig12_root, "spec06-adaboost-pareto-hv-report",
-            "pareto-frontier.rpt"
-        )
+        fig12_root, "spec06-adaboost-pareto-hv-report",
+        "pareto-frontier.rpt"
+    )
     orig_pf_rpt = os.path.join(cur_root, "data",
-            "adaboost-orig-pareto-frontier.data"
-        )
+        "adaboost-orig-pareto-frontier.data"
+    )
     pf_rpt = os.path.join(cur_root, "data",
-            "adaboost-pareto-frontier.data"
-        )
+        "adaboost-pareto-frontier.data"
+    )
     f_orig_pf_rpt = open(orig_pf_rpt, 'w')
     f_pf_rpt = open(pf_rpt, 'w')
     with open(raw_pf_rpt, 'r') as fin:
@@ -94,13 +94,13 @@ def summarize_adaboost_result():
             perf, power, area = get_ppa(cnt)
             f_pf_rpt.write("{}\t{}\t{}\n".format(perf, 1 / power, 1 / area))
         info("generate adaboost's original Pareto frontier: {}".format(
-                    orig_pf_rpt
-                )
+                orig_pf_rpt
             )
+        )
         info("generate adaboost's Pareto frontier: {}".format(
-                    pf_rpt
-                )
+                pf_rpt
             )
+        )
 
     # copy all data points
     raw_data = os.path.join(fig12_root, "spec06-adaboost-report")
@@ -115,27 +115,27 @@ def summarize_adaboost_result():
                 perf, power, area = get_ppa(cnt)
                 fout.write("{}\t{}\t{}\n".format(perf, 1 / power, 1 / area))
             info("generate adaboost's original PPA: {}".format(
-                        orig_data
-                    )
+                    orig_data
                 )
+            )
             info("generate adaboost's PPA: {}".format(
-                        data
-                    )
+                    data
                 )
+            )
 
 
 def summarize_boom_explorer_result():
     mkdir(os.path.join(cur_root, "data"))
     raw_pf_rpt = os.path.join(
-            fig12_root, "spec06-boom_explorer-pareto-hv-report",
-            "pareto-frontier.rpt"
-        )
+        fig12_root, "spec06-boom_explorer-pareto-hv-report",
+        "pareto-frontier.rpt"
+    )
     orig_pf_rpt = os.path.join(cur_root, "data",
-            "boom-explorer-orig-pareto-frontier.data"
-        )
+        "boom-explorer-orig-pareto-frontier.data"
+    )
     pf_rpt = os.path.join(cur_root, "data",
-            "boom-explorer-pareto-frontier.data"
-        )
+        "boom-explorer-pareto-frontier.data"
+    )
     f_orig_pf_rpt = open(orig_pf_rpt, 'w')
     f_pf_rpt = open(pf_rpt, 'w')
     with open(raw_pf_rpt, 'r') as fin:
@@ -147,13 +147,13 @@ def summarize_boom_explorer_result():
             perf, power, area = get_ppa(cnt)
             f_pf_rpt.write("{}\t{}\t{}\n".format(perf, 1 / power, 1 / area))
         info("generate boom-explorer's original Pareto frontier: {}".format(
-                    orig_pf_rpt
-                )
+                orig_pf_rpt
             )
+        )
         info("generate boom-explorer's Pareto frontier: {}".format(
-                    pf_rpt
-                )
+                pf_rpt
             )
+        )
 
     # copy all data points
     raw_data = os.path.join(fig12_root, "spec06-boom_explorer-report")
@@ -168,27 +168,27 @@ def summarize_boom_explorer_result():
                 perf, power, area = get_ppa(cnt)
                 fout.write("{}\t{}\t{}\n".format(perf, 1 / power, 1 / area))
             info("generate boom-explorer's original PPA: {}".format(
-                        orig_data
-                    )
+                    orig_data
                 )
+            )
             info("generate boom-explorer's PPA: {}".format(
-                        data
-                    )
+                    data
                 )
+            )
 
 
 def summarize_arch_explorer_result():
     mkdir(os.path.join(cur_root, "data"))
     raw_pf_rpt = os.path.join(
-            fig12_root, "spec06-archexplorer-pareto-hv-report",
-            "pareto-frontier.rpt"
-        )
+        fig12_root, "spec06-archexplorer-pareto-hv-report",
+        "pareto-frontier.rpt"
+    )
     orig_pf_rpt = os.path.join(cur_root, "data",
-            "arch-explorer-orig-pareto-frontier.data"
-        )
+        "arch-explorer-orig-pareto-frontier.data"
+    )
     pf_rpt = os.path.join(cur_root, "data",
-            "arch-explorer-pareto-frontier.data"
-        )
+        "arch-explorer-pareto-frontier.data"
+    )
     f_orig_pf_rpt = open(orig_pf_rpt, 'w')
     f_pf_rpt = open(pf_rpt, 'w')
     with open(raw_pf_rpt, 'r') as fin:
@@ -200,13 +200,13 @@ def summarize_arch_explorer_result():
             perf, power, area = get_ppa(cnt)
             f_pf_rpt.write("{}\t{}\t{}\n".format(perf, 1 / power, 1 / area))
         info("generate arch-explorer's original Pareto frontier: {}".format(
-                    orig_pf_rpt
-                )
+                orig_pf_rpt
             )
+        )
         info("generate arch-explorer's Pareto frontier: {}".format(
-                    pf_rpt
-                )
+                pf_rpt
             )
+        )
 
     # copy all data points
     raw_data = os.path.join(fig12_root, "spec06-archexplorer-report")
@@ -221,13 +221,13 @@ def summarize_arch_explorer_result():
                 perf, power, area = get_ppa(cnt)
                 fout.write("{}\t{}\t{}\n".format(perf, 1 / power, 1 / area))
             info("generate arch-explorer's original PPA: {}".format(
-                        orig_data
-                    )
+                    orig_data
                 )
+            )
             info("generate arch-explorer's PPA: {}".format(
-                        data
-                    )
+                    data
                 )
+            )
 
 
 def reproduce_archranker():
@@ -299,7 +299,7 @@ def scatter_plot():
         "ORIG_PPA": "orig-ppa",
         "ORIG_PARETO": "orig-pareto-frontier"
     })
-    with open(os.path.join(cur_root, "fig13_latex_template.tex"), 'r') as f:
+    with open(os.path.join(cur_root, "fig13_template.tex"), 'r') as f:
         data = f.read()
 
         for method, m_alias in methods.items():
@@ -308,14 +308,15 @@ def scatter_plot():
                         m_alias + '-' + p_alias + ".data"
                     )
 
-    with open(os.path.join(cur_root, "fig13_latex.tex"), 'w') as f:
+    name = "fig13"
+    with open(os.path.join(cur_root, "{}.tex".format(name)), 'w') as f:
         f.write(data)
 
-    cmd = "pdflatex {}".format(os.path.join(cur_root, "fig13_latex.tex"))
+    cmd = "pdflatex {}".format(os.path.join(cur_root, "{}.tex".format(name)))
     execute(cmd)
 
-    remove(os.path.join(cur_root, "fig13_latex.aux"))
-    remove(os.path.join(cur_root, "fig13_latex.log"))
+    remove(os.path.join(cur_root, "{}.aux".format(name)))
+    remove(os.path.join(cur_root, "{}.log".format(name)))
 
 
 def main():
@@ -336,7 +337,9 @@ if __name__ == "__main__":
     cur_root = os.path.join(
         os.path.dirname(os.path.abspath(__file__))
     )
-    fig12_root = os.path.join(archexplorer_root, "artifacts",
-            "fig12", "spec06"
-        )
+    # Fig. 13 only plots results for SPEC CPU2006
+    fig12_root = os.path.join(
+        archexplorer_root, "artifacts",
+        "fig12", "spec06"
+    )
     main()
