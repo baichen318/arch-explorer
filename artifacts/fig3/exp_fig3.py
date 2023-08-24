@@ -25,15 +25,17 @@ CONST = [
 def simulate():
     # check benchmark path
     configs = get_configs(exp_fig3_yml)
-    if not if_exist(
-        configs["simulation"]["benchmark"]["spec2017"]["benchmark-root"],
-        quiet=False
-    ) or not if_exist(
-        configs["simulation"]["benchmark"]["spec2017"]["checkpoint-root"],
-        quiet=False
-    ):
-        error("SPEC17 benchmark root directory path is not found. "
-            "Please have a double-check (could docker mapping be incorrect?).")
+
+    if "demo" not in exp_fig3_yml:
+        if not if_exist(
+            configs["simulation"]["benchmark"]["spec2017"]["benchmark-root"],
+            quiet=False
+        ) or not if_exist(
+            configs["simulation"]["benchmark"]["spec2017"]["checkpoint-root"],
+            quiet=False
+        ):
+            error("SPEC17 benchmark root directory path is not found. "
+                "Please have a double-check (could docker mapping be incorrect?).")
 
     cmd = "{} {} -c {}".format(
         sys.executable,
