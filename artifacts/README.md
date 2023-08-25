@@ -11,8 +11,8 @@ Specifically, we reproduce the results of Figure 2, Figure 3, Figure 12, Figure 
 
 [1. Project Structure](#1-project-structure)  
 [2. Getting Started](#2-getting-started) (5 human-minutes + 20 compute-minutes)  
-[3. Run Experiments](#3-run-experiments) (10 human-minutes + 60 compute-minutes)  
-[4. Validate Results](#4-validate-results) (15 human-minutes + 1 compute-minutes)  
+[3. Run Experiments](#3-run-experiments) (5 human-minutes + at least 5 compute-hours)  
+[4. Validate Results](#4-validate-results) (15 human-minutes)  
 [5. Appendix](#5-appendix)  
 
 ## 1. Project Structure
@@ -21,30 +21,29 @@ First of all, let's take a glance at the file structure of ArchExplorer.
 We only list the main components here:
 
 ```
-├── algo
+├── algo                             # DEG related data structures and algorithms (Sec. 4)
 ├── artifacts                        # main directory for MICRO 2023 AE reviewers to reproduce results
-├── baseline                         # baselines used in our papers
+├── baseline                         # baselines used in our papers (Sec. 2, Sec. 5 and Sec. 6)
 │     ├── adaboost
 │     ├── archranker
 │     ├── boom_explorer
 │     └── calipers
-├── funcs
+├── funcs                            # utilities used by our algorithms (Sec. 4)
 │     ├── dataset_generation.py
 │     ├── design
 │     ├── initialize.py
 │     ├── sim
 │     └── simulation.py
-├── infras
+├── infras                           # underlying infrastructures arch-explorer builds on top of (Sec. 4)
 │     ├── calipers
 │     ├── deg
 │     ├── gem5-research
 │     ├── gem5-research-calipers
 │     ├── mcpat-research
 ├── LICENSE
-├── main
+├── main                             # entrypoint of arch-explorer
 │     ├── configs
 │     └── main.py
-├── tools
 ```
 `algo`, `artifacts`, `baseline`, `funcs` are directories that we heavily develop and maintain/depend on.
 
@@ -209,8 +208,8 @@ $ ./exp_demo_mode.sh
 - Results
 
 ```bash
-$ open fig2/fig2.pdf
-$ open fig3/fig3.pdf
+$ open fig2/fig2-demo.pdf
+$ open fig3/fig3-demo.pdf
 ```
 
 #### Partial Mode (9 days)
@@ -225,8 +224,8 @@ $ ./exp_partial_mode.sh
 - Results
 
 ```bash
-$ open fig2/fig2.pdf
-$ open fig3/fig3.pdf
+$ open fig2/fig2-partial.pdf
+$ open fig3/fig3-partial.pdf
 $ open fig12/spec06/archranker-partial-spec06.pdf
 $ open fig12/spec06/adaboost-partial-spec06.pdf
 $ open fig12/spec06/boom_explorer-partial-spec06.pdf
@@ -265,8 +264,8 @@ $ ./exp_full_mode.sh
 - Results
 
 ```bash
-$ open fig2/fig2.pdf
-$ open fig3/fig3.pdf
+$ open fig2/fig2-full.pdf
+$ open fig3/fig3-full.pdf
 $ open fig12/spec06/archranker-full-spec06.pdf
 $ open fig12/spec06/adaboost-full-spec06.pdf
 $ open fig12/spec06/boom_explorer-full-spec06.pdf

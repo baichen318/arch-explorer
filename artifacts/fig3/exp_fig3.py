@@ -118,7 +118,12 @@ def summarize_result(result_summary):
             data = data.replace("POWER_" + str(i), str(result_summary[i - 1][2]))
             data = data.replace("AREA_" + str(i), str(result_summary[i - 1][3]))
 
-    name = "fig3"
+    if "demo" in exp_fig3_yml:
+        name = "fig3-demo"
+    elif "partial" in exp_fig3_yml:
+        name = "fig3-partial"
+    else:
+        name = "fig3-full"
     with open(os.path.join(cur_root, "{}.tex".format(name)), 'w') as f:
         f.write(data)
 

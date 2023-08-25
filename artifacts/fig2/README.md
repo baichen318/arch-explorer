@@ -21,6 +21,11 @@ $ cd arch-explorer/artifacts/fig2
 	$ ./exp_fig2_demo_mode.sh
 	```
 
+- Results
+    ```bash
+    $ open ./fig2-demo.pdf
+    ```
+
 ### **Partial mode**
 
 - Execution
@@ -32,6 +37,11 @@ $ cd arch-explorer/artifacts/fig2
 	$ ./exp_fig2_partial_mode.sh
 	```
 
+- Results
+    ```bash
+    $ open ./fig2-partial.pdf
+    ```
+
 ### **Full mode**
 
 - Execution
@@ -42,7 +52,7 @@ $ cd arch-explorer/artifacts/fig2
 	$ ./exp_fig2_full_mode.sh
 	```
 
-### Results
-```
-$ open ./fig2.pdf
-```
+- Results
+    ```bash
+    $ open ./fig2-full.pdf
+    ```

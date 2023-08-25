@@ -172,7 +172,12 @@ def summarize_result(result_summary):
                     )
                 )
 
-    name = "fig2"
+    if "demo" in exp_fig2_yml:
+        name = "fig2-demo"
+    elif "partial" in exp_fig2_yml:
+        name = "fig2-partial"
+    else:
+        name = "fig2-full"
     with open(os.path.join(cur_root, "{}.tex".format(name)), 'w') as f:
         f.write(data)
 
