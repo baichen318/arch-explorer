@@ -715,6 +715,7 @@ def summarize_archranker_result(result_summary):
             )
         )
         # plt.show()
+        plt.close()
 
 
 def summarize_adaboost_result(result_summary):
@@ -803,6 +804,7 @@ def summarize_adaboost_result(result_summary):
             )
         )
         # plt.show()
+        plt.close()
 
 
 def summarize_boom_explorer_result(result_summary):
@@ -891,6 +893,7 @@ def summarize_boom_explorer_result(result_summary):
             )
         )
         # plt.show()
+        plt.close()
 
 
 def summarize_arch_explorer_result(result_summary):
@@ -979,6 +982,7 @@ def summarize_arch_explorer_result(result_summary):
             )
         )
         # plt.show()
+        plt.close()
 
 
 def reproduce_archranker():
