@@ -249,7 +249,7 @@ Before running in the full mode, reviewers are required to reconfigure SPEC CPU 
 		
 	+ SPEC CPU2017
 	
-		* `600.perlbench_s`, `623.xalancbmk_s`, `623.x264_s`, `638.imagick_s`: reconfigure `m5.cpt` of each Simpoints checkpoints. In `m5.cpt`, assign '_fileName' with the absolute path of the benchmark input file.
+		* `600.perlbench_s`, `623.xalancbmk_s`, `625.x264_s`, `638.imagick_s`: reconfigure `m5.cpt` of each Simpoints checkpoints. In `m5.cpt`, assign '_fileName' with the absolute path of the benchmark input file.
 		For example, open the file: `/root/workspace/benchmarks/spec2017/checkpoint/600.perlbench_s/600.perlbench_s-checkpoint/cpt.simpoint_13_inst_569000000_weight_0.151515_interval_10000000_warmup_1000000/m5.cpt`, and revise '_fileName' to `_fileName=/root/workspace/benchmarks/spec2017/spec2017/600.perlbench_s/run/run_base_refspeed_rv64g-gcc-9.2-64.0000/lib/mailcomp.pm`. The file root path of `mailcomp.pm` depends on the reviewers' machines.
 
     <!-- If you do not reconfigure benchmarks after you enter the docker image, different experimental results may expect. Once you reconfigure the benchmarks, you can simulate with all benchmarks. The steps to simulate all benchmarks in the experiments are described in `fig2/README.md` and `fig3/README.md`, respectively. -->

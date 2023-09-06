@@ -21,7 +21,7 @@ SPEC06_CONST = OrderedDict({
 })
 
 
-SPEC17_CONST =OrderedDict({
+SPEC17_CONST = OrderedDict({
     "CALIPERS": 1260,
     "ARCH_EXPLORER": 1292
 })
