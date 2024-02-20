@@ -2,7 +2,7 @@
 
 C++ version implementation for the new DEG formulation.
 
-More detailed information is in `https://code.alibaba-inc.com/baichen.bai/arch-explorer/blob/master/misc/new-deg-formulation.xlsx`.
+<!--- More detailed information is in `https://code.alibaba-inc.com/baichen.bai/arch-explorer/blob/master/misc/new-deg-formulation.xlsx`. -->
 
 ## Usage
 
